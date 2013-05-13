@@ -1,7 +1,7 @@
 Hyve4::Application.routes.draw do
-  get "static_pages/home"
-  get "static_pages/imprint"
-  get "static_pages/mission"
+  root to: 'static_pages#home'
+  match '/imprint', to: 'static_pages#imprint'
+  match '/mission', to: 'static_pages#mission'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
