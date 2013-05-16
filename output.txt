@@ -1,0 +1,202 @@
+...................FFFFFFFFFFFFFFFFFFF
+
+Failures:
+
+  1) Authentication signin page 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x000000029a32b8>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:8:in `block (3 levels) in <top (required)>'
+
+  2) Authentication signin page 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x000000030a7640>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:8:in `block (3 levels) in <top (required)>'
+
+  3) Authentication signin with invalid information 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003239ff8>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  4) Authentication signin with invalid information 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003aaf138>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  5) Authentication signin with valid information 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003c43288>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  6) Authentication signin with valid information 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000002af29c0>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  7) Authentication signin with valid information 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003b9ae80>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  8) Authentication signin with valid information 
+     Failure/Error: before { visit signin_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x000000032390f8>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/authentication_pages_spec.rb:15:in `block (3 levels) in <top (required)>'
+
+  9) User pages profile page 
+     Failure/Error: before { visit user_path(user) }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003b91dd0>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:9:in `block (3 levels) in <top (required)>'
+
+  10) User pages profile page 
+     Failure/Error: before { visit user_path(user) }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003cb4578>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:9:in `block (3 levels) in <top (required)>'
+
+  11) User pages signup page 
+     Failure/Error: before { visit signup_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000002806180>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:16:in `block (3 levels) in <top (required)>'
+
+  12) User pages signup page 
+     Failure/Error: before { visit signup_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003bcf108>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:16:in `block (3 levels) in <top (required)>'
+
+  13) User pages signup with invalid information should not create a user
+     Failure/Error: before { visit signup_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003244480>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  14) User pages signup with valid information should create a user
+     Failure/Error: before { visit signup_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003b60578>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  15) User pages signup with valid information after saving the user 
+     Failure/Error: before { visit signup_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003c7e810>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  16) User pages signup with valid information after saving the user 
+     Failure/Error: before { visit signup_path }
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x000000030371d8>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/user_pages_spec.rb:24:in `block (3 levels) in <top (required)>'
+
+  17) Static pages Home page should have the content 'We compare projects'
+     Failure/Error: visit root_path
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x00000002aa7808>:0x00000003bd6d68>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/static_pages_spec.rb:7:in `block (3 levels) in <top (required)>'
+
+  18) Static pages Imprint page should have the content 'Disclaimer'
+     Failure/Error: visit imprint_path
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x0000000317aba8>:0x000000031847c0>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/static_pages_spec.rb:14:in `block (3 levels) in <top (required)>'
+
+  19) Static pages Mission page should have the content 'Mission'
+     Failure/Error: visit mission_path
+     ActionView::Template::Error:
+       undefined local variable or method `current_user' for #<#<Class:0x0000000317aba8>:0x00000003b61a68>
+     # ./app/helpers/sessions_helper.rb:9:in `signed_in?'
+     # ./app/views/layouts/_header.html.erb:10:in `_app_views_layouts__header_html_erb__2523910202804394660_26006100'
+     # ./app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__842888135710026127_18040800'
+     # ./spec/requests/static_pages_spec.rb:21:in `block (3 levels) in <top (required)>'
+
+Finished in 2.01 seconds
+38 examples, 19 failures
+
+Failed examples:
+
+rspec ./spec/requests/authentication_pages_spec.rb:10 # Authentication signin page 
+rspec ./spec/requests/authentication_pages_spec.rb:11 # Authentication signin page 
+rspec ./spec/requests/authentication_pages_spec.rb:20 # Authentication signin with invalid information 
+rspec ./spec/requests/authentication_pages_spec.rb:21 # Authentication signin with invalid information 
+rspec ./spec/requests/authentication_pages_spec.rb:32 # Authentication signin with valid information 
+rspec ./spec/requests/authentication_pages_spec.rb:33 # Authentication signin with valid information 
+rspec ./spec/requests/authentication_pages_spec.rb:35 # Authentication signin with valid information 
+rspec ./spec/requests/authentication_pages_spec.rb:34 # Authentication signin with valid information 
+rspec ./spec/requests/user_pages_spec.rb:11 # User pages profile page 
+rspec ./spec/requests/user_pages_spec.rb:12 # User pages profile page 
+rspec ./spec/requests/user_pages_spec.rb:18 # User pages signup page 
+rspec ./spec/requests/user_pages_spec.rb:19 # User pages signup page 
+rspec ./spec/requests/user_pages_spec.rb:29 # User pages signup with invalid information should not create a user
+rspec ./spec/requests/user_pages_spec.rb:41 # User pages signup with valid information should create a user
+rspec ./spec/requests/user_pages_spec.rb:49 # User pages signup with valid information after saving the user 
+rspec ./spec/requests/user_pages_spec.rb:50 # User pages signup with valid information after saving the user 
+rspec ./spec/requests/static_pages_spec.rb:6 # Static pages Home page should have the content 'We compare projects'
+rspec ./spec/requests/static_pages_spec.rb:13 # Static pages Imprint page should have the content 'Disclaimer'
+rspec ./spec/requests/static_pages_spec.rb:20 # Static pages Mission page should have the content 'Mission'
+
+Randomized with seed 10579
+

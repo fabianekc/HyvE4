@@ -1,10 +1,13 @@
 Hyve4::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'users#new'
   match '/imprint', to: 'static_pages#imprint'
   match '/mission', to: 'static_pages#mission'
   match '/signup', to: 'users#new'
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
