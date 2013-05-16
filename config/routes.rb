@@ -1,9 +1,10 @@
 Hyve4::Application.routes.draw do
-  get "users/new"
+  resources :users
 
-  root to: 'static_pages#home'
+  root to: 'users#new'
   match '/imprint', to: 'static_pages#imprint'
   match '/mission', to: 'static_pages#mission'
+  match '/signup', to: 'users#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

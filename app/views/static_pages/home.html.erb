@@ -1,5 +1,38 @@
 <% provide(:title, 'Home') %>
-<div class="hero-unit">
-<h1>We compare projects</h1>
-<p>Think outside your project</p>
-<%= link_to image_tag("hyve.png", alt: "Hyve.me"), 'http://hyve.me/' %>
+<div id="heroimg" class="hero-unit">
+	<div class="row-fluid">
+		<div class="span12">
+			<h1>We compare projects</h1><br>
+			<div class="row-fluid">
+				<div class="span6">
+					<ul class="unstyled">
+						<li>Think outside your project by</li>
+						<li><ul>
+							<li>learning from the success of others</li>
+							<li>sharing what you are proud of</li>
+							<li>facing the numbers</li>
+						</ul></li>
+					</ul>
+					<%= link_to image_tag("hyve.png", alt: "Hyve.me"), 'http://hyve.me/' %>
+				</div>
+				<div class="span6">
+					<p>Register today and get new insights about your project:</p>
+					<%= form_for(@user) do |f| %>
+
+					  <%= f.label :name %>
+					  <%= f.text_field :name %>
+
+					  <%= f.label :email %>
+					  <%= f.text_field :email %>
+
+					  <%= f.label :password %>
+					  <%= f.password_field :password %>
+
+					  <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
