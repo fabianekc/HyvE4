@@ -1,4 +1,6 @@
 Hyve4::Application.routes.draw do
+  get "users/new"
+
   root to: 'static_pages#home'
   match '/imprint', to: 'static_pages#imprint'
   match '/mission', to: 'static_pages#mission'
