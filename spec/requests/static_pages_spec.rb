@@ -5,7 +5,7 @@ describe "Static pages" do
   describe "Home page" do
     it "should have the content 'We compare projects'" do
       visit root_path
-      page.should have_content('We compare projects')
+      page.should have_content('Mission')
     end
   end
 
