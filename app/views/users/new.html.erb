@@ -13,6 +13,7 @@
 					<p>Register today and start using your data:</p>
 					<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
 						<fieldset>
+							<%= render 'shared/error_messages' %>
 							<div class="control-group">
 							  <%= f.label :name, 'Your Name:', :class => "control-label", :style => "font-size: 18px;" %>
 							  <div class="controls">
