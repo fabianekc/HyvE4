@@ -1,5 +1,24 @@
-<% provide(:title, 'Home') %>
-<div id="heroimg" class="hero-unit">
+<% if signed_in? %>
+  <% provide(:title, current_user.name) %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+    </aside>
+    <div class="span8">
+      <section>
+        <%= render 'shared/posting_form' %>
+      </section>
+      <section>
+        <h3>Posting Feed</h3>
+        <%= render 'shared/feed' %>
+      </section>
+    </div>
+  </div>  
+<% else %>  
+  <% provide(:title, 'Home') %>
+  <div id="heroimg" class="hero-unit">
 	<div class="row-fluid">
 		<div class="span12">
 			<h1>Big Data for You</h1><br>
@@ -13,7 +32,7 @@
 					<p>Register today and start using your data:</p>
 					<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
 						<fieldset>
-							<%= render 'shared/error_messages' %>
+							<%= render 'shared/error_messages', object: f.object %>
 							<div class="control-group">
 							  <%= f.label :name, 'Your Name:', :class => "control-label", :style => "font-size: 18px;" %>
 							  <div class="controls">
@@ -43,9 +62,9 @@
 			</div>
 		</div>
 	</div>
-</div>
+  </div>
 
-<div class="row">
+  <div class="row">
 	<div class="span4">
 		<h2>Mission</h2>
 		<p>Bring the power and insight of Big Data to you! Hyve.me assists you in maintaining and dissecting your data as well as providing an open market for tools and information.</p>
@@ -61,6 +80,6 @@
 		<p>We at Hyve.me love numbers: Right now there are 98 users registered, working on 158 projects; in the Bazaar 23 transactions took place in the last 24 hours.</p>
 		<p><a class="btn" href="#">Read more &raquo;</a></p>
 	</div>
-</div>
-
+  </div>
+<% end %>
 

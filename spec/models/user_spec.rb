@@ -27,6 +27,8 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
   it { should respond_to(:authenticate) }
+  it { should respond_to(:postings) }
+  it { should respond_to(:feed) }
 
   it { should be_valid }
   it { should_not be_admin }
@@ -115,6 +117,40 @@ describe User do
   describe "remember token" do
     before { @user.save }
     its(:remember_token) { should_not be_blank }
+  end
+
+  describe "posting associations" do
+
+    before { @user.save }
+    let!(:older_posting) do 
+      FactoryGirl.create(:posting, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_posting) do
+      FactoryGirl.create(:posting, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right postings in the right order" do
+      @user.postings.should == [newer_posting, older_posting]
+    end
+
+    it "should destroy associated postings" do
+      postings = @user.postings.dup
+      @user.destroy
+      postings.should_not be_empty
+      postings.each do |posting|
+        Posting.find_by_id(posting.id).should be_nil
+      end
+    end
+
+    describe "status" do
+      let(:unfollowed_post) do
+        FactoryGirl.create(:posting, user: FactoryGirl.create(:user))
+      end
+
+      its(:feed) { should include(newer_posting) }
+      its(:feed) { should include(older_posting) }
+      its(:feed) { should_not include(unfollowed_post) }
+    end
   end
 
 end

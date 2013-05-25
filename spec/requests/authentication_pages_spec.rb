@@ -83,6 +83,18 @@ describe "Authentication" do
         end
 
       end
+
+      describe "in the Postings controller" do
+
+        describe "submitting to the create action" do
+          before { post postings_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete posting_path(FactoryGirl.create(:posting)) }
+        end
+      end
     end
 
     describe "as wrong user" do
