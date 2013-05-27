@@ -2,15 +2,17 @@
   <small>
 	language: <%= link_to "English", '#' %> <%= link_to "Deutsch", '#' %>
   </small>
-  <nav class="pull-right">
+  <nav class="pull-right" style="margin-bottom: -20px;">
     <ul>
       <li><%= link_to "Imprint", imprint_path %></li>
       <li><%= link_to "Blog", 'http://hyve.me/blog' %></li>
       <li><%= link_to "Feedback", 'http://hyve.uservoice.com/' %>
     </ul>
-  </nav><br>
-  <div style="clear: both; text-align: right;">
-	<span style="float: left;">&copy; Hyve.me 2013</span>
-  	social: <a href="https://www.facebook.com/Hyve.me">f</a> | <a href="https://plus.google.com/115523021927594181806">g</a> | <a href="https://twitter.com/HyveInfo">t</a>
+  </nav>
+  <div style="clear: both; text-align: right; margin-top: -10px;">
+	<span style="float: left;"><small>&copy; Hyve.me 2013</small></span>
+  	social: <%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/Hyve.me' %> | 
+                <%= link_to image_tag("gplus.png", alt: "Goolge+"), 'https://plus.google.com/115523021927594181806' %> | 
+                <%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://twitter.com/HyveInfo' %>
   </div>
 </footer>
