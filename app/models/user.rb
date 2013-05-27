@@ -2,15 +2,21 @@
 #
 # Table name: users
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  email      :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                     :integer          not null, primary key
+#  name                   :string(255)
+#  email                  :string(255)
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#  password_digest        :string(255)
+#  remember_token         :string(255)
+#  admin                  :boolean          default(FALSE)
+#  password_reset_token   :string(255)
+#  password_reset_sent_at :datetime
+#  password_confirmation  :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password
+  attr_accessible :email, :name, :password, :password_confirmation
   has_secure_password
   has_many :postings, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy
@@ -44,6 +50,19 @@ class User < ActiveRecord::Base
 
   def unfollow!(other_user)
     relationships.find_by_followed_id(other_user.id).destroy
+  end
+
+  def generate_token(column)
+    begin
+      self[column] = SecureRandom.urlsafe_base64
+    end while User.exists?(column => self[column])
+  end
+
+  def send_password_reset
+    generate_token(:password_reset_token)
+    self.password_reset_sent_at = Time.zone.now
+    save!(:validate => false)
+    UserMailer.password_reset(self).deliver
   end
 
   private
