@@ -1,0 +1,5 @@
+<li>
+  <% span class="projectname"><%= link_to project.name, project %></span>
+  <% span class="projectdescription"><%= project.description %></span>
+  <% span class="projectage">Created <%= time_ago_in_words(project.created_at) %> ago.</span>
+</li>

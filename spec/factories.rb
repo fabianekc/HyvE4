@@ -13,4 +13,10 @@ FactoryGirl.define do
     content "Lorem ipsum"
     user
   end
+
+  factory :project do
+    sequence(:name) { |n| "Project #{n}" }
+    user
+    description "Lorem ipsum"
+  end
 end

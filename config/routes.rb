@@ -1,4 +1,6 @@
 Hyve4::Application.routes.draw do
+  get "projects/new"
+
   get "password_resets/new"
 
   resources :users do
@@ -6,10 +8,11 @@ Hyve4::Application.routes.draw do
       get :following, :followers
     end
   end
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :postings, only: [:create, :destroy]
-  resources :relationships, only: [:create, :destroy]
+  resources :sessions,        only: [:new, :create, :destroy]
+  resources :postings,        only: [:create, :destroy]
+  resources :relationships,   only: [:create, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :projects
 
   root to: 'users#new'
   match '/imprint', to: 'static_pages#imprint'

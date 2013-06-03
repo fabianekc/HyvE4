@@ -32,6 +32,7 @@ describe "Authentication" do
 
       it { should have_selector('title', text: user.name) }
       it { should have_link('Users',    href: users_path) }
+      it { should have_link('Projects', href: projects_path) }
       it { should have_link('Profile',  href: user_path(user)) }
       it { should have_link('Settings', href: edit_user_path(user)) }
       it { should have_link('Sign out', href: signout_path) }
@@ -118,6 +119,26 @@ describe "Authentication" do
         end
       end
 
+      describe "in the Projects controller" do
+        describe "visiting the project index page" do
+          before { visit projects_path }
+          it { should have_selector('title', text: 'Sign in') }
+        end
+
+        describe "visiting the project edit page" do
+          let(:project) { FactoryGirl.create(:project, user: user) }
+          before do
+            visit edit_project_path(project)
+          end
+          it { should have_selector('title', text: 'Sign in') }
+        end
+
+        describe "submitting to the update action" do
+          let(:project) { FactoryGirl.create(:project, user: user) }
+          before { put project_path(project) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
     end
 
     describe "as wrong user" do
@@ -134,6 +155,13 @@ describe "Authentication" do
         before { put user_path(wrong_user) }
         specify { response.should redirect_to(root_path) }
       end
+
+      describe "visiting Projects#edit page" do
+        let(:project) { FactoryGirl.create(:project, user: wrong_user) }
+        before { visit edit_project_path(project) }
+        it { should_not have_selector('title', text: full_title('Edit Project')) }
+        it { should have_selector('div.alert.alert-error') }
+      end
     end
 
     describe "as non-admin user" do
@@ -147,7 +175,5 @@ describe "Authentication" do
         specify { response.should redirect_to(root_path) }        
       end
     end
-
   end
-
 end

@@ -1,0 +1,17 @@
+<% provide(:title, 'All Projects') %>
+<h1>All Projects</h1>
+
+<%= will_paginate %>
+
+<ul class="projects">
+  <% @projects.each do |project| %>
+    <li>
+      <span class="projectname"><%= link_to project.name, project %></span>
+      <span class="projectdescription"><%= project.description %></span>
+      <span class="projectage">Created <%= time_ago_in_words(project.created_at) %> ago.</span>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+

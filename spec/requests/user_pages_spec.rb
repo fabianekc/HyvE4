@@ -12,8 +12,8 @@ describe "User pages" do
       visit users_path
     end
 
-    it { should have_selector('title', text: 'All users') }
-    it { should have_selector('h1',    text: 'All users') }
+    it { should have_selector('title', text: 'All Users') }
+    it { should have_selector('h1',    text: 'All Users') }
 
     describe "pagination" do
 
@@ -53,6 +53,8 @@ describe "User pages" do
     let(:user) { FactoryGirl.create(:user) }
     let!(:m1) { FactoryGirl.create(:posting, user: user, content: "Foo") }
     let!(:m2) { FactoryGirl.create(:posting, user: user, content: "Bar") }
+    let!(:p1) { FactoryGirl.create(:project, user: user, name: "Project1") }
+    let!(:p2) { FactoryGirl.create(:project, user: user, name: "Project2") }
 
     before do
       sign_in user
@@ -61,6 +63,12 @@ describe "User pages" do
 
     it { should have_selector('h1',    text: user.name) }
     it { should have_selector('title', text: user.name) }
+
+    describe "projects" do
+      it { should have_content(p1.name) }
+      it { should have_content(p2.name) }
+      it { should have_content(user.projects.count) }
+    end
 
     describe "postings" do
       it { should have_content(m1.content) }

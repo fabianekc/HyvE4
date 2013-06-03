@@ -10,15 +10,23 @@
     <section>
       <%= render 'shared/stats' %>
     </section>
+    <section>
+      <% if @user.projects.any? %>
+        <h3>Projects (<%= @user.projects.count %>)</h3>
+        <ul>
+          <%= render @projects %>
+        </ul>        
+      <% end %>
+    </section>
   </aside>
   <div class="span8">
     <%= render 'follow_form' if signed_in? %>
     <% if @user.postings.any? %>
       <h3>Postings (<%= @user.postings.count %>)</h3>
-        <ol class="postings">
-          <%= render @postings %>
-        </ol>
-        <%= will_paginate @postings %>
+      <ol class="postings">
+        <%= render @postings %>
+      </ol>
+      <%= will_paginate @postings %>
     <% end %>
   </div>
 </div>

@@ -1,0 +1,44 @@
+<% provide(:title, @project.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @project.name %>
+      </h1>
+      <%= link_to("Edit", edit_project_path(@project.id), :class => "btn btn-large btn-primary") %>
+    </section>
+  </aside>
+  <div class="span8">
+
+	<ul id="projectTab" class="nav nav-tabs">
+	  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+	  <li><a href="#data" data-toggle="tab">Data</a></li>
+	</ul>
+	<div id="projectTabContent" class="tab-content">
+	  <div class="tab-pane fade in active" id="general">
+	    <h5>Description</h5>
+		<p><%= @project.description %></p>
+		
+		<% if @project.wissen and @project.wissen.length > 0 %>
+		  <h5>Expertise <small>(What can I know?)</small></h5>
+		  <p><%= @project.wissen %></p>
+		<% end %>
+		
+		<% if @project.tun and @project.tun.length > 0 %>
+		  <h5>Work<small> (What ought I do?)</small></h5>
+		  <p><%= @project.tun %></p>
+		<% end %>
+		
+		<% if @project.hoffen and @project.hoffen.length > 0 %>
+		  <h5>Plans<small> (What may I hope?)</small></h5>
+		  <p><%= @project.hoffen %></p>
+		<% end %>
+	  </div>
+	  <div class="tab-pane fade" id="data">
+		<p>coming really soon now</p>
+	  </div>
+	</div>
+
+  </div>
+</div>
+

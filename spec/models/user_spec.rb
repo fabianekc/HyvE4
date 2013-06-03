@@ -174,7 +174,29 @@ describe User do
           should include(posting)
         end
       end
+    end
+  end
 
+  describe "project associations" do
+    before { @user.save }
+    let!(:project1) do
+      FactoryGirl.create(:project, user: @user, name: "B-project")
+    end
+    let!(:project2) do
+      FactoryGirl.create(:project, user: @user, name: "A-project")
+    end
+
+    it "should have the right projects in the right order" do
+      @user.projects.should == [project2, project1]
+    end
+
+    it "should destroy associated projects" do
+      projects = @user.projects.dup
+      @user.destroy
+      projects.should_not be_empty
+      projects.each do |project|
+        Project.find_by_id(project.id).should be_nil
+      end
     end
 
   end

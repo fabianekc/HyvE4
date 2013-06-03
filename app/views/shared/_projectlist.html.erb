@@ -1,0 +1,5 @@
+<% if @user.projects.any? %>
+  <ul>
+    <%= render @projects[0...-1] %>
+  </ul>
+<% end %>

@@ -11,6 +11,7 @@ gem 'thin'
 group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
+  gem 'database_cleaner', "~> 1.0.1"
 end
 
 group :development do

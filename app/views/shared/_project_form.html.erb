@@ -1,0 +1,5 @@
+<%= form_for(@project, :url => { :controller => 'projects', :action => 'create' }, class: "form-horizontal") do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.text_field :name, placeholder: "new project name", class: "input-large" %>
+  <%= f.submit "Create", id: "create_project", class: "btn btn-primary pull-right" %>
+<% end %>

@@ -4,6 +4,8 @@ class PostingsController < ApplicationController
 
   def create
     @posting = current_user.postings.build(params[:posting])
+    @project = current_user.projects.build
+    @projects = current_user.projects
     if @posting.save
       flash[:success] = "Posting published!"
       redirect_to root_url
