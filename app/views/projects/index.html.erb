@@ -7,6 +7,7 @@
   <% @projects.each do |project| %>
     <li>
       <span class="projectname"><%= link_to project.name, project %></span>
+      <span class="projectage">by <%= User.find_by_id(project.user_id).name %></span>
       <span class="projectdescription"><%= project.description %></span>
       <span class="projectage">Created <%= time_ago_in_words(project.created_at) %> ago.</span>
     </li>
