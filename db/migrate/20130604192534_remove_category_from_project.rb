@@ -1,9 +1,9 @@
 class RemoveCategoryFromProject < ActiveRecord::Migration
   def up
-    remove_column :projects, :Category
+    remove_column :projects, :category
   end
 
   def down
-    add_column :projects, :Category, :String
+    add_column :projects, :category, :String
   end
 end
