@@ -31,7 +31,7 @@ module ProjectsHelper
     require 'matrix'
     cpi = currprojectid.to_i
     pmat,idvec,cpvec,sp=[],[],[],[]
-    Project.all(:joins => :pjattribs, :group => "id").each do |p|
+    Project.all(:joins => :pjattribs, :group => "projects.id").each do |p|
       vec=[]
       Pjattrib.find(:all, :conditions => ['project_id = ?', p.id]).each do |a|
         if p.id == cpi
