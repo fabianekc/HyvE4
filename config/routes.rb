@@ -1,25 +1,27 @@
 Hyve4::Application.routes.draw do
-  get "projects/new"
-
-  get "password_resets/new"
-
   resources :users do
     member do
       get :following, :followers
     end
   end
+  resources :projects do
+    member do
+      get :category
+      put :update_category
+    end
+  end
+  resources :pjattrib
   resources :sessions,        only: [:new, :create, :destroy]
   resources :postings,        only: [:create, :destroy]
   resources :relationships,   only: [:create, :destroy]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :projects
 
   root to: 'users#new'
   match '/imprint', to: 'static_pages#imprint'
   match '/mission', to: 'static_pages#mission'
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy', via: :delete
+  match '/signout', to: 'sessions#destroy'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

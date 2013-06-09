@@ -1,0 +1,77 @@
+<% pagestr = categorytypes(params[:page].to_i-1)
+   pagetext = pagestr.downcase
+   shortstr = pagetext.split(' ')[0]
+   optionarray = categoryoptions(params[:page]) %>
+<script>
+  $(function() {
+    var ary = [<% for i in optionarray %>"<%= i %>", <% end %>];
+    $("#slider").slider({
+      value: <%= @pjattrib.attrvalue %>,
+      animate: true,
+      min: 1,
+      max: 7,
+      step: 1,
+      slide: function(event, ui) {
+        $("#pjattrib_attrvalue").val(ui.value);
+        $("#attrvaluetxt").val(ary[ui.value-1]);
+      }
+    });
+    $("#pjattrib_attrvalue").val($("#slider").slider("value"));
+    $("#attrvaluetxt").val(ary[$("#slider").slider("value")-1]);
+  });
+</script>
+<% provide(:title, "Category (" + pagestr + ") | " + @project.name) %>
+<h1 align = "center"><%= @project.name + ": " + pagestr %></h1>
+<div class="row">
+  <div class="row">
+  <div class="span7 offset3">
+    <p align="center">
+    <form class="form-inline">
+      <label class="checkbox">Drag the slider to specify your projects <%= pagetext %>: </label>
+      <input type="text" readonly="readonly" class="input-medium" id="attrvaluetxt" style="background-color: white !important; font-color: black !important; border: 0 !important; outline: none !important; box-shadow: none !important; -webkit-box-shadow: none !important;" />
+    </form>
+    </p>
+  </div>
+  </div>
+  <%= form_for(@pjattrib, :url => {:action => 'update_category', :page => params[:page]}, :html => {:class => "search_form"}) do |f| %>
+   <div class="row">
+    <div class="span6 offset3">
+      <div><%= f.hidden_field :attrvalue %></div>
+      <div id="slider"></div>
+      <p>&nbsp;</p>
+      <div class="row"><div class="span3">
+          <a href="javascript:void(0)" onclick="if ($('#slider').slider('option','value')-1>0) {$('#slider').slider('option','value',$('#slider').slider('option','value')-1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img src="/images/<%= shortstr %>1a.png" width="200" height="200"></a>
+      </div>
+      <div class="span3">
+          <a href="javascript:void(0)" onclick="if ($('#slider').slider('option','value')+1<8) {$('#slider').slider('option','value',$('#slider').slider('option','value')+1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img align="right" src="/images/<%= shortstr %>2a.png"  width="200" height="200"></a>
+      </div></div>
+      <div class="row"><div class="span6">
+        <p class="text-center"><small>(click on the images to move the slider left/right if you are on a mobile device)</small></p>
+      </div></div>
+      <p>&nbsp;</p>
+    </div>
+   </div>
+   <div class="row">
+    <div class="span6 offset3">
+      <% if params[:page].to_i-1 > 0 %>
+        <%= f.submit "Previous", :class => "btn btn-info btn-large pull-left" %>
+      <% end %>
+      <% if params[:page].to_i+1 < 8 %>
+        <%= f.submit "Next", :class => "btn btn-info btn-large pull-right" %>
+      <% else %>
+        <%= f.submit "Finished", :class => "btn btn-info btn-large pull-right" %>
+      <% end %>
+    </div>
+   </div>
+   <div class="row">
+    <div class="span3 offset3">
+        <p class="text-left"><small><%= link_to "(don't save and back to project page)", project_path(params[:id]) %></small></p>
+      </div>
+      <div class="span3">
+        <p class="pull-right"><small><%= link_to '(save and back to project page)', "#", :onclick=>"$('.search_form').submit()" %></small></p>
+      </div>
+  </div>
+  <% end %>
+  <p>&nbsp;</p>
+</div>
+

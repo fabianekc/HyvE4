@@ -20,6 +20,36 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @user = User.find_by_id(@project.user_id)
+    @categories = Pjattrib.where("project_id=" + params[:id] + " and attrtype>0 and attrtype<8")
+  end
+
+  def category
+    @project = Project.find(params[:id])
+    if Pjattrib.where("project_id = " + @project.id.to_s + " AND attrtype >= 1 and attrtype <=7").count != 7
+      7.times do |i|
+        if Pjattrib.where("project_id = " + @project.id.to_s + " AND attrtype = " + (i+1).to_s).count != 1
+          tmp = @project.pjattribs.build(attrtype: i+1, attrvalue: "4")
+          tmp.save
+        end
+      end
+    end
+    @pjattrib = Pjattrib.where("project_id = " + @project.id.to_s + " AND attrtype = " + params[:page].to_s).first
+  end
+
+  def update_category
+    @pjattrib = Pjattrib.where("project_id = " + params[:id].to_s + " AND attrtype = " + params[:page].to_s).first
+    if @pjattrib.update_attributes(params[:pjattrib])
+      if params[:commit] == 'Next'
+        redirect_to :action => 'category', :page => params[:page].to_i + 1
+      elsif params[:commit] == 'Previous'
+        redirect_to :action => 'category', :page => params[:page].to_i - 1
+      else params[:commit] == 'Finished'
+        @project = Project.find(params[:id])
+        redirect_to project_path(@project)
+      end
+    else
+      redirect_to :action => 'category'
+    end
   end
 
   def index

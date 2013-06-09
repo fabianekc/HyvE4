@@ -6,6 +6,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <%= render 'follow_form' if signed_in? %>
     </section>
     <section>
       <%= render 'shared/stats' %>
@@ -20,7 +21,6 @@
     </section>
   </aside>
   <div class="span8">
-    <%= render 'follow_form' if signed_in? %>
     <% if @user.postings.any? %>
       <h3>Postings (<%= @user.postings.count %>)</h3>
       <ol class="postings">

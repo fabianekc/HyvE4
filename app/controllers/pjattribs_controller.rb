@@ -1,0 +1,2 @@
+class PjattribsController < ApplicationController
+end

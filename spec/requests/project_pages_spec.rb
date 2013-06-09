@@ -7,7 +7,7 @@ describe "Project pages" do
   let(:user) { FactoryGirl.create(:user) }
   before { sign_in user }
 
-  describe "profile" do
+  describe "show" do
     let(:project) { FactoryGirl.create(:project, user: user) }
     before do
       visit project_path(project)
@@ -15,6 +15,15 @@ describe "Project pages" do
 
     it { should have_selector('h1', text: project.name) }
     it { should have_selector('title', text: project.name) }
+
+    describe "category" do
+      before do
+        visit category_project_path(project, :page => 11)
+      end
+
+      it { should have_selector('h1', text: 'Category') }
+      it { should have_selector('title', text: 'Category') }
+    end
   end
 
   describe "index" do

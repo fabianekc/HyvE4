@@ -1,0 +1,48 @@
+<div class="accordion" id="pjattrib">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#pjattrib" href="#category">
+        Category
+      </a>
+    </div>
+    <div id="category" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <% if @categories.count == 0 %>
+          <% if current_project_user?(@project) %>
+            <%= link_to "set Categories", {:action => :category, :page => 1}, {:class => "btn btn-large btn-primary pull-right"} %><br>&nbsp;
+          <% else %>
+            not yet specified
+          <% end %>
+        <% else %>
+        <dl class="dl-horizontal">
+        <% @categories.each do |category| optionarray = categoryoptions(category.attrtype.to_s) %>
+            <dt><%= categorytypes(category.attrtype-1) %>:</dt>
+            <dd>
+              <% if current_project_user?(@project) %>
+                <%= link_to optionarray[category.attrvalue.to_i-1],
+                                        :controller => :projects, :action => :category,
+                                        :page => category.attrtype %>
+              <% else %>
+                <%= optionarray[category.attrvalue.to_i-1] %>
+              <% end %>
+            </span>
+          </li>
+        <% end %>
+        </ul>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#pjattrib" href="#tracking">
+        Tracking
+      </a>
+    </div>
+    <div id="tracking" class="accordion-body collapse">
+      <div class="accordion-inner">
+        coming really soon now
+      </div>
+    </div>
+  </div>
+</div>

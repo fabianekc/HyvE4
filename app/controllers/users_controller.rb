@@ -18,6 +18,9 @@ class UsersController < ApplicationController
       @project = current_user.projects.build
     else
       @user = User.new
+      @users = User.all
+      @projects = Project.all
+      @postings = Posting.all
     end
   end
 

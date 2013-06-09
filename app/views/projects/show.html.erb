@@ -6,9 +6,25 @@
         <%= @project.name %>
       </h1>
       <% if current_project_user?(@project) %>
-        <%= link_to("Edit", edit_project_path(@project.id), :class => "btn btn-large btn-primary") %>
+        <%= link_to("Edit", edit_project_path(@project.id), :class => "btn btn-primary") %>
+      <% else %>
+        <%= link_to("Follow", root_path, :class => "btn btn-success") %>
       <% end %>
     </section>
+    <section>
+      <%= render 'attributes' %>
+    </section>
+    <% sp = similar_projects(params[:id])
+       if sp.size > 0 %>
+         <section>
+           <h3>Similar Projects</h3>
+           <ul>
+             <% sp.each do |p| %>
+               <li><%= link_to(p[1], project_path(p[0])) %> (<%= p[2] %>%)</li>
+             <% end %>
+           </ul>
+         </section>
+    <% end %>
   </aside>
   <div class="span8">
 
@@ -18,8 +34,8 @@
 	</ul>
 	<div id="projectTabContent" class="tab-content">
 	  <div class="tab-pane fade in active" id="general">
-            <h5>Owner</h5>
-            <p><%= link_to @user.name, user_path(@user) %></p>
+            <h5>Team</h5>
+            <p<strong:>Owner:</strong> <%= link_to @user.name, user_path(@user) %></p>
 	    <h5>Description</h5>
             <span class="content"><%= @project.description %></span>
 		

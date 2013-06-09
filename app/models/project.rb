@@ -11,12 +11,14 @@
 #  hoffen      :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  category    :string(255)
 #
 
 class Project < ActiveRecord::Base
   attr_accessible :name, :description, :hoffen, :tun, :wissen
 
   belongs_to :user
+  has_many :pjattribs, dependent: :destroy
 
   validates :user_id, presence: true
   validates :name, presence:true, length: { maximum: 50 }

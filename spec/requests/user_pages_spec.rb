@@ -159,7 +159,7 @@ describe "User pages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1',    text: 'Data') }
+    it { should have_selector('h1',    text: 'Project') }
     it { should have_selector('title', text: 'Home') }
   end
 
