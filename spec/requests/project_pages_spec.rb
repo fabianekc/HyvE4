@@ -18,11 +18,11 @@ describe "Project pages" do
 
     describe "category" do
       before do
-        visit category_project_path(project, :page => 11)
+        visit category_project_path(project, :page => 1)
       end
 
-      it { should have_selector('h1', text: 'Category') }
-      it { should have_selector('title', text: 'Category') }
+      it { should have_selector('h1', text: project.name) }
+      it { should have_selector('title', text: project.name) }
     end
   end
 
