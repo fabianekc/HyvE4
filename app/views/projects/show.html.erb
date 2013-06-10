@@ -15,7 +15,7 @@
       <%= render 'attributes' %>
     </section>
     <% sp = similar_projects(params[:id])
-       if sp.size > 0 %>
+       if sp != 0 %>
          <section>
            <h3>Similar Projects</h3>
            <ul>

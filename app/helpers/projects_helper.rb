@@ -48,7 +48,7 @@ module ProjectsHelper
         pmat << vec
       end
     end
-    if pmat.size > 0
+    if pmat.size > 0 and cpvec.size > 0
       b = Matrix.rows(cpvec) * Matrix.rows(pmat.transpose)
       d = b.to_a[0].zip(idvec).sort_by{ |e| -e.first }[0..4]
       d.each do |x|
@@ -56,7 +56,7 @@ module ProjectsHelper
       end
       sp
     else
-      [[]]
+      0
     end
   end
 end
