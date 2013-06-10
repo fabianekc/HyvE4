@@ -20,7 +20,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @user = User.find_by_id(@project.user_id)
-    @categories = Pjattrib.where("project_id=" + params[:id] + " and attrtype>0 and attrtype<8")
+    @categories = Pjattrib.all(:conditions => "project_id=" + params[:id] + " and attrtype>0 and attrtype<8", :order => "attrtype ASC")
   end
 
   def category

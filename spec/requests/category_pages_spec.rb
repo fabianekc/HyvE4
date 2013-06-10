@@ -12,16 +12,10 @@ describe "Project categories" do
   end
 
   describe "not set" do
-    describe "without opening Category panel" do
-      it { should_not have_link "set Categories" }
+    before do
+      click_link "Category"
     end
-
-    describe "with opening Category panel" do
-      before do
-        click_link "Category"
-      end
-      it { should have_link "set Categories" }
-    end
+    it { should have_link "set Categories" }
 
   end
 
