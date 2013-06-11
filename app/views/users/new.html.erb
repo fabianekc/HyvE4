@@ -37,7 +37,7 @@
                                         <h3><%= image_tag("compare.png") %>&nbsp;&nbsp;Compare results</h3>
 				</div>
 				<div class="span6">
-					<p>Register today and browse available projects:</p>
+					<p>Register today and match up to available projects:</p>
 					<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
 						<fieldset>
 							<%= render 'shared/error_messages', object: f.object %>
@@ -76,17 +76,17 @@
 	<div class="span4">
 		<h2>Mission</h2>
 		<p>Bring the power and insight of Big Data to you! Hyve.me assists you in maintaining and dissecting your data as well as providing an open market for tools and information.</p>
-		<p><a class="btn" href="#">Learn how &raquo;</a></p>
+		<p><%= link_to 'Learn how &raquo;'.html_safe, about_path, :class => "btn" %></p>
 	</div>
 	<div class="span4">
 		<h2>Take Tour</h2>
 		<p>Do you want to know what to expect before you register? We have compiled a tour with screenshots and sample data to demonstrate the use of Hyve.me.</p>
-		<p><a class="btn" href="#">Show me &raquo;</a></p>
+		<p><%= link_to 'Show me &raquo;'.html_safe, tour_path, :class => "btn" %></p>
 	</div>
 	<div class="span4">
 		<h2>Statistics</h2>
 		<p>We at Hyve.me love numbers: Right now there are <%= @users.count rescue 0 %> users registered, working on <%= @projects.count rescue 0 %> projects. This is documented with <%= @postings.count rescue 0 %> postings and <% @data.count rescue 0 %> data items.</p>
-		<p><a class="btn" href="#">Read more &raquo;</a></p>
+		<p><%= link_to 'Read more &raquo;'.html_safe, project_path(1), :class => "btn" %></p>
 	</div>
   </div>
 <% end %>

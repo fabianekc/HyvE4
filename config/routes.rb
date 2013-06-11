@@ -18,7 +18,8 @@ Hyve4::Application.routes.draw do
 
   root to: 'users#new'
   match '/imprint', to: 'static_pages#imprint'
-  match '/mission', to: 'static_pages#mission'
+  match '/about', to: 'static_pages#about'
+  match '/tour', to: 'static_pages#tour'
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'

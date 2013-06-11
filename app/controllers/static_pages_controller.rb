@@ -2,6 +2,9 @@ class StaticPagesController < ApplicationController
   def imprint
   end
 
-  def mission
+  def about
+  end
+
+  def tour
   end
 end

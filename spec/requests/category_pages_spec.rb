@@ -16,7 +16,86 @@ describe "Project categories" do
       click_link "Category"
     end
     it { should have_link "set Categories" }
-
   end
 
+  describe "set categories" do
+    before do
+      click_link "Category"
+      click_link "set_categories"
+    end
+    it { should have_selector('title', text: "Category (Team Size) | " +  project.name) }
+    it { should have_selector('title', text: "Team Size") }
+  end
+
+  describe "list categories" do
+    before do
+      click_link "Category"
+      click_link "set_categories"
+      click_link "cancel_categories"
+    end
+    it { should_not have_selector('title', text: "Category") }
+    it { should have_selector('title', text: project.name) }
+    it { should have_content('Team Size') }
+    it { should have_content('Age') }
+    it { should_not have_link "set Categories" }
+  end
+
+  describe "similar projects" do
+    let(:project2) { FactoryGirl.create(:project, user: user, name: "Project2") }
+    before do
+      visit project_path(project)
+      click_link "Category"
+      click_link "set_categories"
+      click_link "cancel_categories"
+      visit project_path(project2)
+      click_link "Category"
+      click_link "set_categories"
+      click_link "cancel_categories"
+    end
+    it { should have_selector('h3', text: "Similar Projects") }
+  end
+
+  describe "navigation" do
+    before do
+      click_link "Category"
+      click_link "set_categories"
+    end
+
+    describe "next page" do
+      before do
+        click_button "Next"
+      end
+      it { should have_selector('title', text: "Category (Age) | " +  project.name) }
+    end
+
+    describe "previous page" do
+      before do
+        3.times { click_button "Next" }
+        click_button "Previous"
+      end
+      it { should have_selector('title', text: "Category (Process) | " +  project.name) }
+    end
+  end
+
+  describe "slide control" do
+    before do
+      click_link "Category"
+      click_link "set_categories"
+    end
+
+    describe "move left" do
+      before do
+        click_link "lower"
+      end
+      it { should have_content("small") }
+
+      describe "and save" do
+        before do
+          click_link "save_close"
+        end
+        it { should have_content('Team Size:') }
+        it { should have_content('small') }
+      end
+    end
+  end
 end

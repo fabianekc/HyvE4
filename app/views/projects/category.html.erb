@@ -40,10 +40,10 @@
       <div id="slider"></div>
       <p>&nbsp;</p>
       <div class="row"><div class="span3">
-          <a href="javascript:void(0)" onclick="if ($('#slider').slider('option','value')-1>0) {$('#slider').slider('option','value',$('#slider').slider('option','value')-1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img src="/images/<%= shortstr %>1a.png" width="200" height="200"></a>
+          <a href="javascript:void(0)" id="lower" onclick="if ($('#slider').slider('option','value')-1>0) {$('#slider').slider('option','value',$('#slider').slider('option','value')-1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img src="/images/<%= shortstr %>1a.png" width="200" height="200"></a>
       </div>
       <div class="span3">
-          <a href="javascript:void(0)" onclick="if ($('#slider').slider('option','value')+1<8) {$('#slider').slider('option','value',$('#slider').slider('option','value')+1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img align="right" src="/images/<%= shortstr %>2a.png"  width="200" height="200"></a>
+          <a href="javascript:void(0)" id="higher" onclick="if ($('#slider').slider('option','value')+1<8) {$('#slider').slider('option','value',$('#slider').slider('option','value')+1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img align="right" src="/images/<%= shortstr %>2a.png"  width="200" height="200"></a>
       </div></div>
       <div class="row"><div class="span6">
         <p class="text-center"><small>(click on the images to move the slider left/right if you are on a mobile device)</small></p>
@@ -54,10 +54,10 @@
    <div class="row">
     <div class="span6 offset3">
       <% if params[:page].to_i-1 > 0 %>
-        <%= f.submit "Previous", :class => "btn btn-info btn-large pull-left" %>
+        <%= f.submit "Previous", :class => "btn btn-info btn-large pull-left", :id => "Previous" %>
       <% end %>
       <% if params[:page].to_i+1 < 8 %>
-        <%= f.submit "Next", :class => "btn btn-info btn-large pull-right" %>
+        <%= f.submit "Next", :class => "btn btn-info btn-large pull-right", :id => "Next" %>
       <% else %>
         <%= f.submit "Finished", :class => "btn btn-info btn-large pull-right" %>
       <% end %>
@@ -65,10 +65,10 @@
    </div>
    <div class="row">
     <div class="span3 offset3">
-        <p class="text-left"><small><%= link_to "(don't save and back to project page)", project_path(params[:id]) %></small></p>
+        <p class="text-left"><small><%= link_to "(don't save and back to project page)", project_path(params[:id]), :id => 'cancel_categories' %></small></p>
       </div>
       <div class="span3">
-        <p class="pull-right"><small><%= link_to '(save and back to project page)', "#", :onclick=>"$('.search_form').submit()" %></small></p>
+        <p class="pull-right"><small><%= link_to '(save and back to project page)', "#", :onclick=>"$('.search_form').submit()", :id => 'save_close' %></small></p>
       </div>
   </div>
   <% end %>
