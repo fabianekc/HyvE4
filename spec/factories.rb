@@ -19,4 +19,19 @@ FactoryGirl.define do
     user
     description "Lorem ipsum"
   end
+
+  factory :group do
+    sequence(:name) { |n| "Group #{n}" }
+    project
+  end
+
+  factory :structure do
+    sequence(:name) { |n| "Structure #{n}" }
+    group
+  end
+
+  factory :dataval do
+    sequence(:value) { |n| "Data value #{n}" }
+    structure
+  end
 end

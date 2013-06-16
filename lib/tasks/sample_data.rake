@@ -5,6 +5,9 @@ namespace :db do
     make_postings
     make_relationships
     make_projects
+    make_groups
+    make_structures
+    make_datavals
   end
 end
 
@@ -46,5 +49,30 @@ def make_projects
     name = Faker::Company.name
     description = Faker::Lorem.sentence(20)
     users.each { |user| user.projects.create!(name: name, description: description) }
+  end
+end
+
+def make_groups
+  projects = Project.all(limit: 5)
+  6.times do |n|
+    name = "Group #{n}"
+    projects.each { |project| project.groups.create!(name: name) }
+  end
+end
+
+def make_structures
+  groups = Group.all
+  4.times do |n|
+    name = "Item #{n}"
+    groups.each { |group| group.structures.create!(name: name) }
+  end
+end
+
+def make_datavals
+  structures = Structure.all
+  10.times do |n|
+    val = "0 1 2 3 4 5 6 7 8 9".split.shuffle.join[0...2]
+    dat = n.days.from_now
+    structures.each { |structure| structure.datavals.create!(valdatime: dat, value: val) }
   end
 end

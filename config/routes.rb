@@ -7,10 +7,15 @@ Hyve4::Application.routes.draw do
   resources :projects do
     member do
       get :category
-      put :update_category
+      put :update_category, :create_group, :update_group, :create_structure, :update_structure, :create_data, :update_email
     end
   end
-  resources :pjattrib
+  resources :structures do
+    member do
+      put :create_data, :update_dataval
+    end
+  end
+  resources :pjattribs
   resources :sessions,        only: [:new, :create, :destroy]
   resources :postings,        only: [:create, :destroy]
   resources :relationships,   only: [:create, :destroy]
@@ -23,7 +28,7 @@ Hyve4::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
-
+  match '/email', to: 'static_pages#email'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

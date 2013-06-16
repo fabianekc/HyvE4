@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604192534) do
+ActiveRecord::Schema.define(:version => 20130614192746) do
+
+  create_table "datavals", :force => true do |t|
+    t.string   "value"
+    t.integer  "structure_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.datetime "valdatime"
+  end
+
+  add_index "datavals", ["structure_id"], :name => "index_datavals_on_structure_id"
+
+  create_table "groups", :force => true do |t|
+    t.string   "name"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "groups", ["project_id"], :name => "index_groups_on_project_id"
 
   create_table "pjattribs", :force => true do |t|
     t.integer  "project_id"
@@ -40,6 +59,7 @@ ActiveRecord::Schema.define(:version => 20130604192534) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "category"
+    t.boolean  "emaildata"
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
@@ -54,6 +74,15 @@ ActiveRecord::Schema.define(:version => 20130604192534) do
   add_index "relationships", ["followed_id"], :name => "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], :name => "index_relationships_on_follower_id_and_followed_id", :unique => true
   add_index "relationships", ["follower_id"], :name => "index_relationships_on_follower_id"
+
+  create_table "structures", :force => true do |t|
+    t.string   "name"
+    t.integer  "group_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "structures", ["group_id"], :name => "index_structures_on_group_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"

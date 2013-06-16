@@ -1,0 +1,120 @@
+<% provide(:title, @structure.name + " (" + @group.name + ")") %>
+<div class="row">
+  <div class="span12">
+    <h1 align="center"><%= @structure.name + " (" + @group.name + ")" %></h1>
+    <h3>Graph</h3>
+      <%= high_chart("my_bar_div", @graph) %>
+    <h3>Data</h3>
+      <table class="table table-striped table-bordered table-condensed">
+        <thead><tr>
+          <th width="17">#</th>
+          <th width="180">Timestamp</th>
+          <th>Value</th>
+        </tr></thead>
+        <% @datavals.each do |d| %>
+          <tr>
+            <td class="tdedit"><span class="subedit"><a href="#dataEdit" onclick="document.update_data.elements['dataval[id]'].value='<%= d.id %>'; document.update_data.elements['dataval[valdatime]'].value='<%= d.valdatime %>'; document.update_data.elements['dataval[value]'].value='<%= d.value %>';" role="button" data-toggle="modal" rel="tooltip" title="edit data" class="mylink"><i class="icon-pencil"></i></a></span></td>
+            <td><%= d.valdatime %></td>
+            <td><%= d.value %></td>
+          </tr>
+        <% end unless @datavals.nil? %>
+        <tr>
+          <td></td>
+          <td colspan="2"><a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= @structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal">New data item</a></td>
+        </tr>
+      </table>
+    <%= link_to "back to project " + @project.name, @project, :class => "pull-right" %>
+  </div>
+</div>
+
+<script>
+$('tr').hover(function(){
+$(this).children('.tdedit').children('.subedit').show();
+},function(){
+$(this).children('.tdedit').children('.subedit').hide();
+});
+</script>
+
+<script>
+$('.mylink').tooltip({ selector: "a" });
+</script>
+
+<!-- Edit Dataval -->
+<%= form_tag( { :action => 'update_dataval' }, { :method => 'put', :name => 'update_data', :class => "form-horizontal" } ) do %>
+  <div id="dataEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dataEditLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 id="dataEditLabel">Edit Data</h3>
+    </div>
+    <div class="modal-body">
+      <%= hidden_field :dataval, :id %>
+      <div class="control-group">
+        <%= label :dataval, :valdatime, 'Timestamp', :class => "control-label" %>
+        <div class="controls">
+          <div id="datetimepicker1" class="input-append date">
+            <%= text_field :dataval, :valdatime, 'data-format' => 'dd/MM/yyyy hh:mm:ss' %>
+            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+          </div>
+        </div>
+      </div>
+
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      language: 'en'
+    });
+  });
+</script>
+	  
+      <div class="control-group">
+        <%= label :dataval, :value, :class => "control-label" %>
+        <div class="controls"><%= text_field :dataval, :value %></div>
+      </div>
+	  </div>
+    <div class="modal-footer">
+      <%= submit_tag("Delete Data Item", data: { confirm: "You sure?" }, :class => "btn btn-danger pull-left") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= submit_tag("Update", class: "btn btn-primary") %>
+    </div>
+  </div>
+<% end %>
+
+<!-- New Data -->
+<%= form_tag( { :action => 'create_data' }, { :method => 'put', :name => 'create_data', :class => "form-horizontal" } ) do %>
+  <div id="dataNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dataNewLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 id="dataNewLabel">New Data</h3>
+    </div>
+    <div class="modal-body">
+      <%= hidden_field :dataval, :structure_id %>
+      <div class="control-group">
+        <%= label :dataval, :valdatime, 'Timestamp', :class => "control-label" %>
+        <div class="controls">
+          <div id="datetimepicker1" class="input-append date">
+            <%= text_field :dataval, :valdatime, 'data-format' => 'dd/MM/yyyy hh:mm:ss' %>
+            <span class="add-on"><i data-time-icon="icon-time" data-date-icon="icon-calendar"></i></span>
+          </div>
+        </div>
+      </div>
+
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+      language: 'en'
+    });
+  });
+</script>
+
+      <div class="control-group">
+        <%= label :dataval, :value, :class => "control-label" %>
+        <div class="controls"><%= text_field :dataval, :value %></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= submit_tag("Create", class: "btn btn-primary") %>
+    </div>
+  </div>
+<% end %>
+

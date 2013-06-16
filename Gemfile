@@ -9,6 +9,8 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'thin'
 gem 'jquery-rails', '2.0.2'
 gem 'jquery-ui-rails'
+gem 'bootstrap-datetimepicker-rails'
+gem 'lazy_high_charts'
 
 group :assets do
   gem 'jquery-ui-rails'

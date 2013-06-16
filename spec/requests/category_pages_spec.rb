@@ -76,26 +76,4 @@ describe "Project categories" do
       it { should have_selector('title', text: "Category (Process) | " +  project.name) }
     end
   end
-
-  describe "slide control" do
-    before do
-      click_link "Category"
-      click_link "set_categories"
-    end
-
-    describe "move left" do
-      before do
-        click_link "lower"
-      end
-      it { should have_content("small") }
-
-      describe "and save" do
-        before do
-          click_link "save_close"
-        end
-        it { should have_content('Team Size:') }
-        it { should have_content('small') }
-      end
-    end
-  end
 end

@@ -21,6 +21,12 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @user = User.find_by_id(@project.user_id)
     @categories = Pjattrib.all(:conditions => "project_id=" + params[:id] + " and attrtype>0 and attrtype<8", :order => "attrtype ASC")
+    @groups = Group.all(:conditions => "project_id=" + params[:id])
+  end
+
+  def update_email
+    @project = Project.find(params[:id])
+    @project.update_attributes(params[:project])
   end
 
   def category
@@ -52,6 +58,68 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def create_group
+    @project = Project.find(params[:id])
+    if @project.groups.build(name: params['group']['name']).save
+      flash[:success] = "Group created"
+    else
+      flash[:error] = "Group not created because " + @project.errors.full_messages.join
+    end
+    redirect_to project_path(params[:id])
+  end
+
+  def update_group
+    @group = Group.find(params['group']['id'])
+    pid = @group.project_id
+    if params[:commit] == "Update"
+      if @group.update_attributes(params[:group])
+        flash[:success] = "Group name updated"
+      else
+        flash[:error] = "Group name not updated because " + @group.errors.full_messages.join 
+      end
+    else
+      @group.destroy
+      flash[:success] = "Group deleted"
+    end
+    redirect_to project_path(pid)
+  end
+
+  def create_structure
+    @group = Group.find(params['myform']['group_id'])
+    if @group.structures.build(name: params['myform']['name']).save
+      flash[:success] = "Item created"
+    else
+      flash[:error] = "Item not created because " + @group.errors.full_messages.join
+    end
+    redirect_to project_path(params[:id])
+  end
+
+  def update_structure
+    @structure = Structure.find(params['mystructure']['id'])
+    pid = params[:id]
+    if params[:commit] == "Update"
+      if @structure.update_attributes(params[:mystructure])
+        flash[:success] = "Item name updated"
+      else
+        flash[:error] = "Item name not updated because " + @structure.errors.full_messages.join
+      end
+    else
+      @structure.destroy
+      flash[:success] = "Item deleted"
+    end
+    redirect_to project_path(pid)
+  end
+
+  def create_data
+    @structure = Structure.find(params['dataval']['structure_id'])
+    if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value']).save
+      flash[:success] = "Data added"
+    else
+      flash[:error] = "No data added because " + @structure.errors.full_messages.join
+    end
+    redirect_to project_path(params[:id])
+  end
+
   def index
     @projects = Project.paginate(page: params[:page])
   end
@@ -73,7 +141,7 @@ class ProjectsController < ApplicationController
   def destroy
     myuser = Project.find(params[:id]).user_id
     Project.find(params[:id]).destroy
-    flash[:success] = "Project deleted."
+    flash[:success] = "Project deleted"
     redirect_to user_path(myuser)
   end
 

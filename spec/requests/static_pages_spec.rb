@@ -34,11 +34,19 @@ describe "Static pages" do
     end
   end
 
-  describe "Mission page" do
-    it "should have the content 'Mission'" do
-      visit mission_path
-      page.should have_content('Mission')
+  describe "About page" do
+    it "should have the content 'About'" do
+      visit about_path
+      page.should have_content('About')
     end
   end
+
+  describe "Tour page" do
+    it "should have the content 'Tour'" do
+      visit tour_path
+      page.should have_content('Tour')
+    end
+  end
+
 
 end
