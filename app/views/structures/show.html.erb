@@ -22,7 +22,7 @@
         <% end unless @datavals.nil? %>
         <tr>
           <td></td>
-          <td colspan="2"><a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= @structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal">New data item</a></td>
+          <td colspan="3"><a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= @structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal">New data item</a></td>
         </tr>
       </table>
     <%= link_to "back to project " + @project.name, @project, :class => "pull-right" %>
