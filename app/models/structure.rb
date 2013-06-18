@@ -3,5 +3,5 @@ class Structure < ActiveRecord::Base
   belongs_to :group
   has_many   :datavals
   validates :group_id, presence: true
-  validates :name,     presence: true, length: { maximum: 50 }
+  validates :name,     presence: true, length: { maximum: 100 }
 end

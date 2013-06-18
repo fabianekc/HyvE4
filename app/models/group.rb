@@ -3,5 +3,5 @@ class Group < ActiveRecord::Base
   belongs_to :project
   has_many   :structures
   validates :project_id, presence: true
-  validates :name,       presence: true, length: { maximum: 50 }
+  validates :name,       presence: true, length: { maximum: 100 }
 end

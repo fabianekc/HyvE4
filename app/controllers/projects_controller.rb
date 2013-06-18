@@ -21,7 +21,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @user = User.find_by_id(@project.user_id)
     @categories = Pjattrib.all(:conditions => "project_id=" + params[:id] + " and attrtype>0 and attrtype<8", :order => "attrtype ASC")
-    @groups = Group.all(:conditions => "project_id=" + params[:id])
+    @groups = Group.all(:conditions => "project_id=" + params[:id], :order => "created_at ASC")
   end
 
   def update_email
@@ -61,10 +61,11 @@ class ProjectsController < ApplicationController
   def create_group
     @project = Project.find(params[:id])
     if current_project_user?(@project)
-      if @project.groups.build(name: params['group']['name'], comment: params['group']['comment']).save
+      @newgroup=@project.groups.build(name: params['group']['name'], comment: params['group']['comment'])
+      if @newgroup.save
         flash[:success] = "Group created"
       else
-        flash[:error] = "Group not created because " + @project.errors.full_messages.join
+        flash[:error] = "Group not created because " + @newgroup.errors.full_messages.join
       end
     end
     redirect_to project_path(params[:id])
@@ -93,10 +94,11 @@ class ProjectsController < ApplicationController
     @group = Group.find(params['myform']['group_id'])
     @project = Project.find(@group.project_id)
     if current_project_user?(@project)
-      if @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment']).save
+      @newstructure = @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment'])
+      if @newstructure.save
         flash[:success] = "Item created"
       else
-        flash[:error] = "Item not created because " + @group.errors.full_messages.join
+        flash[:error] = "Item not created because " + @newstructure.errors.full_messages.join
       end
     end
     redirect_to project_path(params[:id])
@@ -127,10 +129,11 @@ class ProjectsController < ApplicationController
     @group = Group.find(@structure.group_id)
     @project = Project.find(@group.project_id)
     if current_project_user?(@project)
-      if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment']).save
+      @newdataval=@structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment'])
+      if @newdataval.save
         flash[:success] = "Data added"
       else
-        flash[:error] = "No data added because " + @structure.errors.full_messages.join
+        flash[:error] = "No data added because " + @newdataval.errors.full_messages.join
       end
     end
     redirect_to project_path(params[:id])

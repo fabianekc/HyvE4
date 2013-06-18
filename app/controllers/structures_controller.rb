@@ -29,10 +29,11 @@ class StructuresController < ApplicationController
 
   def create_data
     @structure = Structure.find(params['dataval']['structure_id'])
-    if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment']).save
+    @newdataval=@structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment'])
+    if @newdataval.save
       flash[:success] = "Data added"
     else
-      flash[:error] = "No data added because " + @structure.errors.full_messages.join
+      flash[:error] = "No data added because " + @newdataval.errors.full_messages.join
     end
     redirect_to structure_path(params[:id])
   end
