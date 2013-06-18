@@ -26,7 +26,7 @@ for (var i=0, sw; sw = switches[i++]; ) {
     <% end %>
   </li>
     <ul>
-    <% @structure = Structure.all(:conditions => "group_id=" + group.id.to_s)
+    <% @structure = Structure.all(:conditions => "group_id=" + group.id.to_s, :order => "created_at ASC")
        @structure.each do |structure| %>
          <li><%= structure.name %>
          <% if current_project_user?(@project) %>
