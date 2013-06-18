@@ -3,7 +3,19 @@
 </a>
 <h1>
   <%= current_user.name %>
+  <span class="subedit">
+    <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user)) %>
+  </span>
 </h1>
+
+<script>
+$('h1').hover(function(){
+$(this).children('.subedit').show();
+},function(){
+$(this).children('.subedit').hide();
+});
+</script>
+
 <span>
   <%= link_to "view my profile", current_user %>
 </span>
