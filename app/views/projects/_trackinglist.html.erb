@@ -20,20 +20,32 @@ for (var i=0, sw; sw = switches[i++]; ) {
 <section>
 <ul class="groups unstyled">
 <% @groups.each do |group| %>
-  <li><strong><%= group.name %></strong><span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= group.name %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="edit group name" class="mylink"><i class="icon-pencil"></i></a></span></li>
+  <li><strong><%= group.name %></strong>
+    <% if current_project_user?(@project) %>
+      <span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= group.name %>'; document.update_group.elements['group[comment]'].value='<%= group.comment %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="edit group name" class="mylink"><i class="icon-pencil"></i></a></span>
+    <% end %>
+  </li>
     <ul>
     <% @structure = Structure.all(:conditions => "group_id=" + group.id.to_s)
        @structure.each do |structure| %>
-         <li><%= structure.name %><span class="subedit">
-           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= structure.name %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="edit item name" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+         <li><%= structure.name %>
+         <% if current_project_user?(@project) %>
+           <span class="subedit">
+           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= structure.name %>'; document.update_structure.elements['mystructure[comment]'].value='<%= structure.comment %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="edit item name" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
            <a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal" rel="tooltip" title="add data" class="mylink"><i class="icon-plus"></i></a>&nbsp;
            <%= link_to('<i class="icon-signal"></i>'.html_safe,structure) %>
-           </span></li>
+           </span>
+         <% end %>
+         </li>
     <% end unless @structure.nil? %>
-    <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal">New Item</a></li>
+    <% if current_project_user?(@project) %>
+      <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal">New Item</a></li>
+    <% end %>
     </ul>
 <% end unless @groups.nil? %>
-  <li><a href="#groupNew" role="button" data-toggle="modal"><strong>New Group</strong></a></li>
+  <% if current_project_user?(@project) %>
+    <li><a href="#groupNew" role="button" data-toggle="modal"><strong>New Group</strong></a></li>
+  <% end %>
 </ul>
 <script>
 $('li').hover(function(){
@@ -59,6 +71,10 @@ $('.mylink').tooltip({ selector: "a" });
         <%= label :group, :name, :class => "control-label" %>
         <div class="controls"><%= text_field :group, :name %></div>
       </div>
+      <div class="control-group">
+        <%= label :group, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :group, :comment, :rows => "2" %></div>
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -79,6 +95,10 @@ $('.mylink').tooltip({ selector: "a" });
       <div class="control-group">
         <%= label :group, :name, :class => "control-label" %>
         <div class="controls"><%= text_field :group, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :group, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :group, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
@@ -102,6 +122,10 @@ $('.mylink').tooltip({ selector: "a" });
         <%= label :myform, :name, :class => "control-label" %>
         <div class="controls"><%= text_field :myform, :name %></div>
       </div>
+      <div class="control-group">
+        <%= label :myform, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :myform, :comment, :rows => "2" %></div>
+      </div>
     </div>
     <div class="modal-footer">
       <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -122,6 +146,10 @@ $('.mylink').tooltip({ selector: "a" });
       <div class="control-group">
         <%= label :mystructure, :name, :class => "control-label" %>
         <div class="controls"><%= text_field :mystructure, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :mystructure, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :mystructure, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
@@ -162,6 +190,10 @@ $('.mylink').tooltip({ selector: "a" });
       <div class="control-group">
         <%= label :dataval, :value, :class => "control-label" %>
         <div class="controls"><%= text_field :dataval, :value %></div>
+      </div>
+      <div class="control-group">
+        <%= label :dataval, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :dataval, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">

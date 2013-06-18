@@ -29,6 +29,18 @@ module SessionsHelper
     project.user_id == current_user.id
   end
 
+  def correct_project_user
+    @project = Project.find(params[:id])
+    correct_user(@project)
+  end
+
+  def correct_user(project)
+    if !current_project_user?(project)
+      flash[:error] = 'You are not the owner of this project!'
+      redirect_to(root_path)
+    end
+  end
+
   def signed_in_user
     unless signed_in?
       store_location

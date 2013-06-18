@@ -1,5 +1,5 @@
 class Structure < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :comment
   belongs_to :group
   has_many   :datavals
   validates :group_id, presence: true

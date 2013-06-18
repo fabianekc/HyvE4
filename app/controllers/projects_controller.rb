@@ -60,62 +60,78 @@ class ProjectsController < ApplicationController
 
   def create_group
     @project = Project.find(params[:id])
-    if @project.groups.build(name: params['group']['name']).save
-      flash[:success] = "Group created"
-    else
-      flash[:error] = "Group not created because " + @project.errors.full_messages.join
+    if current_project_user?(@project)
+      if @project.groups.build(name: params['group']['name'], comment: params['group']['comment']).save
+        flash[:success] = "Group created"
+      else
+        flash[:error] = "Group not created because " + @project.errors.full_messages.join
+      end
     end
     redirect_to project_path(params[:id])
   end
 
   def update_group
     @group = Group.find(params['group']['id'])
-    pid = @group.project_id
-    if params[:commit] == "Update"
-      if @group.update_attributes(params[:group])
-        flash[:success] = "Group name updated"
+    @project = Project.find(@group.project_id)
+    if current_project_user?(@project)
+      pid = @group.project_id
+      if params[:commit] == "Update"
+        if @group.update_attributes(params[:group])
+          flash[:success] = "Group name updated"
+        else
+          flash[:error] = "Group name not updated because " + @group.errors.full_messages.join 
+        end
       else
-        flash[:error] = "Group name not updated because " + @group.errors.full_messages.join 
+        @group.destroy
+        flash[:success] = "Group deleted"
       end
-    else
-      @group.destroy
-      flash[:success] = "Group deleted"
     end
     redirect_to project_path(pid)
   end
 
   def create_structure
     @group = Group.find(params['myform']['group_id'])
-    if @group.structures.build(name: params['myform']['name']).save
-      flash[:success] = "Item created"
-    else
-      flash[:error] = "Item not created because " + @group.errors.full_messages.join
+    @project = Project.find(@group.project_id)
+    if current_project_user?(@project)
+      if @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment']).save
+        flash[:success] = "Item created"
+      else
+        flash[:error] = "Item not created because " + @group.errors.full_messages.join
+      end
     end
     redirect_to project_path(params[:id])
   end
 
   def update_structure
     @structure = Structure.find(params['mystructure']['id'])
-    pid = params[:id]
-    if params[:commit] == "Update"
-      if @structure.update_attributes(params[:mystructure])
-        flash[:success] = "Item name updated"
+    @group = Group.find(@structure.group_id)
+    @project = Project.find(@group.project_id)
+    if current_project_user?(@project)
+      pid = params[:id]
+      if params[:commit] == "Update"
+        if @structure.update_attributes(params[:mystructure])
+          flash[:success] = "Item name updated"
+        else
+          flash[:error] = "Item name not updated because " + @structure.errors.full_messages.join
+        end
       else
-        flash[:error] = "Item name not updated because " + @structure.errors.full_messages.join
+        @structure.destroy
+        flash[:success] = "Item deleted"
       end
-    else
-      @structure.destroy
-      flash[:success] = "Item deleted"
     end
     redirect_to project_path(pid)
   end
 
   def create_data
     @structure = Structure.find(params['dataval']['structure_id'])
-    if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value']).save
-      flash[:success] = "Data added"
-    else
-      flash[:error] = "No data added because " + @structure.errors.full_messages.join
+    @group = Group.find(@structure.group_id)
+    @project = Project.find(@group.project_id)
+    if current_project_user?(@project)
+      if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment']).save
+        flash[:success] = "Data added"
+      else
+        flash[:error] = "No data added because " + @structure.errors.full_messages.join
+      end
     end
     redirect_to project_path(params[:id])
   end

@@ -10,12 +10,14 @@
           <th width="17">#</th>
           <th width="180">Timestamp</th>
           <th>Value</th>
+          <th>Comment</th>
         </tr></thead>
         <% @datavals.each do |d| %>
           <tr>
-            <td class="tdedit"><span class="subedit"><a href="#dataEdit" onclick="document.update_data.elements['dataval[id]'].value='<%= d.id %>'; document.update_data.elements['dataval[valdatime]'].value='<%= d.valdatime %>'; document.update_data.elements['dataval[value]'].value='<%= d.value %>';" role="button" data-toggle="modal" rel="tooltip" title="edit data" class="mylink"><i class="icon-pencil"></i></a></span></td>
+            <td class="tdedit"><span class="subedit"><a href="#dataEdit" onclick="document.update_data.elements['dataval[id]'].value='<%= d.id %>'; document.update_data.elements['dataval[valdatime]'].value='<%= d.valdatime %>'; document.update_data.elements['dataval[comment]'].value='<%= d.comment %>'; document.update_data.elements['dataval[value]'].value='<%= d.value %>';" role="button" data-toggle="modal" rel="tooltip" title="edit data" class="mylink"><i class="icon-pencil"></i></a></span></td>
             <td><%= d.valdatime %></td>
             <td><%= d.value %></td>
+            <td><%= d.comment %></td>
           </tr>
         <% end unless @datavals.nil? %>
         <tr>
@@ -70,6 +72,10 @@ $('.mylink').tooltip({ selector: "a" });
         <%= label :dataval, :value, :class => "control-label" %>
         <div class="controls"><%= text_field :dataval, :value %></div>
       </div>
+      <div class="control-group">
+        <%= label :dataval, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :dataval, :comment, :rows => "2" %></div>
+      </div>
 	  </div>
     <div class="modal-footer">
       <%= submit_tag("Delete Data Item", data: { confirm: "You sure?" }, :class => "btn btn-danger pull-left") %>
@@ -109,6 +115,10 @@ $('.mylink').tooltip({ selector: "a" });
       <div class="control-group">
         <%= label :dataval, :value, :class => "control-label" %>
         <div class="controls"><%= text_field :dataval, :value %></div>
+      </div>
+      <div class="control-group">
+        <%= label :dataval, :comment, :class => "control-label" %>
+        <div class="controls"><%= text_area :dataval, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">

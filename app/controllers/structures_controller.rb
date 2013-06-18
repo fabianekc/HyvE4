@@ -1,4 +1,7 @@
 class StructuresController < ApplicationController
+  before_filter :signed_in_user
+  before_filter :correct_structure_user
+
   def show
     @structure = Structure.find(params[:id])
     @group = Group.find(@structure.group_id)
@@ -26,7 +29,7 @@ class StructuresController < ApplicationController
 
   def create_data
     @structure = Structure.find(params['dataval']['structure_id'])
-    if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value']).save
+    if @structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment']).save
       flash[:success] = "Data added"
     else
       flash[:error] = "No data added because " + @structure.errors.full_messages.join
@@ -49,5 +52,13 @@ class StructuresController < ApplicationController
     end
     redirect_to structure_path(sid)
   end
+
+  private
+    def correct_structure_user
+      @structure = Structure.find(params[:id])
+      @group = Group.find(@structure.group_id)
+      @project = Project.find(@group.project_id)
+      correct_user(@project)
+    end
 
 end
