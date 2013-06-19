@@ -48,7 +48,6 @@
       <div class="row"><div class="span6">
         <p class="text-center"><small>(click on the images to move the slider left/right if you are on a mobile device)</small></p>
       </div></div>
-      <p>&nbsp;</p>
     </div>
    </div>
    <div class="row">
@@ -64,12 +63,15 @@
     </div>
    </div>
    <div class="row">
-    <div class="span3 offset3">
-        <p class="text-left"><small><%= link_to "(don't save and back to project page)", project_path(params[:id]), :id => 'cancel_categories' %></small></p>
-      </div>
-      <div class="span3">
-        <p class="pull-right"><small><%= link_to '(save and back to project page)', "#", :onclick=>"$('.search_form').submit()", :id => 'save_close' %></small></p>
-      </div>
+    <div class="span6 offset3">
+      <p>&nbsp;</p>
+      <p><strong>other actions:</strong>
+        <ul>
+          <li><%= link_to 'save and back to project page', "#", :onclick=>"$('.search_form').submit()", :id => 'save_close' %></li>
+          <li><%= link_to "cancel and back to project page", project_path(params[:id]), :id => 'cancel_categories' %></li>
+        </ul>
+     </p> 
+   </div>
   </div>
   <% end %>
   <p>&nbsp;</p>

@@ -35,6 +35,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_project
+    @user = User.find(params[:id])
+    @newproject=@user.projects.build(name: params['project']['name'], description: params['project']['description'])
+    if @newproject.save
+      flash[:success] = "Project created"
+    else
+      flash[:error] = "Project not created because " + @newproject.errors.full_messages.join
+    end
+    redirect_to user_path(params[:id])
+  end
+
   def index
     @users = User.paginate(page: params[:page])
   end

@@ -7,7 +7,7 @@
         <%= @user.name %>
         <% if current_user?(@user) %>
           <span class="subedit">
-            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user)) %>
+            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user), rel: "tooltip", title: "edit user", class: "mylink") %>
           </span>
         <% end %>
       </h1>
@@ -27,8 +27,27 @@ $(this).children('.subedit').hide();
       <%= render 'shared/stats' %>
     </section>
     <section>
+      <h4>Projects (<%= @user.projects.count %>)
+        <% if current_user?(@user) %>
+          <span class="subedit">
+            <a href="#projectNew" role="button" data-toggle="modal" rel="tooltip" title="add project" class="mylink"><i class="icon-plus" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i></a>
+          </span>
+        <% end %>
+      </h4>
+
+<script>
+$('h4').hover(function(){
+$(this).children('.subedit').show();
+},function(){
+$(this).children('.subedit').hide();
+});
+</script>
+
+<script>
+$('.mylink').tooltip({ selector: "a" });
+</script>
+
       <% if @user.projects.any? %>
-        <h3>Projects (<%= @user.projects.count %>)</h3>
         <ul>
           <%= render @projects %>
         </ul>        
@@ -45,3 +64,28 @@ $(this).children('.subedit').hide();
     <% end %>
   </div>
 </div>
+
+<!-- New Project -->
+<%= form_tag( { :action => 'create_project' }, { :method => 'put', :name => 'create_project', :class => "form-horizontal" } ) do %>
+  <div id="projectNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="projectNewLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 id="projectNewLabel">New Project</h3>
+    </div>
+    <div class="modal-body">
+      <div class="control-group">
+        <%= label :project, :name, :class => "control-label" %>
+        <div class="controls"><%= text_field :project, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :project, :description, :class => "control-label" %>
+        <div class="controls"><%= text_area :project, :description, :rows => "2" %></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <%= submit_tag("Create", class: "btn btn-primary") %>
+    </div>
+  </div>
+<% end %>
+

@@ -2,6 +2,7 @@ Hyve4::Application.routes.draw do
   resources :users do
     member do
       get :following, :followers
+      put :create_project
     end
   end
   resources :projects do

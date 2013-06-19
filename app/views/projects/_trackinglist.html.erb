@@ -39,7 +39,7 @@ for (var i=0, sw; sw = switches[i++]; ) {
          </li>
     <% end unless @structure.nil? %>
     <% if current_project_user?(@project) %>
-      <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal">New Item</a></li>
+      <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="add item" class="mylink">New Item</a></li>
     <% end %>
     </ul>
 <% end unless @groups.nil? %>
