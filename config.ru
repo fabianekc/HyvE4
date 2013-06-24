@@ -2,7 +2,7 @@
 
 use Rack::ReverseProxy do
   reverse_proxy(/^\/blog(\/.*)$/,
-    'http://CHANGEME.herokuapp.com$1',
+    'http://still-taiga-5256.herokuapp.com$1',
     opts = {:preserve_host => true})
 end
 
