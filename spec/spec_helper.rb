@@ -51,3 +51,6 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 end
+
+Capybara.run_server = true
+Capybara.javascript_driver = :webkit

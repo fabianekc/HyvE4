@@ -20,6 +20,7 @@ group :development, :test do
   gem 'sqlite3', '1.3.5'
   gem 'rspec-rails', '2.11.0'
   gem 'database_cleaner', "~> 1.0.1"
+  gem 'capybara-webkit'
 end
 
 group :development do
