@@ -23,6 +23,7 @@ Hyve4::Application.routes.draw do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   root to: 'users#new'
+  match "/blog" => redirect("/blog/")
   match '/imprint', to: 'static_pages#imprint'
   match '/about', to: 'static_pages#about'
   match '/tour', to: 'static_pages#tour'
