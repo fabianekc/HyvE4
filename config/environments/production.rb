@@ -60,7 +60,7 @@ Hyve4::Application.configure do
     :password => 'EllDis4?',
     :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { :host => "frozen-harbor-2617.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "www.hyve.us" }
 
   # Enable threaded mode
   # config.threadsafe!
