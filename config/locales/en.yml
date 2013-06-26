@@ -19,7 +19,7 @@ en:
     tourtext: "Do you want to know what to expect before you register? We have compiled a tour with screenshots and sample data to demonstrate the use of Hyve.me."
     tourbtn: "Show me"
     statistictitle: "Statistics"
-    statistictext: "We at Hyve.me love numbers: Right now there are %{usercount} users registered, working on %{projectcount} projects. This is documented with %{postingcount} postings and %{datacount} data items."
+    statistictext: "Hyve.me is about numbers: Right now there are %{usercount} users registered, working on %{projectcount} projects. This is documented with %{postingcount} postings and %{datacount} data items."
     statisticbtn: "Read more"
 
   layout:

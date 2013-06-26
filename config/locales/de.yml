@@ -1,0 +1,46 @@
+# encoding: UTF-8
+
+de:
+  welcome:
+    title: "Optimiere Deine Projekte!"
+    writemsg: "Schreib woran du arbeitest"
+    collectmsg: "Sammle deine Daten"
+    comparemsg: "Vergleiche mit anderen"
+    registermsg: "Registriere dich und lerne von anderen Projekten:"
+    namelbl: "Dein Name:"
+    emaillbl: "Email:"
+    passwordlbl: "Passwort:"
+    createbtn: "Registrieren"
+    missiontitle: "Mission"
+    missiontext: "Wir machen dir Big Data zugänglich! Hyve.me unterstützt dich bei der Verwaltung deiner Daten und bietet eine Platform zum Austauschen von Werkzeugen und Infos."
+    missionbtn: "So funktioniert's"
+    tourtitle: "Demo"
+    tourtext: "Was erwartet dich nach der Registrierung? Wir haben eine kleine Tour mit Bildern und Daten zusammengestellt, um dir Hyve.me vorab zu zeigen."
+    tourbtn: "Ansehen"
+    statistictitle: "Statistik"
+    statistictext: "Bei Hyve.me geht es um Zahlen: Derzeit sind %{usercount} Benutzer registriert die an %{projectcount} Projekten arbeiten. Das ist in %{postingcount} Postings und %{datacount} Datensätzen dokumentiert."
+    statisticbtn: "Mehr"
+
+  layout:
+    home: "Start"
+    users: "Benutzer"
+    projects: "Projekte"
+    account: "Konto"
+    profile: "Profil"
+    settings: "Einstellungen"
+    signout: "Ausloggen"
+    signin: "Einloggen"
+    imprint: "Impressum"
+
+  will_paginate:
+    previous_label: "&#8592; Vorherige"
+    next_label: "Nächste &#8594;"
+    page_gap: "&hellip;"
+
+  hello: "Hello world"
+  activerecord:
+    attributes:
+      user:
+        password_digest: "Password"
+
+

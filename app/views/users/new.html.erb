@@ -1,90 +1,90 @@
 <% if signed_in? %>
-  <% provide(:title, current_user.name) %>
-  <div class="row">
-    <aside class="span4">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
-      <section>
-        <%= render 'shared/stats' %>
-      </section>
-      <section>
-        <h3>Projects</h3>
-        <%= render 'shared/projectlist' %>
-        <%= render 'shared/project_form' %>
-      </section>
-    </aside>
-    <div class="span8">
-      <h3>Posting Feed</h3>
-      <section>
-        <%= render 'shared/posting_form' %>
-      </section>
-      <section>
-        <%= render 'shared/feed' %>
-      </section>
-    </div>
-  </div>  
+<% provide(:title, current_user.name) %>
+<div class="row">
+<aside class="span4">
+<section>
+<%= render 'shared/user_info' %>
+</section>
+<section>
+<%= render 'shared/stats' %>
+</section>
+<section>
+<h3>Projects</h3>
+<%= render 'shared/projectlist' %>
+<%= render 'shared/project_form' %>
+</section>
+</aside>
+<div class="span8">
+<h3>Posting Feed</h3>
+<section>
+<%= render 'shared/posting_form' %>
+</section>
+<section>
+<%= render 'shared/feed' %>
+</section>
+</div>
+</div>  
 <% else %>  
-  <% provide(:title, 'Home') %>
-  <div id="heroimg" class="hero-unit">
-	<div class="row-fluid">
-		<div class="span12">
-			<h1><%= t 'welcome.title' %></h1><br>
-			<div class="row-fluid">
-				<div class="span6">
-					<br><h3><%= image_tag("write.png") %>&nbsp;&nbsp;<%= t 'welcome.writemsg' %></h3>
-                                        <h3><%= image_tag("collect.png") %>&nbsp;&nbsp;<%= t 'welcome.collectmsg' %></h3>
-                                        <h3><%= image_tag("compare.png") %>&nbsp;&nbsp;<%= t 'welcome.comparemsg' %></h3>
-				</div>
-				<div class="span6">
-					<p><%= t 'welcome.registermsg' %></p>
-					<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
-						<fieldset>
-							<%= render 'shared/error_messages', object: f.object %>
-							<div class="control-group">
-							  <%= f.label :name, t('welcome.namelbl'), :class => "control-label", :style => "font-size: 18px;" %>
-							  <div class="controls">
-								  <%= f.text_field :name %>
-							  </div>
-                                                        </div>
-                                                        <div class="control-group">
-							  <%= f.label :email, t('welcome.emaillbl'), :class => "control-label", :style => "font-size: 18px;" %>
-                                                          <div class="controls">
-						  		<%= f.text_field :email %>
-                                                          </div>
-                                                        </div>
-                                                        <div class="control-group">
-							  <%= f.label :password, t('welcome.passwordlbl'), :class => "control-label", :style => "font-size: 18px;" %>
-                                                          <div class="controls">
-								  <%= f.password_field :password %>
-                                                          </div>
-                                                        </div>
-                                                        <div class="control-group">
-                                                          <div class="controls">
-						  		<%= f.submit t('welcome.createbtn'), class: "btn btn-large btn-primary", id: "create_user" %>
-							  </div>
-                                                        </div">
-						</fieldset>
-					<% end %>
-				</div>
+<% provide(:title, 'Home') %>
+<div id="heroimg" class="hero-unit">
+<div class="row-fluid">
+	<div class="span12">
+		<h1><%= t 'welcome.title' %></h1><br>
+		<div class="row-fluid">
+			<div class="span6">
+				<br><h3><%= image_tag("write.png") %>&nbsp;&nbsp;<%= t 'welcome.writemsg' %></h3>
+				<h3><%= image_tag("collect.png") %>&nbsp;&nbsp;<%= t 'welcome.collectmsg' %></h3>
+				<h3><%= image_tag("compare.png") %>&nbsp;&nbsp;<%= t 'welcome.comparemsg' %></h3>
+			</div>
+			<div class="span6">
+				<p><%= t 'welcome.registermsg' %></p>
+				<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+					<fieldset>
+						<%= render 'shared/error_messages', object: f.object %>
+						<div class="control-group">
+						  <%= f.label :name, t('welcome.namelbl'), :class => "control-label", :style => "font-size: 18px;" %>
+						  <div class="controls">
+							  <%= f.text_field :name %>
+						  </div>
+						</div>
+						<div class="control-group">
+						  <%= f.label :email, t('welcome.emaillbl'), :class => "control-label", :style => "font-size: 18px;" %>
+						  <div class="controls">
+							<%= f.text_field :email %>
+						  </div>
+						</div>
+						<div class="control-group">
+						  <%= f.label :password, t('welcome.passwordlbl'), :class => "control-label", :style => "font-size: 18px;" %>
+						  <div class="controls">
+							  <%= f.password_field :password %>
+						  </div>
+						</div>
+						<div class="control-group">
+						  <div class="controls">
+							<%= f.submit t('welcome.createbtn'), class: "btn btn-large btn-primary", id: "create_user" %>
+						  </div>
+						</div">
+					</fieldset>
+				<% end %>
 			</div>
 		</div>
 	</div>
-  </div>
+</div>
+</div>
 
-  <div class="row">
-	<div class="span4">
-		<h2><%= t 'welcome.missiontitle' %></h2>
+<div class="row">
+<div class="span4">
+	<h2 style="margin-bottom: 14px;"><%= t 'welcome.missiontitle' %></h2>
 		<p><%= t 'welcome.missiontext' %></p>
 		<p><%= link_to (t('welcome.missionbtn') + ' &raquo;').html_safe, about_path, :class => "btn" %></p>
 	</div>
 	<div class="span4">
-		<h2><%= t 'welcome.tourtitle' %></h2>
+		<h2 style="margin-bottom: 14px;"><%= t 'welcome.tourtitle' %></h2>
 		<p><%= t 'welcome.tourtext' %></p>
 		<p><%= link_to (t('welcome.tourbtn') + ' &raquo;').html_safe, tour_path, :class => "btn" %></p>
 	</div>
 	<div class="span4">
-		<h2><%= t 'welcome.statistictitle' %></h2>
+		<h2 style="margin-bottom: 14px;"><%= t 'welcome.statistictitle' %></h2>
 		<p><%= t 'welcome.statistictext', :usercount => @users.count, :projectcount => @projects.count, :postingcount => @postings.count, :datacount => @datavals.count %></p>
 		<p><%= link_to (t('welcome.statisticbtn') + ' &raquo;').html_safe, project_path(1), :class => "btn" %></p>
 	</div>
