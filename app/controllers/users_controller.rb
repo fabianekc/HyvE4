@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       @users = User.all
       @projects = Project.all
       @postings = Posting.all
+      @datavals = Dataval.all
     end
   end
 

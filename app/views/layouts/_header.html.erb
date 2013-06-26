@@ -5,26 +5,26 @@
           <nav>
             <ul class="nav pull-right">
 			<% if signed_in? %>
-              <li><%= link_to "Home", root_path %></li>
+              <li><%= link_to t('layout.home'), root_path %></li>
 <!--              <li><%= link_to "Search", '#' %></li> -->
-              <li><%= link_to "Users", users_path %></li>
-              <li><%= link_to "Projects", projects_path %></li>
+              <li><%= link_to t('layout.users'), users_path %></li>
+              <li><%= link_to t('layout.projects'), projects_path %></li>
 <!--              <li><%= link_to "Bazaar", '#' %></li> -->
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  Account <b class="caret"></b>
+		<%= t 'layout.account' %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                  <li><%= link_to "Profile", current_user %></li>
-                  <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                  <li><%= link_to t('layout.profile'), current_user %></li>
+                  <li><%= link_to t('layout.settings'), edit_user_path(current_user) %></li>
                   <li class="divider"></li>
                   <li>
-                    <%= link_to "Sign out", signout_path, method: "delete" %>
+                    <%= link_to t('layout.signout'), signout_path, method: "delete" %>
                   </li>
                 </ul>
               </li>
              <% else %>
-              <li><%= link_to "Sign in", signin_path %></li>
+              <li><%= link_to t('layout.signin'), signin_path %></li>
              <% end %>
             </ul>
           </nav>

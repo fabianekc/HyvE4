@@ -2,6 +2,42 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  welcome:
+    title: "Optimize Your Projects!"
+    writemsg: "Share your story"
+    collectmsg: "Collect the data"
+    comparemsg: "Compare with others"
+    registermsg: "Register today and match up to available projects:"
+    namelbl: "Your Name:"
+    emaillbl: "Email:"
+    passwordlbl: "Password:"
+    createbtn: "Create my account"
+    missiontitle: "Mission"
+    missiontext: "Bring the power and insight of Big Data to you! Hyve.me assists you in maintaining and dissecting your data as well as providing an open market for tools and information."
+    missionbtn: "Learn how"
+    tourtitle: "Take Tour"
+    tourtext: "Do you want to know what to expect before you register? We have compiled a tour with screenshots and sample data to demonstrate the use of Hyve.me."
+    tourbtn: "Show me"
+    statistictitle: "Statistics"
+    statistictext: "We at Hyve.me love numbers: Right now there are %{usercount} users registered, working on %{projectcount} projects. This is documented with %{postingcount} postings and %{datacount} data items."
+    statisticbtn: "Read more"
+
+  layout:
+    home: "Home"
+    users: "Users"
+    projects: "Projects"
+    account: "Account"
+    profile: "Profile"
+    settings: "Settings"
+    signout: "Sign out"
+    signin: "Sign in"
+    imprint: "Imprint"
+
+  will_paginate:
+    previous_label: "&#8592; Previous"
+    next_label: "Next &#8594;"
+    page_gap: "&hellip;"
+
   hello: "Hello world"
   activerecord:
     attributes:

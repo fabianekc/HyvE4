@@ -1,19 +1,19 @@
 <footer class="footer">
   <small>
-	language: <%= link_to "English", '#' %> <%= link_to "Deutsch", '#' %>
+    <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %> 
   </small>
   <nav class="pull-right" style="margin-bottom: -20px;">
     <ul>
-      <li><%= link_to "Imprint", imprint_path %></li>
+      <li><%= link_to t('layout.imprint'), imprint_path %></li>
       <li><%= link_to "Blog", blog_path %></li>
       <li><%= link_to "Feedback", 'http://hyve.uservoice.com/' %>
     </ul>
   </nav>
   <div style="clear: both; text-align: right; margin-top: -10px;">
 	<span style="float: left;"><small>&copy; Hyve.me 2013</small></span>
-  	social: <%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/Hyve.me' %> | 
-                <%= link_to image_tag("gplus.png", alt: "Goolge+"), 'https://plus.google.com/115523021927594181806' %> | 
-                <%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://twitter.com/HyveInfo' %>
+  	  <%= link_to image_tag("facebook.png", alt: "Facebook"), 'https://www.facebook.com/Hyve.me' %> | 
+          <%= link_to image_tag("gplus.png", alt: "Goolge+"), 'https://plus.google.com/115523021927594181806' %> | 
+          <%= link_to image_tag("twitter.png", alt: "Twitter"), 'https://twitter.com/HyveInfo' %>
   </div>
 </footer>
 <p>&nbsp;<p>
