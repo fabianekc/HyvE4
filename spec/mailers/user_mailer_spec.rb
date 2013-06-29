@@ -12,7 +12,7 @@ describe UserMailer do
     end
 
     it "renders the body" do
-      mail.body.encoded.should match("To reset your password click the URL")
+      mail.body.encoded.should match("For resetting your password use this link")
     end
   end
 

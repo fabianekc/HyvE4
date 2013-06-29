@@ -31,7 +31,6 @@ describe Project do
   it { should respond_to(:wissen) }
   it { should respond_to(:tun) }
   it { should respond_to(:hoffen) }
-  it { should respond_to(:category) }
 
   it { should be_valid }
 

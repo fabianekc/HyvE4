@@ -85,7 +85,7 @@
 	</div>
 	<div class="span4">
 		<h2 style="margin-bottom: 14px;"><%= t 'welcome.statistictitle' %></h2>
-		<p><%= t 'welcome.statistictext', :usercount => @users.count, :projectcount => @projects.count, :postingcount => @postings.count, :datacount => @datavals.count %></p>
+		<p><%= t 'welcome.statistictext', :usercount => @users.present? ? @users.count : 0, :projectcount => @projects.present? ? @projects.count : 0, :postingcount => @postings.present? ? @postings.count : 0, :datacount => @datavals.present? ? @datavals.count : 0 %></p>
 		<p><%= link_to (t('welcome.statisticbtn') + ' &raquo;').html_safe, project_path(1), :class => "btn" %></p>
 	</div>
   </div>

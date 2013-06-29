@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130618102315) do
     t.text     "comment"
   end
 
-  add_index "datavals", ["structure_id"], :name => "index_datavals_on_structure_id"
+  add_index "datavals", ["structure_id", "created_at"], :name => "index_datavals_on_structure_id_and_created_at"
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20130618102315) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "pjattribs", ["project_id"], :name => "index_pjattribs_on_project_id"
+
   create_table "postings", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
@@ -60,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20130618102315) do
     t.text     "hoffen"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.string   "category"
     t.boolean  "emaildata"
   end
 
