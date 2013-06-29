@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '1.9.3'
+
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
@@ -11,6 +13,7 @@ gem 'lazy_high_charts'
 gem 'rack-reverse-proxy', :require => "rack/reverse_proxy"
 gem 'pg'
 gem 'faker', '1.0.1'
+gem 'thin'
 
 group :assets do
   gem 'jquery-ui-rails'
@@ -37,5 +40,4 @@ end
 group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl_rails', '4.1.0'
-  gem 'thin'
 end
