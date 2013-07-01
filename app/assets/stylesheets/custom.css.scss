@@ -277,7 +277,6 @@ aside {
 
 span.subedit { display: none; }
 
-/* on/off switch */
 :root input[type="checkbox"] { /* :root here acting as a filter for older browsers */
 	position: absolute;
 	opacity: 0;
@@ -285,7 +284,7 @@ span.subedit { display: none; }
 
 :root input[type="checkbox"].ios-switch + div {
 	display: inline-block;
-	vertical-align: top;
+	vertical-align: middle;
 	width: 3em;	height: 1em;
 	border: 1px solid rgba(0,0,0,.3);
 	border-radius: 999px;
@@ -350,4 +349,3 @@ span.subedit { display: none; }
 	text-shadow: none;
 
 }
-
