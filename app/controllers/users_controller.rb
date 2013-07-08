@@ -1,3 +1,5 @@
+include ActionView::Helpers::TextHelper
+
 class UsersController < ApplicationController
   before_filter :signed_in_user, only: [:index, :show, :edit, :update, :destroy, :following, :followers]
   before_filter :correct_user,   only: [:edit, :update]
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
       @project = current_user.projects.build
     else
       @user = User.new
+      @invite = Invite.new
       @users = User.all
       @projects = Project.all
       @postings = Posting.all
@@ -26,13 +29,24 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
-    if @user.save
-      sign_in @user
-      flash[:success] = "Welcome to the Hyve!"
-      redirect_to @user
+    if params[:user][:invitecode].eql? ENV['INVITE_CODE'] 
+      @user = User.new(params[:user])
+      if @user.save
+        sign_in @user
+        flash[:success] = "Welcome to the Hyve!"
+        redirect_to root_path
+      else
+        flash[:error] = "Please fix the following " + pluralize(@user.errors.count, "error") + ": " + @user.errors.full_messages.join(", ")
+        @invite = Invite.new
+        @users = User.all
+        @projects = Project.all
+        @postings = Posting.all
+        @datavals = Dataval.all
+        render 'new'
+      end
     else
-      render 'new'
+      flash[:error] = "Your invitation code is invalid!"
+      redirect_to root_path
     end
   end
 
@@ -45,6 +59,15 @@ class UsersController < ApplicationController
       flash[:error] = "Project not created because " + @newproject.errors.full_messages.join
     end
     redirect_to user_path(params[:id])
+  end
+
+  def create_invite
+    if params[:commit] == "Submit"
+      flash[:success] = "Inviation request sent"
+    else
+      flash[:success] = "We'll let you know when Hyve.me is going into public beta."
+    end
+    redirect_to root_path
   end
 
   def index

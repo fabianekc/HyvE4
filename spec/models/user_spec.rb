@@ -13,6 +13,7 @@
 #  password_reset_token   :string(255)
 #  password_reset_sent_at :datetime
 #  password_confirmation  :string(255)
+#  invitecode             :string(255)
 #
 
 require 'spec_helper'
@@ -27,6 +28,7 @@ describe User do
   subject { @user }
 
   it { should respond_to(:name) }
+  it { should respond_to(:invitecode) }
   it { should respond_to(:email) }
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }

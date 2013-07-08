@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130618102315) do
+ActiveRecord::Schema.define(:version => 20130708070032) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(:version => 20130618102315) do
   end
 
   add_index "groups", ["project_id"], :name => "index_groups_on_project_id"
+
+  create_table "invites", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.text     "bio"
+    t.text     "reason"
+    t.boolean  "process"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "rtype"
+  end
 
   create_table "pjattribs", :force => true do |t|
     t.integer  "project_id"
@@ -99,6 +110,7 @@ ActiveRecord::Schema.define(:version => 20130618102315) do
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
     t.string   "password_confirmation"
+    t.string   "invitecode"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

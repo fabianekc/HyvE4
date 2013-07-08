@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: structures
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  group_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  comment    :text
+#
+
 require 'spec_helper'
 
 describe Structure do

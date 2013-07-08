@@ -13,10 +13,11 @@
 #  password_reset_token   :string(255)
 #  password_reset_sent_at :datetime
 #  password_confirmation  :string(255)
+#  invitecode             :string(255)
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :password, :password_confirmation
+  attr_accessible :email, :name, :invitecode, :password, :password_confirmation
   has_secure_password
   has_many :postings, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

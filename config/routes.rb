@@ -1,4 +1,5 @@
 Hyve4::Application.routes.draw do
+  get "invites/new"
 
 scope "(:locale)", :locale => /en|de/ do
 
@@ -8,17 +9,21 @@ scope "(:locale)", :locale => /en|de/ do
       put :create_project
     end
   end
+
   resources :projects do
     member do
       get :category
       put :update_category, :create_group, :update_group, :create_structure, :update_structure, :create_data, :update_email
     end
   end
+
   resources :structures do
     member do
       put :create_data, :update_dataval
     end
   end
+
+  resources :invites,         only: [:create]
   resources :pjattribs
   resources :sessions,        only: [:new, :create, :destroy]
   resources :postings,        only: [:create, :destroy]
@@ -34,6 +39,7 @@ scope "(:locale)", :locale => /en|de/ do
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy'
   match '/email', to: 'static_pages#email'
+  match '/invitation', to: 'static_pages#invitation'
 
 end
 end

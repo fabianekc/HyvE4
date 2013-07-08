@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: datavals
+#
+#  id           :integer          not null, primary key
+#  value        :string(255)
+#  structure_id :integer
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  valdatime    :datetime
+#  comment      :text
+#
+
 require 'spec_helper'
 
 describe Dataval do

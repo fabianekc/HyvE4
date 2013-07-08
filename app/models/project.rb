@@ -11,7 +11,7 @@
 #  hoffen      :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  category    :string(255)
+#  emaildata   :boolean
 #
 
 class Project < ActiveRecord::Base
