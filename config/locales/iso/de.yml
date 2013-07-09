@@ -6,7 +6,7 @@ de:
     writemsg: "Beschreibe dein Projekt"
     collectmsg: "Sammle die Daten"
     comparemsg: "Vergleiche mit anderen"
-    betamsg: "Hyve.me ist derzeit in einer nicht-öffentlichen Testphase. Klicke die grüne Schaltfläche, um eine Einladung zu erhalten!"
+    betamsg: "Hyve.me ist derzeit in einer nicht-öffentlichen Testphase. Klicke den grünen Button und fordere eine Einladung an!"
     invitationbtn: "Einladung anfordern"
     invitationtitle: "Einladung Anfordern"
     invitationtxt: "Bitte schicke uns ein paar Worte über dich und dein Interesse an Hyve.me."
@@ -31,6 +31,12 @@ de:
     statistictitle: "Statistik"
     statistictext: "Bei Hyve.me geht es um Zahlen: Derzeit sind %{usercount} Benutzer registriert die an %{projectcount} Projekten arbeiten. Das ist in %{postingcount} Postings und %{datacount} Datensätzen dokumentiert."
     statisticbtn: "Mehr"
+    welcomeflash: "Willkomen im Hyve!"
+    welcomehint: "Und letzt leg los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Anlegen'."
+
+  project:
+    created: "Projekt angelegt!"
+    createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
 
   layout:
     home: "Start"
@@ -42,6 +48,7 @@ de:
     signout: "Ausloggen"
     signin: "Einloggen"
     imprint: "Impressum"
+    hintlbl: "Hinweis"
 
   will_paginate:
     previous_label: "&#8592; Vorherige"

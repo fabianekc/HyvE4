@@ -32,14 +32,15 @@ scope "(:locale)", :locale => /en|de/ do
 
   root to: 'users#new'
   match "/blog" => redirect("/blog/")
-  match '/imprint', to: 'static_pages#imprint'
-  match '/about', to: 'static_pages#about'
-  match '/tour', to: 'static_pages#tour'
-  match '/signup', to: 'users#new'
-  match '/signin', to: 'sessions#new'
-  match '/signout', to: 'sessions#destroy'
-  match '/email', to: 'static_pages#email'
-  match '/invitation', to: 'static_pages#invitation'
+  match '/imprint',   to: 'static_pages#imprint'
+  match '/about',     to: 'static_pages#about'
+  match '/plans',     to: 'static_pages#plans'
+  match '/statistic', to: 'static_pages#statistic'
+  match '/tour',      to: 'static_pages#tour'
+  match '/signup',    to: 'users#new'
+  match '/signin',    to: 'sessions#new'
+  match '/signout',   to: 'sessions#destroy'
+  match '/email',     to: 'static_pages#email'
 
 end
 end

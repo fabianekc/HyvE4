@@ -1,8 +1,20 @@
     <header class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
-          <%= link_to "Hyve.me<sup><span style='text-transform:lowercase'>&alpha;</span></sup>".html_safe, root_path, id: "logo" %>
           <nav>
+            <ul class="nav">
+              <li id="fat-menu" class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                  <img src="/images/hyveico24.png" alt="Icon"><b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li><%= link_to "About", about_path %></li>
+                  <li><%= link_to "Plans", plans_path %></li>
+                  <li><%= link_to "Statistics", statistic_path %></li>
+                </ul>
+              </li>
+            </ul>
+            <%= link_to "Hyve.me<sup><span style='text-transform:lowercase'>&alpha;</span></sup>".html_safe, root_path, id: "logo", style: "margin-left:-11px;" %>
             <ul class="nav pull-right">
 			<% if signed_in? %>
               <li><%= link_to t('layout.home'), root_path %></li>

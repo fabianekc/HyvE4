@@ -33,7 +33,8 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         sign_in @user
-        flash[:success] = "Welcome to the Hyve!"
+        flash[:success] = t('welcome.welcomeflash')
+        flash[:info] = t('welcome.welcomehint')
         redirect_to root_path
       else
         flash[:error] = "Please fix the following " + pluralize(@user.errors.count, "error") + ": " + @user.errors.full_messages.join(", ")
@@ -54,11 +55,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @newproject=@user.projects.build(name: params['project']['name'], description: params['project']['description'])
     if @newproject.save
-      flash[:success] = "Project created"
+      flash[:success] = t('project.created')
+      flash[:info] = t('project.createdHint')
+      redirect_to project_path(@newproject.id)
     else
       flash[:error] = "Project not created because " + @newproject.errors.full_messages.join
+      redirect_to user_path(params[:id])
     end
-    redirect_to user_path(params[:id])
   end
 
   def create_invite

@@ -176,6 +176,7 @@ describe "User pages" do
       before do
         fill_in "Name",         with: "Example User"
         fill_in "Email",        with: "user@example.com"
+        fill_in "invitecode",   with: ENV['INVITE_CODE']
         fill_in "Password",     with: "foobar"
       end
 

@@ -15,7 +15,7 @@ en:
     signupbtn: "Sign-up only"
     closebtn: "Close"
     submitbtn: "Submit"
-    registermsg: "Register today and match up to available projects:"
+    registermsg: "Register today and match up to other projects:"
     namelbl: "Your Name:"
     emaillbl: "Email:"
     biolbl: "About you:"
@@ -32,6 +32,12 @@ en:
     statistictitle: "Statistics"
     statistictext: "Hyve.me is about numbers: Right now there are %{usercount} users registered, working on %{projectcount} projects. This is documented with %{postingcount} postings and %{datacount} data items."
     statisticbtn: "Read more"
+    welcomeflash: "Welcome to the Hyve!"
+    welcomehint: "Now go ahaead and create your first project: Enter the project name in the input field on the left and click 'Create'."
+
+  project:
+    created: "Project created!"
+    createdHint: "Open the 'Category' panel on the left side and click 'set Categories'. Then similar projects will be listed and you can see what others are tracking."
 
   layout:
     home: "Home"
@@ -43,6 +49,7 @@ en:
     signout: "Sign out"
     signin: "Sign in"
     imprint: "Imprint"
+    hintlbl: "Hint"
 
   will_paginate:
     previous_label: "&#8592; Previous"

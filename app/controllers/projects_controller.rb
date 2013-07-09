@@ -9,7 +9,8 @@ class ProjectsController < ApplicationController
     @postings = current_user.postings
     @feed_items = []
     if @project.save
-      flash[:success] = "Project created!"
+      flash[:success] = t('project.created')
+      flash[:info] = t('project.createdHint')
       redirect_to project_path(@project.id)
     else
       @feed_items = current_user.feed.paginate(page: params[:page])
