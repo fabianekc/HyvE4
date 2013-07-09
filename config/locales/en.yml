@@ -1,7 +1,13 @@
-# Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  general:
+    name: "Name"
+    email: "Email"
+    password: "Password"
+    updatebtn: "Update"
+    closebtn: "Close"
+
   welcome:
     title: "Optimize Your Projects!"
     writemsg: "Describe your project"
@@ -21,6 +27,7 @@ en:
     biolbl: "About you:"
     reasonlbl: "Why do you want to test Hyve.me:"
     invitecodelbl: "Invitation code:"
+    invalidInvitecodemsg: "Your invitation code is invalid!"
     passwordlbl: "Password:"
     createbtn: "Create my account"
     missiontitle: "Mission"
@@ -34,6 +41,15 @@ en:
     statisticbtn: "Read more"
     welcomeflash: "Welcome to the Hyve!"
     welcomehint: "Now go ahaead and create your first project: Enter the project name in the input field on the left and click 'Create'."
+
+  user:
+    edittitle: "Edit User"
+    editheader: "Update Profile"
+    changeGravatar: "change Gravatar"
+    editDelete: "Delete Account"
+    editDeleteConfirm: "You sure?"
+    editSuccessmsg: "Profile updated"
+    editDeleteSuccessmsg: "Account deleted"
 
   project:
     created: "Project created!"

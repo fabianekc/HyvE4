@@ -46,7 +46,7 @@ class UsersController < ApplicationController
         render 'new'
       end
     else
-      flash[:error] = "Your invitation code is invalid!"
+      flash[:error] = t('welcome.invalidInvitecodemsg')
       redirect_to root_path
     end
   end
@@ -81,12 +81,19 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes(params[:user])
-      flash[:success] = "Profile updated"
-      sign_in @user
-      redirect_to @user
+    if params[:commit] == t('general.updatebtn')
+      if @user.update_attributes(params[:user])
+        flash[:success] = t('user.editSuccessmsg')
+        sign_in @user
+        redirect_to @user
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      User.find(params[:id]).destroy
+      sign_out
+      flash[:success] = t('user.editDeleteSuccessmsg')
+      redirect_to root_path
     end
   end
 

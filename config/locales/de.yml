@@ -1,6 +1,13 @@
 # encoding: UTF-8
 
 de:
+  general:
+    name: "Name"
+    email: "Email"
+    password: "Passwort"
+    updatebtn: "Aktualisieren"
+    closebtn: "Schließen"
+
   welcome:
     title: "Optimiere Deine Projekte!"
     writemsg: "Beschreibe dein Projekt"
@@ -20,6 +27,7 @@ de:
     biolbl: "Über dich:"
     reasonlbl: "Deine Motivation Hyve.me zu testen:"
     invitecodelbl: "Einladungscode:"
+    invalidInvitecodemsg: "Der eingegebene Einladungscode ist ungültig!"
     passwordlbl: "Passwort:"
     createbtn: "Registrieren"
     missiontitle: "Mission"
@@ -33,6 +41,15 @@ de:
     statisticbtn: "Mehr"
     welcomeflash: "Willkomen im Hyve!"
     welcomehint: "Und letzt leg los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Anlegen'."
+
+  user:
+    edittitle: "Benutzer ändern"
+    editheader: "Profil bearbeiten"
+    changeGravatar: "Gravatar ändern"
+    editDelete: "Benutzerkonto löschen"
+    editDeleteConfirm: "Bist du sicher?"
+    editSuccessmsg: "Profil aktualisiert"
+    editDeleteSuccessmsg: "Benutzerkonto gelöscht"
 
   project:
     created: "Projekt angelegt!"
