@@ -7,6 +7,7 @@ en:
     password: "Password"
     updatebtn: "Update"
     closebtn: "Close"
+    Confirmmsg: "You sure?"
 
   welcome:
     title: "Optimize Your Projects!"
@@ -21,7 +22,7 @@ en:
     signupbtn: "Sign-up only"
     closebtn: "Close"
     submitbtn: "Submit"
-    registermsg: "Register today and match up to other projects:"
+    registermsg: "Register today and match up to others:"
     namelbl: "Your Name:"
     emaillbl: "Email:"
     biolbl: "About you:"
@@ -47,13 +48,22 @@ en:
     editheader: "Update Profile"
     changeGravatar: "change Gravatar"
     editDelete: "Delete Account"
-    editDeleteConfirm: "You sure?"
     editSuccessmsg: "Profile updated"
     editDeleteSuccessmsg: "Account deleted"
 
   project:
+    name: "Project name"
+    description: "Description"
+    expertise: "Expertise"
+    work: "Work"
+    plans: "Plans"
     created: "Project created!"
     createdHint: "Open the 'Category' panel on the left side and click 'set Categories'. Then similar projects will be listed and you can see what others are tracking."
+    edittitle: "Edit Project"
+    editheader: "Update Project"
+    editDelete: "Delete Project"
+    editSuccessmsg: "Project updated"
+    editDeleteSuccessmsg: "Project deleted"
 
   layout:
     home: "Home"

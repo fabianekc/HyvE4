@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "Static pages" do
 
   describe "Home page" do
-    it "should have the content 'We compare projects'" do
+    it "should have the content 'Mission'" do
       visit root_path
       page.should have_content('Mission')
     end
@@ -48,5 +48,11 @@ describe "Static pages" do
     end
   end
 
+  describe "Statistic page" do
+    it "should have the content 'Statistic'" do
+      visit statistic_path
+      page.should have_content('Statistic')
+    end
+  end
 
 end

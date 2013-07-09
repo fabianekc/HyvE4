@@ -1,28 +1,31 @@
-<% provide(:title, "Edit Project") %>
-<h1 align="center">Edit Project</h1>
+<% provide(:title, t('project.edittitle')) %>
+<h1 align="center"><%= t 'project.editheader' %></h1>
 
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@project) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
 
-      <%= f.label :name %>
+      <%= f.label :name, t('project.name'), :id => "Name" %>
       <%= f.text_field :name %>
 
-      <%= f.label :description %>
+      <%= f.label :description, t('project.description') %>
       <%= f.text_area :description, :rows => "3" %>
 
-      <%= f.label :expertise %>
+      <%= f.label :expertise, t('project.expertise') %>
       <%= f.text_area :wissen, :rows => "3" %>
 	  
-      <%= f.label :work %>
+      <%= f.label :work, t('project.work') %>
       <%= f.text_area :tun, :rows => "3" %>
 	  
-      <%= f.label :plans %>
+      <%= f.label :plans, t('project.plans') %>
       <%= f.text_area :hoffen, :rows => "3" %>
 
-      <%= f.submit "Update", class: "btn btn-large btn-primary" %>
-      <%= link_to "Delete Project", @project, method: :delete, data: {confirm: "You sure?" }, :id => :delete_project, :class => "btn btn-large btn-danger pull-right" %>
+      <hr style="margin-top:0; margin-bottom:10px;">
+
+      <%= f.submit t('project.editDelete'), data: { confirm: t('general.Confirmmsg') }, class: "btn btn-danger", id: "delete_project" %>
+      <%= f.submit t('general.updatebtn'), class: "btn btn-primary pull-right" %>&nbsp;
+      <%= link_to t('general.closebtn'), project_path(params[:id]), class: "btn pull-right", style: "margin-right: 10px;"%>
 
     <% end %>
 

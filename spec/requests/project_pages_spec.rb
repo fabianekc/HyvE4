@@ -77,7 +77,7 @@ describe "Project pages" do
     before { visit edit_project_path(project) }
 
     describe "page" do
-      it { should have_selector('h1',    text: "Edit Project") }
+      it { should have_selector('h1',    text: "Update Project") }
       it { should have_selector('title', text: "Edit Project") }
     end
 
@@ -93,7 +93,7 @@ describe "Project pages" do
     describe "with valid information" do
       let(:new_name) { "New Project" }
       before do
-        fill_in "Name", with: new_name
+        fill_in "Project name", with: new_name
         click_button "Update"
       end
 
@@ -109,9 +109,9 @@ describe "Project pages" do
       visit edit_project_path(project)
       save_page
     end
-    it { should have_link('delete_project') }
+    it { should have_button('delete_project') }
     it "should be able to delete project" do
-      expect { click_link 'delete_project' }.to change(Project, :count).by(-1)
+      expect { click_button 'delete_project' }.to change(Project, :count).by(-1)
     end
   end
 end

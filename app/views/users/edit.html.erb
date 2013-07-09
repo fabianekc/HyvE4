@@ -20,7 +20,7 @@
 
       <hr style="margin-top:40px; margin-bottom:10px;">
 
-      <%= f.submit t('user.editDelete'), data: { confirm: t('user.editDeleteConfirm') }, class: "btn btn-danger" %>
+      <%= f.submit t('user.editDelete'), data: { confirm: t('general.Confirmmsg') }, class: "btn btn-danger" %>
       <%= f.submit t('general.updatebtn'), class: "btn btn-primary pull-right" %>&nbsp;
       <%= link_to t('general.closebtn'), user_path(params[:id]), class: "btn pull-right", style: "margin-right: 10px;"%>
     <% end %>

@@ -1,3 +1,21 @@
-<% provide(:title, 'Statistic') %>
-<h1>Statistic</h1>
-<p>text</p>
+# encoding: UTF-8
+
+<% provide(:title, 'Statistik') %>
+<h1>Statistik</h1>
+<p>Diese Seite ist ein Beispiel für die Datenvisualisierung in Hyve.me und zeigt den wöchtentlichen Anstieg des Datenvolumens.</p>
+<h3>Diagramm</h3>
+<%= high_chart("my_bar_div", @graph) %>
+    <h3>Daten</h3>
+      <table class="table table-striped table-bordered table-condensed">
+        <thead><tr>
+          <th>Woche</th>
+          <th># Datensätze</th>
+        </tr></thead>
+        <% @datavals.each do |d| %>
+          <tr>
+            <td><%= Date.strptime(d[0]).strftime("%F") %></td>
+            <td><%= d[1] %></td>
+          </tr>
+        <% end unless @datavals.nil? %>
+      </table>
+

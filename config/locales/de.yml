@@ -7,13 +7,14 @@ de:
     password: "Passwort"
     updatebtn: "Aktualisieren"
     closebtn: "Schließen"
+    Confirmmsg: "Bist du sicher?"
 
   welcome:
     title: "Optimiere Deine Projekte!"
     writemsg: "Beschreibe dein Projekt"
     collectmsg: "Sammle die Daten"
     comparemsg: "Vergleiche mit anderen"
-    betamsg: "Hyve.me ist derzeit in einer nicht-öffentlichen Testphase. Klicke den grünen Button und fordere eine Einladung an!"
+    betamsg: "Hyve.me ist derzeit in einer nicht-öffentlichen Testphase. Falls du teilnehmen möchtest:"
     invitationbtn: "Einladung anfordern"
     invitationtitle: "Einladung Anfordern"
     invitationtxt: "Bitte schicke uns ein paar Worte über dich und dein Interesse an Hyve.me."
@@ -21,7 +22,7 @@ de:
     signupbtn: "Nur Anmelden"
     closebtn: "Schließen"
     submitbtn: "Abschicken"
-    registermsg: "Registriere dich und lerne von anderen Projekten:"
+    registermsg: "Registriere dich und lerne von anderen:"
     namelbl: "Dein Name:"
     emaillbl: "Email:"
     biolbl: "Über dich:"
@@ -47,13 +48,22 @@ de:
     editheader: "Profil bearbeiten"
     changeGravatar: "Gravatar ändern"
     editDelete: "Benutzerkonto löschen"
-    editDeleteConfirm: "Bist du sicher?"
     editSuccessmsg: "Profil aktualisiert"
     editDeleteSuccessmsg: "Benutzerkonto gelöscht"
 
   project:
+    name: "Projektname"
+    description: "Beschreibungt"
+    expertise: "Wissen"
+    work: "Arbeit"
+    plans: "Pläne"
     created: "Projekt angelegt!"
     createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
+    edittitle: "Projekt ändern"
+    editheader: "Projekt bearbeiten"
+    editDelete: "Projekt löschen"
+    editSuccessmsg: "Projekt aktualisiert"
+    editDeleteSuccessmsg: "Projekt gelöscht"
 
   layout:
     home: "Start"

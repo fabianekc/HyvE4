@@ -1,3 +1,5 @@
+include ActionView::Helpers::TextHelper
+
 class ProjectsController < ApplicationController
   before_filter :signed_in_user
   before_filter :correct_project_user, only: [:edit, :update, :destroy]
@@ -150,11 +152,18 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    if @project.update_attributes(params[:project])
-      flash[:success] = "Project updated"
-      redirect_to @project
+    if params[:commit] == t('general.updatebtn')
+      if @project.update_attributes(params[:project])
+        flash[:success] = t('project.editSuccessmsg')
+        redirect_to @project
+      else
+        render 'edit'
+      end
     else
-      render 'edit'
+      @user = User.find(@project.user_id)
+      @project.destroy
+      flash[:success] = t('project.editDeleteSuccessmsg')
+      redirect_to @user
     end
   end
 
