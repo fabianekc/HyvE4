@@ -4,10 +4,21 @@
     <section>
       <h1>
         <%= @project.name %>
+        <% if current_project_user?(@project) %>
+          <span class="subedit">
+            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_project_path(@project.id), rel: "tooltip", title: "edit project", class: "mylink") %>
+          </span>
+        <% end %>
       </h1>
-      <% if current_project_user?(@project) %>
-        <%= link_to("Edit", edit_project_path(@project.id), :class => "btn btn-primary") %>
-      <% end %>
+
+<script>
+$('h1').hover(function(){
+$(this).children('.subedit').show();
+},function(){
+$(this).children('.subedit').hide();
+});
+</script>
+
     </section>
     <section>
       <%= render 'attributes' %>

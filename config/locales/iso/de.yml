@@ -46,6 +46,7 @@ de:
   user:
     edittitle: "Benutzer ändern"
     editheader: "Profil bearbeiten"
+    biolbl: "Über dich"
     changeGravatar: "Gravatar ändern"
     editDelete: "Benutzerkonto löschen"
     editSuccessmsg: "Profil aktualisiert"

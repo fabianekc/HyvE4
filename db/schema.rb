@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708070032) do
+ActiveRecord::Schema.define(:version => 20130710122559) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20130708070032) do
     t.datetime "password_reset_sent_at"
     t.string   "password_confirmation"
     t.string   "invitecode"
+    t.text     "bio"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

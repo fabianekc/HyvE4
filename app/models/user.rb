@@ -17,7 +17,7 @@
 #
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :name, :invitecode, :password, :password_confirmation
+  attr_accessible :email, :name, :invitecode, :password, :password_confirmation, :bio
   has_secure_password
   has_many :postings, dependent: :destroy
   has_many :relationships, foreign_key: "follower_id", dependent: :destroy

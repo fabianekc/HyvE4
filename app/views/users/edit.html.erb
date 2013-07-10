@@ -15,6 +15,9 @@
       <%= f.label :password, t('general.password') %>
       <%= f.password_field :password %>
 
+      <%= f.label :bio, t('user.biolbl') %>
+      <%= f.text_area :bio, :rows => "3" %>
+
       <%= gravatar_for @user %>
       <a href="http://gravatar.com/emails"><%= t 'user.changeGravatar' %></a>
 

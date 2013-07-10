@@ -46,6 +46,7 @@ en:
   user:
     edittitle: "Edit User"
     editheader: "Update Profile"
+    biolbl: "About you"
     changeGravatar: "change Gravatar"
     editDelete: "Delete Account"
     editSuccessmsg: "Profile updated"

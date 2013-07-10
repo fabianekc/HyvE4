@@ -41,6 +41,7 @@ scope "(:locale)", :locale => /en|de/ do
   match '/signin',    to: 'sessions#new'
   match '/signout',   to: 'sessions#destroy'
   match '/email',     to: 'static_pages#email'
+  match '/privacy',   to: 'static_pages#privacy'
 
 end
 end
