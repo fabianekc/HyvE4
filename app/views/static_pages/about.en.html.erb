@@ -1,21 +1,29 @@
 <% provide(:title, 'About') %>
 <h1>About</h1>
 <h3>Preambel</h3>
-<p><img align="right" src="/images/bigdata.jpg" width="200" alt="Big Data">The Internet enables corporations to gather huge amounts of your data to tailor ads, news, and search results. This is commonly referred to as 'Big Data' and was for some time only accessible to large companies like Google, Amazon, or Facebook. However, it is your right to access and use this data for your own benefit!</p>
+<p class="myfloat"><img align="right" src="/images/bigdata.jpg" width="200" alt="Big Data">The internet enables corporations to gather huge amounts of everyones data to tailor ads, news, and search results. This is commonly referred to as 'Big Data' and was for some time only accessible to large companies like Google, Amazon, or Facebook. However, it is your right to access and use this data for your own benefit!</p>
 <p>&nbsp;</p>
-<h3>Challenges</h3>
-<p>There are a number of challenges to deal with when working on Big Data for individuals:</p>
+
+<h3>Mission</h3>
+<p class="myfloat">Hyve.me challenges todays assumption that it requires a group of experts and lots of money to make sense out of data: Algorithms are deemed to be too complex for everydays use and results were seen as to ambiguous to be interpreted by untrained users.<br>
+Nevertheless, we have broken down the process of data analysis and tackle now all questions relevant for individuals using Big Data.</p>
+<p>To stay on course in this big endeavor we have put down some guiding principles - or anchors as we call them - in the following order:</p>
+<ol>
+  <li><strong>Simplicity:</strong> Big Data by its nature is a complex beast. To unleash its power to individuals we take all measures to make it as simple as possible - but not simpler.</li>
+  <li><strong>Privacy:</strong> We are post-Wikileaks and post-Prism and you shouldn't trust anyone about data security but yourself. Therefore, we provide an innovative approach to give you the option of managing your data also locally on your computer: Neither Hyve.me nor anyone else will ever see your data or insight you gain from it.</li>
+  <li><strong>Openess:</strong> To live up to our values we release all our software under an open source license, make interfaces documentation and data structures freely available, and work closely with the community to address any issues in a timely manner.</li>
+</ol>
+<p>&nbsp;</p>
+
+<h3>Features</h3>
+<p>Here is a list of currently available features - as of version 0.4.130715:</p>
 <ul>
-  <li><strong>Relevance:</strong> What data is significant and provides valuable insight?<br>
-Hyve.me automatically shows similar projects and you can check what data is collected by others.<br><br></li>
-  <li><strong>Source:</strong> Where does the relevant data come from and how to get it?<br>One of the goals is to automatically import all your data that is stored by 3rd parties about you. Currently, Hyve.me focuses on the Austrian market and legislation about information privacy (only available in German: <a href="http://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001597">Datenschutzgesetz 2000</a>, &sect;26 Auskunftsrecht)<br><br></li>
-  <li><strong>Import:</strong> How to import the data that is available out there?<br>A lot of the data you get from companies is made available only on paper. Hyve.me provides best practices, tutorials, and tools to import this data.<br><br></li>
-  <li><strong>Storage:</strong> Where and how to store your data securly?<br>
-For now, all your data is stored using <a href="http://aws.amazon.com">Amazon Web Services</a>. In the near future you will be able to choose your storage provider.<br>It is also planned to provide the option for storing your data only locally on your PC and all processing will run locally. (Hyve.me is then only the place to get the necessary tools.)<br><br></li>
-  <li><strong>Algorithms:</strong> How to process the data?<br>
-While Hyve.me will provide a basic set of analysis tools, it will also provide an open market for algorithms. There, data analysis experts can upload various implementations for specific fields, and users can choose from the available offerings.<br><br></li>
-  <li><strong>Visualization:</strong> How to interprete raw data and results of processed data?<br>
-As with algorithms there is a basic set of graphical representation of your data available on Hyve.me. For more sophisticated visualization the open market will bring together visualization experts and users.<br><br></li>
-  <li><strong>Management:</strong> How to assess the value of data in case you want to buy, sell or trade data?<br>Finally, it is the goal of Hyve.me to provide a platform for trading data. Even if you don't plan to sell some of your data, this is the place to find the market value of the information you possess.<br><br></li>
+  <li>User management</li>
+  <li>News feed with updates about people you follow</li>
+  <li>Data storage for project data</li>
+  <li>Data collection via email</li>
+  <li>Listing of similar projects</li>
 </ul>
-<p>And now <%= link_to "take a tour", tour_path %> to get a demonstration of the available features or use the Feedback link below to get in contact with us.</p>
+<p>List of previous releases and scope: <%= link_to("Change Log", changelog_path) %><br>
+And finally, you may also want to have a foresight about what to expect in upcoming releases when using Hyve.me: <%= link_to("Plans", plans_path) %></p>
+

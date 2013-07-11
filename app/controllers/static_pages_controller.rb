@@ -1,16 +1,4 @@
 class StaticPagesController < ApplicationController
-  def imprint
-  end
-
-  def about
-  end
-
-  def plans
-  end
-
-  def tour
-  end
-
   def statistic
     @datavals = Dataval.group("DATE_TRUNC('week', valdatime)").count.sort
     a=[]

@@ -67,6 +67,10 @@ class User < ActiveRecord::Base
     UserMailer.password_reset(self).deliver
   end
 
+  def send_welcome
+    UserMailer.welcome(self).deliver
+  end
+
   private
 
     def create_remember_token

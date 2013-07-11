@@ -43,6 +43,22 @@ en:
     welcomeflash: "Welcome to the Hyve!"
     welcomehint: "Now go ahaead and create your first project: Enter the project name in the input field on the left and click 'Create'."
 
+  signin:
+    title: "Sign in"
+    header: "Sign in"
+    rememberme: "Remember me"
+    signinbtn: "Sign in"
+    forgotpassword: "Forgot your password?"
+    newuserlbl: "New user?"
+    newuserlink: "Sign up now!"
+    resettitle: "Reset Password"
+    resetheader: "Reset Password"
+    resetbtn: "Reset Password"
+    resetSuccessmsg: "Email sent with password reset instructions."
+    invalidToken: "Invalid / expired password reset token!"
+    expiredToken: "Password reset has expired - please perform another password reset and answer within 2 hours."
+    resetPerformedmsg: "Password has been reset successfully."
+
   user:
     edittitle: "Edit User"
     editheader: "Update Profile"
@@ -51,6 +67,12 @@ en:
     editDelete: "Delete Account"
     editSuccessmsg: "Profile updated"
     editDeleteSuccessmsg: "Account deleted"
+
+  user_mailer:
+    welcome:
+      subject: "[Hyve.me]: Welcome to Hyve.me"
+    password_reset:
+      subject: "[Hyve.me]: Password Reset"
 
   project:
     name: "Project name"
@@ -67,6 +89,9 @@ en:
     editDeleteSuccessmsg: "Project deleted"
 
   layout:
+    about: "About"
+    plans: "Plans"
+    statistic: "Statistic"
     home: "Home"
     users: "Users"
     projects: "Projects"

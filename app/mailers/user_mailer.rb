@@ -6,9 +6,14 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.password_reset.subject
   #
+  def welcome(user)
+    @user = user
+    mail :to => user.email
+  end
+
   def password_reset(user)
     @user = user
-    mail :to => user.email, :subject => "[Hyve.me]: Password Reset"
-
+    mail :to => user.email
   end
+
 end

@@ -43,6 +43,22 @@ de:
     welcomeflash: "Willkomen im Hyve!"
     welcomehint: "Und letzt leg los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Anlegen'."
 
+  signin:
+    title: "Einloggen"
+    header: "Anmeldung"
+    rememberme: "Angemeldet bleiben"
+    signinbtn: "Einloggen"
+    forgotpassword: "Passwort vergessen?"
+    newuserlbl: "Neu hier?"
+    newuserlink: "Registriere dich jetzt!"
+    resettitle: "Passwort zurücksetzen"
+    resetheader: "Passwort zurücksetzen"
+    resetbtn: "Passwort zurücksetzen"
+    resetSuccessmsg: "Ein Email mit Anleitung zum Zurücksetzen des Passworts wurde verschickt."
+    invalidToken: "Ungültiger bzw. abgelaufener Reset-Token!"
+    expiredToken: "Abgelaufener Reset-Token - bitte führen sie den Passwort-Reset erneut durch und antworten sie innerhalb von 2 Stunden."
+    resetPerformedmsg: "Das Passwort wurde erfolgreich zurückgesetzt."
+
   user:
     edittitle: "Benutzer ändern"
     editheader: "Profil bearbeiten"
@@ -51,6 +67,12 @@ de:
     editDelete: "Benutzerkonto löschen"
     editSuccessmsg: "Profil aktualisiert"
     editDeleteSuccessmsg: "Benutzerkonto gelöscht"
+
+  user_mailer:
+    welcome:
+      subject: "[Hyve.me]: Willommen bei Hyve.me"
+    password_reset:
+      subject: "[Hyve.me]: Passwort zurücksetzen"
 
   project:
     name: "Projektname"
@@ -67,6 +89,9 @@ de:
     editDeleteSuccessmsg: "Projekt gelöscht"
 
   layout:
+    about: "Über Hyve.me"
+    plans: "Pläne"
+    statistic: "Statistik"
     home: "Start"
     users: "Benutzer"
     projects: "Projekte"

@@ -1,0 +1,30 @@
+# encoding: UTF-8
+
+<% provide(:title, 'Über Hyve.me') %>
+<h1>Über Hyve.me</h1>
+<h3>Einleitung</h3>
+<p class="myfloat"><img align="right" src="/images/bigdata.jpg" width="200" alt="Big Data">Das Internet ermöglicht großen Firmen riesige Datenmengen über jeden Einzelnen zu sammeln, und so gezielt Werbung, Nachrichten und Suchergebnisse anzubieten. Die dafür zugrundeliegenden Techniken werden oft unter dem Begriff 'Big Data' zusammengefasst und waren bisher Unternehmen wir Google, Amazon oder Facebook vorbehalten. Es ist aber dein Recht auf diese Daten zuzugreifen und sie zu deinem Nutzen auszuwerten!</p>
+<p>&nbsp;</p>
+
+<h3>Mission</h3>
+<p class="myfloat">Hyve.me stellt die allgemein akzeptierte Vorstellung in Frage, dass zur sinnvollen Auswertung von großen Datenmengen ein Team von Computerexperten und genügend Geld zur Verfügung stehen muss. (Algorithmen werden als zu komplex und Ergebnisse als zu vieldeutig interpretiert, als dass sie von nicht speziell geschultem Personen angewendet werden könnten.) Diese Vorurteile wollen wir aus der Welt schaffen, und daher haben wir zuerst den Prozess der Datenanalyse in überschaubare Schritte gegliedert und dann damit begonnen, die sich daraus ergebenden Fragen zu lösen.</p>
+<p>Um bei dieseem schwierigen Unterfangen unser Ziel konsequent zu verolgen, haben wir folgende Richtlinien für uns festgehalten:</p>
+<ol>
+  <li><strong>Einfachheit:</strong> Big Data ist von Natur aus eine komplexe Angelegenheit. Um aber das Potenzial und die Möglichkeiten Einzelnen zugänglich zu machen, werden wir alles unternehmen, um dies so einfach wie möglich zu gestalten - aber nicht einfacher.</p>
+  <li><strong>Privatsphäre:</strong> Wie leben in einer Zeit nach Wikileaks und Prism, und daher sollte niemand irgendjemanden außer sich selbst vertrauen, wenn es um Datensicherheit geht. Daher haben wir uns für einen innovativen Ansatz entschieden, und bieten alle Funktionen zum Sammeln, Speichern und Verarbeiten von Daten auch als lokale Version an: Damit sieht weder Hyve.me noch irgend jemand andere deine Daten und was du damit machst.</li>
+  <li><strong>Offenheit:</strong> Um unseren Werten treu zu bleiben, veröffentlichen wir den Quelltext unserer Software unter einer Open Source Lizenz, machen Schnittstellen- und Datenstrukturdokumentation frei zugänglich und arbeiten eng zusammen mit der Community, um offene Fragen rasch zu klären.</li>
+</ol>
+<p>&nbsp;</p>
+
+<h3>Funktionsumfang</h3>
+<p>Hier ist eine Liste der aktuell verfügbaren Funktionen in Version 0.4.130715:</p>
+<ul>
+  <li>Benutzerverwaltung</li>
+  <li>Neuigkeiten von Personen denen du folgst</li>
+  <li>Speicherung von Projektdaten</li>
+  <li>Datensammlung via Email</li>
+  <li>Liste ähnlicher Projekte</li>
+</ul>
+<p>Frühere Versionen und deren Umfang: <%= link_to("Change Log", changelog_path) %><br>
+Und schließlich, hier auch ein Ausblick auf zukünftige Versionen: <%= link_to("Pläne", plans_path) %></p>
+
