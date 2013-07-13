@@ -1,0 +1,32 @@
+# encoding: UTF-8
+
+<% provide(:title, 'Pläne') %>
+<h1>Unsere Pläne</h1>
+<p class="myfloat">Diese Seite gibt eine Ausblick auf die Entwicklung von Hybe.me. Natürlich wird sich dieser Plan mit der Zeit ändern, aber wir laden dich ein, uns jetzt schon über den Feedback Link am Ende der Seite deine Fragen und Anregungen mitzuteilen!</p>
+<p>&nbsp;</p>
+<h3>Herausforderungen</h3>
+<p class="myfloat">Um Big Data einer breiten Masse zur Verfügung zu stellen, müssen vorher eine Reihe von Problemen gelöst werden. Bei Hyve.me werden wir an folgenden Themen arbeiten, von denen wir glauben, dass sie den Schlüssel zum Erfolg darstellen:</p>
+<ul>
+  <li><strong>Relevanz:</strong>Welche Daten sind relevant und geben Aufschluß zur gegebenen Problemstellung?<br>
+Hyve.me zeigt automatisch eine Liste ähnlicher Projekte an und du kannst als Startpunkt jene Attribute verwenden die auch schon andere Projekte erfolgreich einsetzen.<br><br></li>
+
+  <li><strong>Datenherkunft:</strong> Woher bekommt man diese Daten und wie importiert man sie?<br>
+Das Ziel von Hyve.me ist einen automatischen Datenimport für bereits gespeicherte Daten anzubieten. Derzeit können Daten über diese Webseite oder über ein <%= link_to("Emailservice", email_path) %> erfasst werden.<br><br></li>
+
+  <li><strong>Speicherung:</strong> Wo und wie können Daten sicher abgelegt werden?<br>
+Derzeit verwendet Hyve.me zum Speichern aller Daten die <a href="http://aws.amazon.com/">Amazon Web Services</a>. Bald wird es möglich sein, dass du aber alternative Online-Anbieter auswählen kannst. Und schließlich soll es die Möglichkeit geben, dass jeder seine/ihre Daten am eigenen Computer ablegt.<br><br></li>
+
+  <li><strong>Sicherheit:</strong> Wer kann meine Daten sehen?<br>
+Das geplante Konzept von Hyve.me für Datensicherheit sieht ein fein-granulares Zugriffsrechte-Schema vor. Aktuell ist der Zugriff so konfiguriert, dass Attribute von Projekten allgemein sichtbar sind, aber die Daten selbst nur für den Besitzer verfügbar sind. D.h., andere sehen welche Daten du sammelst (z.B., Gasverbrauch pro Monat oder Kilometer gelaufen pro Tag), aber nicht die Werte selbst.<br><br></li>
+
+  <li><strong>Vergleiche:</strong> Ist es möglich Daten mit anderen zu vergleichen, und trotzdem seine Privatsphäre zu schützen?<br>
+Hyve.me schlägt eine Architektur und ein zugehöriges Protokoll zum sicheren Datenaustausch zwischen Gruppen von Benutzern vor. Dies ermöglicht statistische Analysen, ohne die eigenen Daten anderen preisgeben zu müssen.<br><br></li>
+
+  <li><strong>Algorithmen:</strong> Wie kann ich meine Daten verarbeiten, um daraus neue Kenntnisse zu gewinnden?<br>
+Hyve.me bietet ein Set an einfachen Analyse-Tools für deine Daten. Darüber hinaus wird es auch einen Markt (vergleichbar mit einem App-Store) geben, in dem Experten eigene Algorithem anbieten können. Jeder Benutzer kann sich so maßgeschneiderte Werkzeuge für seine Daten zusammenstellen.<br><br></li>
+
+  <li><strong>Visualisierung:</strong> Wie können die Roh-Daten und auch Analyse-Ergebnisse interpretiert werden?<br>
+Genauso wie bei Alogrithmen gibt es einfache grafische Darstellungen der Daten direkt bei Hyve.me. Und ebenfalls wird es die Möglichkeit für Visualisierungs-Experten im Markt geben ihre Erweiterungen anzubieten<br><br></li>
+
+  <li><strong>Management:</strong> Wie kann ich den Wert von Daten bestimmen, falls ich Daten einkaufen, tauschen oder vekaufen möchte?<br>
+Das eigentliche Ziel von Hyve.me ist es, Benutzern den Wert ihrer Daten konkret vor Augen zu führen. Derzeit werden oft dubiose Geschäfte mit privaten Daten durchgeführt und es ist nicht möglich, den dadurch entstanden Schaden zu beziffern. Durch die Etablierung eines Markts, auf dem Daten gehandelt werden können, wird es möglich sein durch Angbot und Nachfrage einen Wert für Daten zu bestimmen.</li>

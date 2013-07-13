@@ -1,6 +1,6 @@
 <footer class="footer">
   <small>
-    <%= link_to_unless I18n.locale == :en, "English", locale: :en %> | <%= link_to_unless I18n.locale == :de, "Deutsch", locale: :de %> 
+    <%= link_to_unless I18n.locale == :en, "English", params.merge(locale: "en") %> | <%= link_to_unless I18n.locale == :de, "Deutsch", params.merge(locale: "de") %> 
   </small>
   <nav class="pull-right" style="margin-bottom: -20px;">
     <ul>

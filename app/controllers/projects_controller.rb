@@ -48,11 +48,11 @@ class ProjectsController < ApplicationController
   def update_category
     @pjattrib = Pjattrib.where("project_id = " + params[:id].to_s + " AND attrtype = " + params[:page].to_s).first
     if @pjattrib.update_attributes(params[:pjattrib])
-      if params[:commit] == 'Next'
+      if params[:commit] == t('project.categoryNext')
         redirect_to :action => 'category', :page => params[:page].to_i + 1
-      elsif params[:commit] == 'Previous'
+      elsif params[:commit] == t('project.categoryPrev')
         redirect_to :action => 'category', :page => params[:page].to_i - 1
-      else params[:commit] == 'Finished'
+      else params[:commit] == t('project.categoryFinish')
         @project = Project.find(params[:id])
         redirect_to project_path(@project)
       end

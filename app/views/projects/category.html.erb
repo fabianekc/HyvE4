@@ -1,6 +1,5 @@
 <% pagestr = categorytypes(params[:page].to_i-1)
-   pagetext = pagestr.downcase
-   shortstr = pagetext.split(' ')[0]
+   imgstr = categoryimg(params[:page].to_i-1)
    optionarray = categoryoptions(params[:page]) %>
 <script>
   $(function() {
@@ -20,14 +19,14 @@
     $("#attrvaluetxt").val(ary[$("#slider").slider("value")-1]);
   });
 </script>
-<% provide(:title, "Category (" + pagestr + ") | " + @project.name) %>
-<h1 align = "center"><%= @project.name + ": " + pagestr %></h1>
+<% provide(:title, t('project.categoryTitle') + " (" + pagestr + ") | " + @project.name) %>
+<h1 align = "center"><%= @project.name + ": " + pagestr + " (" + params[:page] + " / 7)" %></h1>
 <div class="row">
   <div class="row">
   <div class="span7 offset3">
     <p align="center">
     <form class="form-inline">
-      <label class="checkbox">Drag the slider to specify your projects <%= pagetext %>: </label>
+      <label class="checkbox"><%= t 'project.categoryText' %> '<%= pagestr %>': </label>
       <input type="text" readonly="readonly" class="input-medium" id="attrvaluetxt" style="background-color: white !important; font-color: black !important; border: 0 !important; outline: none !important; box-shadow: none !important; -webkit-box-shadow: none !important;" />
     </form>
     </p>
@@ -40,35 +39,35 @@
       <div id="slider"></div>
       <p>&nbsp;</p>
       <div class="row"><div class="span3">
-          <a href="javascript:void(0)" id="lower" onclick="if ($('#slider').slider('option','value')-1>0) {$('#slider').slider('option','value',$('#slider').slider('option','value')-1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img src="/images/<%= shortstr %>1a.png" width="200" height="200"></a>
+          <a href="javascript:void(0)" id="lower" onclick="if ($('#slider').slider('option','value')-1>0) {$('#slider').slider('option','value',$('#slider').slider('option','value')-1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img src="/images/<%= imgstr %>1a.png" width="200" height="200"></a>
       </div>
       <div class="span3">
-          <a href="javascript:void(0)" id="higher" onclick="if ($('#slider').slider('option','value')+1<8) {$('#slider').slider('option','value',$('#slider').slider('option','value')+1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img align="right" src="/images/<%= shortstr %>2a.png"  width="200" height="200"></a>
+          <a href="javascript:void(0)" id="higher" onclick="if ($('#slider').slider('option','value')+1<8) {$('#slider').slider('option','value',$('#slider').slider('option','value')+1); document.getElementById('attrvaluetxt').value = [<% for i in optionarray %>'<%= i %>', <% end %>][$('#slider').slider('option','value')-1]; document.getElementById('pjattrib_attrvalue').value = $('#slider').slider('option','value');}"><img align="right" src="/images/<%= imgstr %>2a.png"  width="200" height="200"></a>
       </div></div>
       <div class="row"><div class="span6">
-        <p class="text-center"><small>(click on the images to move the slider left/right if you are on a mobile device)</small></p>
+        <p class="text-center"><small><%= t 'project.categoryDesc' %></small></p>
       </div></div>
     </div>
    </div>
    <div class="row">
     <div class="span6 offset3">
       <% if params[:page].to_i-1 > 0 %>
-        <%= f.submit "Previous", :class => "btn btn-info btn-large pull-left", :id => "Previous" %>
+        <%= f.submit t('project.categoryPrev'), :class => "btn btn-info btn-large pull-left", :id => "Previous" %>
       <% end %>
       <% if params[:page].to_i+1 < 8 %>
-        <%= f.submit "Next", :class => "btn btn-info btn-large pull-right", :id => "Next" %>
+        <%= f.submit t('project.categoryNext'), :class => "btn btn-info btn-large pull-right", :id => "Next" %>
       <% else %>
-        <%= f.submit "Finished", :class => "btn btn-info btn-large pull-right" %>
+        <%= f.submit t('project.categoryFinish'), :class => "btn btn-info btn-large pull-right" %>
       <% end %>
     </div>
    </div>
    <div class="row">
     <div class="span6 offset3">
       <p>&nbsp;</p>
-      <p><strong>other actions:</strong>
+      <p><strong><%= t 'project.categoryOther' %></strong>
         <ul>
-          <li><%= link_to 'save and back to project page', "#", :onclick=>"$('.search_form').submit()", :id => 'save_close' %></li>
-          <li><%= link_to "cancel and back to project page", project_path(params[:id]), :id => 'cancel_categories' %></li>
+          <li><%= link_to t('project.categorySave'), "#", :onclick=>"$('.search_form').submit()", :id => 'save_close' %></li>
+          <li><%= link_to t('project.categoryCancel'), project_path(params[:id]), :id => 'cancel_categories' %></li>
         </ul>
      </p> 
    </div>

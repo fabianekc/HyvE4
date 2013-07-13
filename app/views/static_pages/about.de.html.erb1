@@ -25,6 +25,6 @@
   <li>Datensammlung via Email</li>
   <li>Liste ähnlicher Projekte</li>
 </ul>
-<p>Frühere Versionen und deren Umfang: <%= link_to("Change Log", changelog_path) %><br>
+<p>Frühere Versionen und deren Umfang: <%= link_to("Change Log", changelog_path) %> (nur in englischer Sprache verfügbar)<br>
 Und schließlich, hier auch ein Ausblick auf zukünftige Versionen: <%= link_to("Pläne", plans_path) %></p>
 
