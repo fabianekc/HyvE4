@@ -67,6 +67,19 @@ de:
     editDelete: "Benutzerkonto löschen"
     editSuccessmsg: "Profil aktualisiert"
     editDeleteSuccessmsg: "Benutzerkonto gelöscht"
+    followinglbl: "folgst du"
+    followerlbl: "folgen dir"
+    edittooltip: "Benutzer bearbeiten"
+    vierprofilelink: "Profil öffnen"
+    postinglbl: "Beiträge"
+    projectheader: "Projekte"
+    newprojectHint: "Name des neuen Projekts"
+    newprojectBtn: "Erstellen"
+    postingfeedheader: "Aktuelle Beiträge"
+    composepostingHint: "neuen Beitrag erstellen ..."
+    composepostingBtn: "Veröffentlichen"
+    postedlbl1: "veröffentlich vor"
+    postedlbl2: ""
 
   user_mailer:
     welcome:

@@ -5,7 +5,7 @@
   </span>
   <span class="content"><%= wrap(feed_item.content) %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+    <%= t('user.postedlbl1') %> <%= time_ago_in_words(feed_item.created_at) %><%= t('user.postedlbl2') %>.
   </span>
   <% if current_user?(feed_item.user) %>
     <%= link_to "delete", feed_item, method: :delete,

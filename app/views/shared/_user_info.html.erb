@@ -4,7 +4,7 @@
 <h1 id="usertitle">
   <%= current_user.name %>
   <span class="subedit">
-    <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user), :id => "user_hover_edit") %>
+    <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user), :id => "user_hover_edit", :rel => "tooltip", :title => t('user.edittooltip'), :class => "mylink") %>
   </span>
 </h1>
 
@@ -16,9 +16,13 @@ $(this).children('.subedit').hide();
 });
 </script>
 
+<script>
+$('.mylink').tooltip({ selector: "a" });
+</script>
+
 <span>
-  <%= link_to "view my profile", current_user %>
+  <%= link_to t('user.vierprofilelink'), current_user %>
 </span>
 <span>
-  <%= pluralize(current_user.postings.count, "posting") %>
+  <%= current_user.postings.count %> <%= t('user.postinglbl') %>
 </span>

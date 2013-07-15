@@ -1,7 +1,7 @@
 <%= form_for(@posting, :url => { :controller => 'postings', :action => 'create' }) do |p| %>
   <%= render 'shared/error_messages', object: p.object %>
   <div class="field">
-    <%= p.text_area :content, placeholder: "Compose new posting...", :rows => "2" %>
+    <%= p.text_area :content, placeholder: t('user.composepostingHint'), :rows => "2" %>
   </div>
-  <%= p.submit "Post", id: "create_posting", class: "btn btn-large btn-primary pull-right" %>
+  <%= p.submit t('user.composepostingBtn'), id: "create_posting", class: "btn btn-large btn-primary pull-right" %>
 <% end %>

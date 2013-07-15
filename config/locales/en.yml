@@ -67,6 +67,19 @@ en:
     editDelete: "Delete Account"
     editSuccessmsg: "Profile updated"
     editDeleteSuccessmsg: "Account deleted"
+    followinglbl: "following"
+    followerlbl: "followers"
+    edittooltip: "edit user"
+    vierprofilelink: "view my profile"
+    postinglbl: "postings"
+    projectheader: "Projects"
+    newprojectHint: "new project name"
+    newprojectBtn: "Create"
+    postingfeedheader: "Posting Feed"
+    composepostingHint: "Compose new posting..."
+    composepostingBtn: "Post"
+    postedlbl1: "Posted"
+    postedlbl2: " ago"
 
   user_mailer:
     welcome:
