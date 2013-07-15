@@ -1,25 +1,3 @@
-<% if current_project_user?(@project) %>
-  <section>
-    <%= form_for(@project, :url => { :action => 'update_email' }, :html => { :id => 'email_switch', :style => 'margin-bottom:-8px;' }, remote: true ) do |f| %>
-      <label>Data collection via email<sup><%= link_to "?", email_path %></sup>: <%= f.check_box :emaildata, :class => "ios-switch" %></label>
-    <% end %>
-  </section>
-<script>
-$('#email_switch').change(function(){
-   $('#email_switch').submit();
-});
-</script>
-<script>
-var switches = document.querySelectorAll('input[type="checkbox"].ios-switch');
-
-for (var i=0, sw; sw = switches[i++]; ) {
-	var div = document.createElement('div');
-	div.className = 'switch';
-	sw.parentNode.insertBefore(div, sw.nextSibling);
-}
-</script>
-<% end %>
-<section>
 <ul class="groups unstyled">
 <% @groups.each do |group| %>
   <li><strong><%= group.name %></strong>
@@ -49,7 +27,7 @@ for (var i=0, sw; sw = switches[i++]; ) {
     <li><a href="#groupNew" role="button" data-toggle="modal"><strong>New Group</strong></a></li>
   <% end %>
 </ul>
-<p class="pull-right" style="margin-bottom:-10px;"><small><%= link_to "privacy settings", privacy_path %></small></p>
+<p class="pull-right"><small><%= link_to "privacy settings", privacy_path %></small></p>
 <script>
 $('li').hover(function(){
 $(this).children('.subedit').show();
@@ -205,4 +183,3 @@ $('.mylink').tooltip({ selector: "a" });
     </div>
   </div>
 <% end %>
-</section>

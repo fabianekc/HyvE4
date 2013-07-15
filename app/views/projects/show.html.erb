@@ -39,6 +39,7 @@ $(this).children('.subedit').hide();
 
 	<ul id="projectTab" class="nav nav-tabs">
 	  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
+	  <li><a href="#tracking" data-toggle="tab">Tracking</a></li>
 	</ul>
 	<div id="projectTabContent" class="tab-content">
 	  <div class="tab-pane fade in active" id="general">
@@ -46,21 +47,24 @@ $(this).children('.subedit').hide();
             <p<strong:>Owner:</strong> <%= link_to @user.name, user_path(@user) %></p>
 	    <h5>Description</h5>
             <span class="content"><%= @project.description %></span>
-		
+
             <% if @project.wissen and @project.wissen.length > 0 %>
               <h5>Expertise <small>(What can I know?)</small></h5>
 	      <span class="content"><%= @project.wissen %></span>
 	    <% end %>
-		
+
 		<% if @project.tun and @project.tun.length > 0 %>
 		  <h5>Work<small> (What ought I do?)</small></h5>
 		  <span class="content"><%= @project.tun %></span>
 		<% end %>
-		
+
 		<% if @project.hoffen and @project.hoffen.length > 0 %>
 		  <h5>Plans<small> (What may I hope?)</small></h5>
 		  <span class="content"><%= @project.hoffen %></span>
 		<% end %>
+	  </div>
+	  <div class="tab-pane fade" id="tracking">
+            <%= render 'trackinglist' %>
 	  </div>
 	</div>
 

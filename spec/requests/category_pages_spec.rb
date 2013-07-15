@@ -36,8 +36,8 @@ describe "Project categories" do
     it { should_not have_selector('title', text: "Category") }
     it { should have_selector('title', text: project.name) }
     it { should have_content('Team Size') }
-    it { should have_content('Age') }
-    it { should_not have_link "set Categories" }
+    it { should have_content('Duration') }
+    it { should_not have_link('set Categories') }
   end
 
   describe "similar projects" do
@@ -65,7 +65,7 @@ describe "Project categories" do
       before do
         click_button "Next"
       end
-      it { should have_selector('title', text: "Category (Age) | " +  project.name) }
+      it { should have_selector('title', text: "Category (Duration) | " +  project.name) }
     end
 
     describe "previous page" do

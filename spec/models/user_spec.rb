@@ -14,6 +14,7 @@
 #  password_reset_sent_at :datetime
 #  password_confirmation  :string(255)
 #  invitecode             :string(255)
+#  bio                    :text
 #
 
 require 'spec_helper'

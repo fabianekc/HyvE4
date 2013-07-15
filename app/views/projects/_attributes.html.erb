@@ -11,16 +11,18 @@
       </div>
     </div>
   </div>
+<% if current_project_user?(@project) %>
   <div class="accordion-group">
     <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#pjattrib" href="#tracking">
-        Tracking
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#pjattrib" href="#settings">
+        Settings
       </a>
     </div>
-    <div id="tracking" class="accordion-body collapse">
+    <div id="settings" class="accordion-body collapse">
       <div class="accordion-inner">
-        <%= render 'trackinglist' %>
+        <%= render 'settings' %>
       </div>
     </div>
   </div>
+<% end %>
 </div>

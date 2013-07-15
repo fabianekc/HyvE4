@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: invites
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  email      :string(255)
+#  bio        :text
+#  reason     :text
+#  process    :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  rtype      :string(255)
+#
+
 require 'spec_helper'
 
 describe Invite do
