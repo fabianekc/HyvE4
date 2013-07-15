@@ -5,8 +5,10 @@ de:
     name: "Name"
     email: "Email"
     password: "Passwort"
+    createbtn: "Erstellen"
     updatebtn: "Aktualisieren"
     closebtn: "Schließen"
+    deletetxt: "löschen"
     Confirmmsg: "Bist du sicher?"
 
   welcome:
@@ -78,8 +80,10 @@ de:
     postingfeedheader: "Aktuelle Beiträge"
     composepostingHint: "neuen Beitrag erstellen ..."
     composepostingBtn: "Veröffentlichen"
-    postedlbl1: "veröffentlich vor"
+    postedlbl1: "Veröffentlich vor"
     postedlbl2: ""
+    editprojecttooltip: "neues Projekt"
+    postingheader: "Beiträge"
 
   user_mailer:
     welcome:
@@ -89,12 +93,13 @@ de:
 
   project:
     name: "Projektname"
-    description: "Beschreibungt"
+    description: "Beschreibung"
     expertise: "Wissen"
     work: "Arbeit"
     plans: "Pläne"
     created: "Projekt angelegt!"
     createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
+    newheader: "Projekt anlegen"
     edittitle: "Projekt ändern"
     editheader: "Projekt bearbeiten"
     editDelete: "Projekt löschen"

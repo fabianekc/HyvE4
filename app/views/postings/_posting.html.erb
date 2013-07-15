@@ -1,11 +1,11 @@
 <li>
   <span class="content"><%= wrap(posting.content) %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(posting.created_at) %> ago.
+    <%= t('user.postedlbl1') %> <%= time_ago_in_words(posting.created_at) %><%= t('user.postedlbl2') %>.
   </span>
   <% if current_user?(posting.user) %>
-    <%= link_to "delete", posting, method: :delete,
-                                     data: { confirm: "You sure?" },
+    <%= link_to t('general.deletetxt'), posting, method: :delete,
+                                     data: { confirm: t('general.Confirmmsg') },
                                      title: posting.content %>
   <% end %>
 </li>

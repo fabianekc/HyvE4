@@ -7,7 +7,7 @@
         <%= @user.name %>
         <% if current_user?(@user) %>
           <span class="subedit">
-            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user), rel: "tooltip", title: "edit user", class: "mylink") %>
+            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_user_path(current_user), rel: "tooltip", title: t('user.edittooltip'), class: "mylink") %>
           </span>
         <% end %>
       </h1>
@@ -27,10 +27,10 @@ $(this).children('.subedit').hide();
       <%= render 'shared/stats' %>
     </section>
     <section>
-      <h4>Projects (<%= @user.projects.count %>)
+      <h4><%= t('user.projectheader') %> (<%= @user.projects.count %>)
         <% if current_user?(@user) %>
           <span class="subedit">
-            <a href="#projectNew" role="button" data-toggle="modal" rel="tooltip" title="add project" class="mylink"><i class="icon-plus" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i></a>
+            <a href="#projectNew" role="button" data-toggle="modal" rel="tooltip" title=<%= t('user.editprojecttooltip') %> class="mylink"><i class="icon-plus" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i></a>
           </span>
         <% end %>
       </h4>
@@ -56,7 +56,7 @@ $('.mylink').tooltip({ selector: "a" });
   </aside>
   <div class="span8">
     <% if @user.postings.any? %>
-      <h3>Postings (<%= @user.postings.count %>)</h3>
+      <h3><%= t('user.postingheader') %> (<%= @user.postings.count %>)</h3>
       <ol class="postings">
         <%= render @postings %>
       </ol>
@@ -70,21 +70,21 @@ $('.mylink').tooltip({ selector: "a" });
   <div id="projectNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="projectNewLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 id="projectNewLabel">New Project</h3>
+      <h3 id="projectNewLabel"><%= t('project.newheader') %></h3>
     </div>
     <div class="modal-body">
       <div class="control-group">
-        <%= label :project, :name, :class => "control-label" %>
+        <%= label :project, :name, t('project.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :project, :name %></div>
       </div>
       <div class="control-group">
-        <%= label :project, :description, :class => "control-label" %>
+        <%= label :project, :description, t('project.description'), :class => "control-label" %>
         <div class="controls"><%= text_area :project, :description, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <%= submit_tag("Create", class: "btn btn-primary") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.createbtn'), class: "btn btn-primary") %>
     </div>
   </div>
 <% end %>
