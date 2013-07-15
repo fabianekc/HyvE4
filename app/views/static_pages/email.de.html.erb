@@ -1,3 +1,34 @@
-<% provide(:title, 'Data Collection via Email') %>
-<h1>Data Collection via Email</h1>
+# encoding: UTF-8
 
+<% provide(:title, 'Data Sammlung via Email') %>
+<h1>Data Sammlung via Email</h1>
+<h3>Einleitung</h3>
+<p class="myfloat">Mit Hyve.me kannst du für jedes Projekt eine Datenstruktur anlegen, die dann regelmäßig mit Daten auf der Webseite befüllt werden kann.</p>
+<img src="/images/datacollect.png" alt="Data Collection" width="500">
+<p>&nbsp;</p>
+
+<p class="myfloat">Diese Art der Datensammlung ist aber mühsam und trotz guter Absichten, geben viele nach einiger Zeit auf ihre Daten auf diese Weise manuell zu erfassen. Dieses Verhalten wurde schon oft untersucht und es gibt nicht wenig Literatur die sich mit genau diesem Problem beschäftigt. Hyve.me baut nun auf die Arbeit von <a href="http://www.behaviormodel.org/">BJ Fogg's Verhaltensmodell</a> auf, welches folgende 3 notwendigen Elemente identifiziert, damit eine Handlung (= Daten erfassen) stattfindet:</p>
+<ul>
+  <li><strong>Motivation:</strong> der prinzipielle Wille des Benutzers Daten zu erfassen, muss vorhanden sein - davon gehen wir aus, sonst wärst du vermutlich nicht auf dieser Webseite gelandet</li>
+  <li><strong>Fähigkeit:</strong> der Benutzer muss die Fähigkeit besitzen, die Daten einzugeben - es muss also exteem einfach sein, Daten zu erfassen</li>
+  <li><strong>Impulse:</strong> und schließlich muss es immer wieder "Auslößer" geben, die den Benutzer daran erinnern die Handlung zu setzen - ein guter Impuls haben wir festgestellt ist die Einbindung in die tägliche Routine</li>
+</ul>
+<p class="myfloat">Hyve.me's Ansatz zur Datensammlung ist daher die Verwendung von Emails zur regelmäßigen Abfrage der Proejtkwerte.</p>
+<p>&nbsp;</p>
+
+<h3>Emails zum Sammeln von Daten</h3>
+<p class="myfloat">Für jedes Projekt kann die Datensammlung via Email aktiviert werden:</p>
+<img src="/images/datacollectpage.png" alt="Toggle Email Data Collection" width="500">
+<p>&nbsp;</p>
+
+<p class="myfloat">Ist diese Funktion aktiviert erhältst du jeden Tag ein Email mit der Frage zur Beantwortung eine Projektgruple. Um zu verhindern, dass sich Benutzer durch diese Emails belästigt fühlen, wird nur 1 Email pro Tag verschickt nd das auch nur, wenn das Letzte Mail beantwortet wurde , d.h. wenn ein Hyve-mail für 5 Tage nicht beantortet wird, wird auch 5 Tage lang keine weitere Frage ausgeschickt.</p>
+<p class="myfloat">Solche Emails zur Datensammlung haben als Absender: data@hyve.me und sind wie folgt strukturiert:</p>
+<ol>
+  <li><strong>Kontext:</strong> eine Beschreibung der Anfrage</li>
+  <li><strong>Struktur:</strong> in welcher Form die Emailantwort erwartet wird</li>
+  <li><strong>Beispiel:</strong>  wie sieht eine Antwort beispielhaft aus? (hier wird oft die Antowrt von der letzten Woche verwendet)</li>
+  <li><strong>Erkenntnisse  (optional):</strong> bei bestimmten Datenstrukturen informiet Hyve.me über Strukturen/ Erkenntnissen aus den Daten</li>
+  <li><strong>Administration:</strong> allgemeine Erklärung zu diesem Mail und wie Daten dargestellt unf bearbeitet werden</li>
+  <li><strong>Übersicht:</strong> eine Liste aller Datenattribute für das aktuellen Projekt</li>
+</ol>
+<p class="myfloat">Weitere Informationen über automatische Datenimport-Möglichkeiten gibt es auf der Seite <%= link_to "Unsere Pläne", plans_path %>.</p>

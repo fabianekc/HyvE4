@@ -1,0 +1,15 @@
+# encoding: UTF-8
+
+<% provide(:title, 'Datenzugriff') %>
+<h1>Datenzugriff</h1>
+<p class="myfloat">Diese Seite beschreibt auf welche Daten die Benutzer der Webseite zugreifen können.</p>
+<h3>Besucher</h3>
+<p class="myfloat">Benutzer die nicht bei Hyve.me angemeldet sind (= Besucher), können keine Daten von registrierten Benutzern einsehen, d.h., sie sehen nicht, wer auf dieser Seite ein Konto hat, sie sehen keine Projekte nd auch nicht die dazu gespeicherten Daten.</p>
+<p>&nbsp;</p>
+<h3>Angemeldete Benutzer</h3>
+<p class="myfloat">Benutzer die bei Hyve.me ein Konto haben und eingeloggt sind, sehen folgende Informationen:</p>
+<ul>
+  <li>Liste aller registrierten Benutzer, aber nicht die Email-adresse dieser Benutzer (falls du mit anderen Benutzern in Kontakt treten möchtest, folge dieser Person und Poste eine Nachricht)</li>
+  <li>Liste aller Projekte, samt der zugehörigen Liste an Attributen die dafür gesammelt werden, d.h., andere sehen welche Daten du erfasst, aber nicht die Daten selbst.</li>
+</ul>
+<p class="myfloat">Weitere Informationen über die geplanten Konfigurationsmöglichkeiten in Bezug auf Zugriffsrechte gibt es auf der Seite <%= link_to "Unsere Pläne", plans_path %>.</p>
