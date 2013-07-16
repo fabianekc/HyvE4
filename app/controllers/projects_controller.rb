@@ -66,9 +66,9 @@ class ProjectsController < ApplicationController
     if current_project_user?(@project)
       @newgroup=@project.groups.build(name: params['group']['name'], comment: params['group']['comment'])
       if @newgroup.save
-        flash[:success] = "Group created"
+        flash[:success] = t('project.groupCreatedMsg')
       else
-        flash[:error] = "Group not created because " + @newgroup.errors.full_messages.join
+        flash[:error] = t('project.groupCreationErrorMsg') + @newgroup.errors.full_messages.join
       end
     end
     redirect_to project_path(params[:id])
@@ -79,15 +79,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(@group.project_id)
     if current_project_user?(@project)
       pid = @group.project_id
-      if params[:commit] == "Update"
+      if params[:commit] == t('general.updatebtn')
         if @group.update_attributes(params[:group])
-          flash[:success] = "Group name updated"
+          flash[:success] = t('project.groupEditMsg')
         else
-          flash[:error] = "Group name not updated because " + @group.errors.full_messages.join 
+          flash[:error] = t('project.groupEditErrorMsg') + @group.errors.full_messages.join 
         end
       else
         @group.destroy
-        flash[:success] = "Group deleted"
+        flash[:success] = t('project.groupDeleteMsg')
       end
     end
     redirect_to project_path(pid)
@@ -99,9 +99,9 @@ class ProjectsController < ApplicationController
     if current_project_user?(@project)
       @newstructure = @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment'])
       if @newstructure.save
-        flash[:success] = "Item created"
+        flash[:success] = t('project.itemCreatedMsg')
       else
-        flash[:error] = "Item not created because " + @newstructure.errors.full_messages.join
+        flash[:error] = t('project.itemCreationErrorMsg') + @newstructure.errors.full_messages.join
       end
     end
     redirect_to project_path(params[:id])
@@ -113,15 +113,15 @@ class ProjectsController < ApplicationController
     @project = Project.find(@group.project_id)
     if current_project_user?(@project)
       pid = params[:id]
-      if params[:commit] == "Update"
+      if params[:commit] == t('general.updatebtn')
         if @structure.update_attributes(params[:mystructure])
-          flash[:success] = "Item name updated"
+          flash[:success] = t('project.itemEditMsg')
         else
-          flash[:error] = "Item name not updated because " + @structure.errors.full_messages.join
+          flash[:error] = t('project.itemEditErrorMsg') + @structure.errors.full_messages.join
         end
       else
         @structure.destroy
-        flash[:success] = "Item deleted"
+        flash[:success] = t('project.itemDeleteMsg')
       end
     end
     redirect_to project_path(pid)
@@ -134,9 +134,9 @@ class ProjectsController < ApplicationController
     if current_project_user?(@project)
       @newdataval=@structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment'])
       if @newdataval.save
-        flash[:success] = "Data added"
+        flash[:success] = t('project.dataCreatedMsg')
       else
-        flash[:error] = "No data added because " + @newdataval.errors.full_messages.join
+        flash[:error] = t('project.dataCreationErrorMsg') + @newdataval.errors.full_messages.join
       end
     end
     redirect_to project_path(params[:id])

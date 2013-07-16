@@ -1,8 +1,8 @@
 <% if @categories.count == 0 %>
   <% if current_project_user?(@project) %>
-    <%= link_to "set Categories", {:action => :category, :page => 1}, {:class => "btn btn-large btn-primary pull-right", :id => "set_categories"} %><br>&nbsp;
+    <%= link_to t('project.setCategorybtn'), {:action => :category, :page => 1}, {:class => "btn btn-large btn-primary pull-right", :id => "set_categories"} %><br>&nbsp;
   <% else %>
-    not yet specified
+    <%= t('project.categoryna') %>
   <% end %>
 <% else %>
   <dl class="dl-horizontal">

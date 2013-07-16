@@ -6,7 +6,7 @@
         <%= @project.name %>
         <% if current_project_user?(@project) %>
           <span class="subedit">
-            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_project_path(@project.id), rel: "tooltip", title: "edit project", class: "mylink") %>
+            <%= link_to('<i class="icon-pencil" style="position: absolute; margin-left: 5px; margin-top: 3px;"></i>'.html_safe, edit_project_path(@project.id), rel: "tooltip", title: t('project.editprojecttip'), class: "mylink") %>
           </span>
         <% end %>
       </h1>
@@ -38,28 +38,48 @@ $(this).children('.subedit').hide();
   <div class="span8">
 
 	<ul id="projectTab" class="nav nav-tabs">
-	  <li class="active"><a href="#general" data-toggle="tab">General</a></li>
-	  <li><a href="#tracking" data-toggle="tab">Tracking</a></li>
+	  <li class="active"><a href="#general" data-toggle="tab"><%= t('project.generalTab') %></a></li>
+	  <li><a href="#tracking" data-toggle="tab"><%= t('project.trackingTab') %></a></li>
 	</ul>
+        <script type="text/javascript">
+$(function() 
+                    { 
+                      $('a[data-toggle="tab"]').on('shown', function () {
+                        //save the latest tab; use cookies if you like 'em better:
+                        localStorage.setItem('lastTab', $(this).attr('href'));
+                       });
+
+                      //go to the latest tab, if it exists:
+                      var lastTab = localStorage.getItem('lastTab');
+                      if (lastTab) {
+                         $('a[href=' + lastTab + ']').tab('show');
+                      }
+                      else
+                      {
+                        // Set the first tab if cookie do not exist
+                        $('a[data-toggle="tab"]:first').tab('show');
+                      }
+                  });
+        </script>
 	<div id="projectTabContent" class="tab-content">
 	  <div class="tab-pane fade in active" id="general">
-            <h5>Team</h5>
-            <p<strong:>Owner:</strong> <%= link_to @user.name, user_path(@user) %></p>
-	    <h5>Description</h5>
+            <h5><%= t('project.teamlbl') %></h5>
+            <p<strong:><%= t('project.ownerlbl') %>:</strong> <%= link_to @user.name, user_path(@user) %></p>
+	    <h5><%= t('project.description') %></h5>
             <span class="content"><%= @project.description %></span>
 
             <% if @project.wissen and @project.wissen.length > 0 %>
-              <h5>Expertise <small>(What can I know?)</small></h5>
+              <h5><%= t('project.expertise') %> <small>(<%= t('project.expertisesub') %>)</small></h5>
 	      <span class="content"><%= @project.wissen %></span>
 	    <% end %>
 
 		<% if @project.tun and @project.tun.length > 0 %>
-		  <h5>Work<small> (What ought I do?)</small></h5>
+		  <h5><%= t('project.work') %> <small>(<%= t('project.worksub') %>)</small></h5>
 		  <span class="content"><%= @project.tun %></span>
 		<% end %>
 
 		<% if @project.hoffen and @project.hoffen.length > 0 %>
-		  <h5>Plans<small> (What may I hope?)</small></h5>
+		  <h5><%= t('project.plans') %> <small>(<%= t('project.planssub') %>)</small></h5>
 		  <span class="content"><%= @project.hoffen %></span>
 		<% end %>
 	  </div>
@@ -70,4 +90,3 @@ $(this).children('.subedit').hide();
 
   </div>
 </div>
-

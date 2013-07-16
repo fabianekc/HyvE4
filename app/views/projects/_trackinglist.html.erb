@@ -2,7 +2,7 @@
 <% @groups.each do |group| %>
   <li><strong><%= group.name %></strong>
     <% if current_project_user?(@project) %>
-      <span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= group.name %>'; document.update_group.elements['group[comment]'].value='<%= group.comment %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="edit group name" class="mylink"><i class="icon-pencil"></i></a></span>
+      <span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= group.name %>'; document.update_group.elements['group[comment]'].value='<%= group.comment %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editgrouptip') %>" class="mylink"><i class="icon-pencil"></i></a></span>
     <% end %>
   </li>
     <ul>
@@ -11,23 +11,23 @@
          <li><%= structure.name %>
          <% if current_project_user?(@project) %>
            <span class="subedit">
-           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= structure.name %>'; document.update_structure.elements['mystructure[comment]'].value='<%= structure.comment %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="edit item name" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
-           <a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal" rel="tooltip" title="add data" class="mylink"><i class="icon-plus"></i></a>&nbsp;
-           <%= link_to('<i class="icon-signal"></i>'.html_safe,structure) %>
+           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= structure.name %>'; document.update_structure.elements['mystructure[comment]'].value='<%= structure.comment %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+           <a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.adddatatip') %>" class="mylink"><i class="icon-plus"></i></a>&nbsp;
+           <%= link_to('<i class="icon-signal"></i>'.html_safe,structure, rel: "tooltip", title: t('project.showstattip'), class: "mylink") %>
            </span>
          <% end %>
          </li>
     <% end unless @structure.nil? %>
     <% if current_project_user?(@project) %>
-      <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="add item" class="mylink">New Item</a></li>
+      <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal"><%= t('project.additemlink') %></a></li>
     <% end %>
     </ul>
 <% end unless @groups.nil? %>
   <% if current_project_user?(@project) %>
-    <li><a href="#groupNew" role="button" data-toggle="modal"><strong>New Group</strong></a></li>
+    <li><a href="#groupNew" role="button" data-toggle="modal"><strong><%= t('project.addgrouplink') %></strong></a></li>
   <% end %>
 </ul>
-<p class="pull-right"><small><%= link_to "privacy settings", privacy_path %></small></p>
+<p class="pull-right"><small><%= link_to t('project.privacySettings'), privacy_path %></small></p>
 <script>
 $('li').hover(function(){
 $(this).children('.subedit').show();
@@ -45,21 +45,21 @@ $('.mylink').tooltip({ selector: "a" });
   <div id="groupNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="groupNewLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 id="groupNewLabel">New Group</h3>
+      <h3 id="groupNewLabel"><%= t('project.newGroupHeader') %></h3>
     </div>
     <div class="modal-body">
       <div class="control-group">
-        <%= label :group, :name, :class => "control-label" %>
+        <%= label :group, :name, t('general.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :group, :name %></div>
       </div>
       <div class="control-group">
-        <%= label :group, :comment, :class => "control-label" %>
+        <%= label :group, :comment, t('general.comment'), :class => "control-label" %>
         <div class="controls"><%= text_area :group, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <%= submit_tag("Create", class: "btn btn-primary") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.createbtn'), class: "btn btn-primary") %>
     </div>
   </div>
 <% end %>
@@ -69,23 +69,23 @@ $('.mylink').tooltip({ selector: "a" });
   <div id="groupEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="groupEditLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 id="groupEditLabel">Edit Group</h3>
+      <h3 id="groupEditLabel"><%= t('project.editGroupHeader') %></h3>
     </div>
     <div class="modal-body">
       <%= hidden_field :group, :id %>
       <div class="control-group">
-        <%= label :group, :name, :class => "control-label" %>
+        <%= label :group, :name, t('general.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :group, :name %></div>
       </div>
       <div class="control-group">
-        <%= label :group, :comment, :class => "control-label" %>
+        <%= label :group, :comment, t('general.comment'), :class => "control-label" %>
         <div class="controls"><%= text_area :group, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
-      <%= submit_tag("Delete Group", data: { confirm: "You sure?" }, :class => "btn btn-danger pull-left") %>
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <%= submit_tag("Update", class: "btn btn-primary") %>
+      <%= submit_tag(t('project.deleteGroupBtn'), data: { confirm: t('general.Confirmmsg') }, :class => "btn btn-danger pull-left") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.updatebtn'), class: "btn btn-primary") %>
     </div>
   </div>
 <% end %>
@@ -95,22 +95,22 @@ $('.mylink').tooltip({ selector: "a" });
   <div id="itemNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="itemNewLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 id="itemNewLabel">New Item</h3>
+      <h3 id="itemNewLabel"><%= t('project.newItemHeader') %></h3>
     </div>
     <div class="modal-body">
       <%= hidden_field :myform, :group_id %>
       <div class="control-group">
-        <%= label :myform, :name, :class => "control-label" %>
+        <%= label :myform, :name, t('general.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :myform, :name %></div>
       </div>
       <div class="control-group">
-        <%= label :myform, :comment, :class => "control-label" %>
+        <%= label :myform, :comment, t('general.comment'), :class => "control-label" %>
         <div class="controls"><%= text_area :myform, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <%= submit_tag("Create", class: "btn btn-primary") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.createbtn'), class: "btn btn-primary") %>
     </div>
   </div>
 <% end %>
@@ -120,23 +120,23 @@ $('.mylink').tooltip({ selector: "a" });
   <div id="itemEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="itemEditLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 id="itemEditLabel">Edit Item</h3>
+      <h3 id="itemEditLabel"><%= t('project.editItemHeader') %></h3>
     </div>
     <div class="modal-body">
       <%= hidden_field :mystructure, :id %>
       <div class="control-group">
-        <%= label :mystructure, :name, :class => "control-label" %>
+        <%= label :mystructure, :name, t('general.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :mystructure, :name %></div>
       </div>
       <div class="control-group">
-        <%= label :mystructure, :comment, :class => "control-label" %>
+        <%= label :mystructure, :comment, t('general.comment'), :class => "control-label" %>
         <div class="controls"><%= text_area :mystructure, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
-      <%= submit_tag("Delete Item", data: { confirm: "You sure?" }, :class => "btn btn-danger pull-left") %>
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <%= submit_tag("Update", class: "btn btn-primary") %>
+      <%= submit_tag(t('project.deleteGroupBtn'), data: { confirm: t('general.Confirmmsg') }, :class => "btn btn-danger pull-left") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.updatebtn'), class: "btn btn-primary") %>
     </div>
   </div>
 <% end %>
@@ -146,12 +146,12 @@ $('.mylink').tooltip({ selector: "a" });
   <div id="dataNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="dataNewLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      <h3 id="dataNewLabel">New Data</h3>
+      <h3 id="dataNewLabel"><%= t('project.newDataHeader') %></h3>
     </div>
     <div class="modal-body">
       <%= hidden_field :dataval, :structure_id %>
       <div class="control-group">
-        <%= label :dataval, :valdatime, 'Timestamp', :class => "control-label" %>
+        <%= label :dataval, :valdatime, t('general.timestamplbl'), :class => "control-label" %>
         <div class="controls">
           <div id="datetimepicker1" class="input-append date">
             <%= text_field :dataval, :valdatime, 'data-format' => 'dd/MM/yyyy hh:mm:ss' %>
@@ -169,17 +169,17 @@ $('.mylink').tooltip({ selector: "a" });
 </script>
 
       <div class="control-group">
-        <%= label :dataval, :value, :class => "control-label" %>
+        <%= label :dataval, :value, t('general.valuelbl'), :class => "control-label" %>
         <div class="controls"><%= text_field :dataval, :value %></div>
       </div>
       <div class="control-group">
-        <%= label :dataval, :comment, :class => "control-label" %>
+        <%= label :dataval, :comment, t('general.comment'), :class => "control-label" %>
         <div class="controls"><%= text_area :dataval, :comment, :rows => "2" %></div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      <%= submit_tag("Create", class: "btn btn-primary") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.createbtn'), class: "btn btn-primary") %>
     </div>
   </div>
 <% end %>
