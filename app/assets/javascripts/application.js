@@ -15,6 +15,7 @@
 //= require jquery-ui
 //= require bootstrap
 //= require bootstrap-datetimepicker
+//= require bootstrap-switch
 //= require highcharts
 //= require exporting
 //= require_tree .

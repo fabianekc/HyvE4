@@ -196,9 +196,12 @@ de:
     editgrouptip: "Gruppe bearbeiten"
     edititemtip: "Element bearbeiten"
     adddatatip: "Datensatz hinzufügen"
+    editdatatip: "Datensatz bearbeiten"
     showstattip: "Statistik anzeigen"
     additemlink: "Element hinzufügen"
     addgrouplink: "Gruppe hinzufügen"
+    adddatalink: "Datensatz hinzufügen"
+    backtoprojectlink: "zurück zum Projekt "
     privacySettings: "Wer sieht diese Daten?"
     newGroupHeader: "Neue Gruppe"
     editGroupHeader: "Gruppe bearbeiten"
@@ -207,6 +210,8 @@ de:
     editItemHeader: "Element bearbeiten"
     deleteItemBtn: "Element löschen"
     newDataHeader: "Neuer Datensatz"
+    editDataHeader: "Datensatz bearbeiten"
+    deleteDataBtn: "Datensatz löschen"
     groupCreatedMsg: "Gruppe angelegt"
     groupCreationErrorMsg: "Die Gruppe wurde aufgrund des folgenden Fehlers nicht erstellt: "
     groupEditMsg: "Gruppe aktualisiert"
@@ -219,6 +224,9 @@ de:
     itemDeleteMsg: "Element gelöscht"
     dataCreatedMsg: "Datensatz angelegt"
     dataCreationErrorMsg: "Der Datensatz wurde aufgrund des folgenden Fehlers nicht erstellt: "
+
+    structGraphHeading: "Diagramm"
+    structDataHeading: "Daten"
 
   layout:
     about: "Über Hyve.me"

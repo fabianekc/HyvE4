@@ -35,6 +35,7 @@ GEM
     bootstrap-datetimepicker-rails (0.0.11)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
+    bootstrap-switch-rails (1.4.0)
     bootstrap-will_paginate (0.0.6)
       will_paginate
     builder (3.0.4)
@@ -178,6 +179,7 @@ DEPENDENCIES
   bcrypt-ruby (= 3.0.1)
   bootstrap-datetimepicker-rails
   bootstrap-sass
+  bootstrap-switch-rails
   bootstrap-will_paginate (= 0.0.6)
   capybara (= 1.1.2)
   capybara-webkit

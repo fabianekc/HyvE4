@@ -196,9 +196,12 @@ en:
     editgrouptip: "edit group"
     edititemtip: "edit item"
     adddatatip: "add data"
+    editdatatip: "edit data"
     showstattip: "show statistic"
     additemlink: "New Item"
     addgrouplink: "New Group"
+    adddatalink: "New Data"
+    backtoprojectlink: "back to project "
     privacySettings: "who can see my data?"
     newGroupHeader: "New Group"
     editGroupHeader: "Edit Group"
@@ -207,6 +210,8 @@ en:
     editItemHeader: "Edit Item"
     deleteItemBtn: "Delete Item"
     newDataHeader: "New Data"
+    editDataHeader: "Edit Data"
+    deleteDataBtn: "Delete Data"
     groupCreatedMsg: "Group created"
     groupCreationErrorMsg: "Group not created because "
     groupEditMsg: "Group updated"
@@ -219,6 +224,9 @@ en:
     itemDeleteMsg: "Item deleted"
     dataCreatedMsg: "Data created"
     dataCreationErrorMsg: "Data not created because "
+
+    structGraphHeading: "Graph"
+    structDataHeading: "Data"
 
   layout:
     about: "About"
