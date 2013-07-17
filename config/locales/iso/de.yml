@@ -46,7 +46,7 @@ de:
     statistictext: "Bei Hyve.me geht es um Zahlen: Derzeit sind %{usercount} Benutzer registriert die an %{projectcount} Projekten arbeiten. Das ist in %{postingcount} Postings und %{datacount} Datensätzen dokumentiert."
     statisticbtn: "Mehr"
     welcomeflash: "Willkomen im Hyve!"
-    welcomehint: "Und letzt leg los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Anlegen'."
+    welcomehint: "Und letzt leg los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Erstellen'."
 
   signin:
     title: "Einloggen"
