@@ -13,6 +13,7 @@ en:
     closebtn: "Close"
     deletetxt: "delete"
     Confirmmsg: "You sure?"
+    bylbl: "by"
 
   welcome:
     title: "Optimize Your Projects!"
@@ -65,6 +66,7 @@ en:
     resetPerformedmsg: "Password has been reset successfully."
 
   user:
+    allUsersTitle: "All Users"
     edittitle: "Edit User"
     editheader: "Update Profile"
     biolbl: "About you"
@@ -105,6 +107,7 @@ en:
     planssub: "What may I hope?"
     created: "Project created"
     createdHint: "Open the 'Category' panel on the left side and click 'set Categories'. Then similar projects will be listed and you can see what others are tracking."
+    simprojectheader: "Similar Projects"
     newheader: "New Project"
     edittitle: "Edit Project"
     editprojecttip: "update project"
@@ -113,6 +116,9 @@ en:
     editSuccessmsg: "Project updated"
     editDeleteSuccessmsg: "Project deleted"
     editInvalidUser: "You are not the owner of this project!"
+    allProjectsTitle: "All Projects"
+    allProjectsCreateNewProjectBtn: "Create New Project"
+    postedlbl1: "Created"
     categorySection: "Category"
     setCategorybtn: "set Categories"
     categoryna: "not yet specified"

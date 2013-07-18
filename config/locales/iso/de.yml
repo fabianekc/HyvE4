@@ -13,6 +13,7 @@ de:
     closebtn: "Schließen"
     deletetxt: "löschen"
     Confirmmsg: "Bist du sicher?"
+    bylbl: "von"
 
   welcome:
     title: "Optimiere Deine Projekte!"
@@ -65,6 +66,7 @@ de:
     resetPerformedmsg: "Das Passwort wurde erfolgreich zurückgesetzt."
 
   user:
+    allUsersTitle: "Alle Benutzer"
     edittitle: "Benutzer ändern"
     editheader: "Profil bearbeiten"
     biolbl: "Über dich"
@@ -105,6 +107,7 @@ de:
     planssub: "Was darf ich hoffen?"
     created: "Projekt angelegt"
     createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
+    simprojectheader: "Ähnliche Projekte"
     newheader: "Projekt anlegen"
     edittitle: "Projekt ändern"
     editprojecttip: "Projekt bearbeiten"
@@ -112,7 +115,10 @@ de:
     editDelete: "Projekt löschen"
     editSuccessmsg: "Projekt aktualisiert"
     editDeleteSuccessmsg: "Projekt gelöscht"
-    editInvalidUser: "Du bist nicht Patron dieses Projekts!"
+    editInvalidUser: "Du bist nicht Eigentümer dieses Projekts!"
+    allProjectsTitle: "Alle Projekte"
+    allProjectsCreateNewProjectBtn: "Neues Projekt erstellen"
+    postedlbl1: "Erstellt vor"
     categorySection: "Kategorisierung"
     setCategorybtn: "Kategorien festlegen"
     categoryna: "noch nicht bestimmt"
@@ -192,7 +198,7 @@ de:
 
     generalTab: "Allgemein"
     teamlbl: "Team"
-    ownerlbl: "Patron"
+    ownerlbl: "Eigentümer"
     trackingTab: "Datenerfassung"
     editgrouptip: "Gruppe bearbeiten"
     edititemtip: "Element bearbeiten"
