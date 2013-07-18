@@ -112,6 +112,7 @@ de:
     editDelete: "Projekt löschen"
     editSuccessmsg: "Projekt aktualisiert"
     editDeleteSuccessmsg: "Projekt gelöscht"
+    editInvalidUser: "Du bist nicht Patron dieses Projekts!"
     categorySection: "Kategorisierung"
     setCategorybtn: "Kategorien festlegen"
     categoryna: "noch nicht bestimmt"

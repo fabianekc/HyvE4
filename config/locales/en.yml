@@ -112,6 +112,7 @@ en:
     editDelete: "Delete Project"
     editSuccessmsg: "Project updated"
     editDeleteSuccessmsg: "Project deleted"
+    editInvalidUser: "You are not the owner of this project!"
     categorySection: "Category"
     setCategorybtn: "set Categories"
     categoryna: "not yet specified"

@@ -170,15 +170,19 @@ class ProjectsController < ApplicationController
   def destroy
     myuser = Project.find(params[:id]).user_id
     Project.find(params[:id]).destroy
-    flash[:success] = "Project deleted"
-    redirect_to user_path(myuser)
+    flash[:success] = t('project.editDeleteSuccessmsg')
+    if current_user.admin?
+      redirect_to projects_path
+    else
+      redirect_to user_path(myuser)
+    end
   end
 
   private
     def correct_project_user
       @project = Project.find(params[:id])
-      if !current_project_user?(@project)
-        flash[:error] = 'You are not the owner of this project!'
+      if !current_project_user?(@project) && !current_user.admin?
+        flash[:error] = t('project.editInvalidUser')
         redirect_to(root_path)
       end
     end
