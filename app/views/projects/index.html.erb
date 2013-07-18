@@ -1,6 +1,6 @@
 <% provide(:title, 'All Projects') %>
 <h1>All Projects</h1>
-<a href="#projectNew" role="button" data-toggle="modal" class="btn btn-large btn-primary pull-right">Create New Project</a>
+<a href="#projectNew" style="margin-top: -40px;" role="button" data-toggle="modal" class="btn btn-large btn-primary pull-right">Create New Project</a>
 
 <%= will_paginate %>
 
@@ -19,7 +19,7 @@
 
 <%= will_paginate %>
 
-!-- New Project -->
+<!-- New Project -->
 <%= form_tag( :url => { :controller => 'users', :action => 'create_project' }, :html => { :method => 'put', :name => 'create_project', :class => "form-horizontal" } ) do %>
   <div id="projectNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="projectNewLabel" aria-hidden="true">
     <div class="modal-header">
