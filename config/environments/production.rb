@@ -60,7 +60,7 @@ Hyve4::Application.configure do
     :password => ENV['MAILER_PASSWORD'],
     :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { :host => "www.hyve.us" }
+  config.action_mailer.default_url_options = { :host => "www.hyve.me" }
 
   # Enable threaded mode
   # config.threadsafe!

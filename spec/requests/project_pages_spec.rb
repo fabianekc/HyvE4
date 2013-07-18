@@ -107,7 +107,6 @@ describe "Project pages" do
     let(:project) { FactoryGirl.create(:project, user: user) }
     before do
       visit edit_project_path(project)
-      save_page
     end
     it { should have_button('delete_project') }
     it "should be able to delete project" do
