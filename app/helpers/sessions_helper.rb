@@ -26,7 +26,7 @@ module SessionsHelper
   end
 
   def current_project_user?(project)
-    project.user_id == current_user.id
+    project.user_id == current_user.id || current_user.admin?
   end
 
   def correct_project_user
