@@ -6,9 +6,9 @@ Hier noch die Zusammenfassung deiner Anmeldung:
 - Dein Name: <%= @user.name %>
 - Email: <%= @user.email %>
 - Passwort: wir speichern dein Passwort nicht!
-  (um dein Passwort zurÃ¼ckzusetzen, verwende den folgenden Link: www.hyve.me/en/password_resets/new )
+  (um dein Passwort zurückzusetzen, verwende den folgenden Link: www.hyve.me/en/password_resets/new )
 - Profil Seite: http://hyve.me/en/users/<%= @user.id %>
 
-Bei Fragen, Anregungen oder wenn du einfach mit uns in Kontakt treten mÃ¶chtest, antorte auf ein beliebiges Mail von hyve.me, verwende den Feedback-Link am Ende einer Seite oder schreibe ein Posting.
+Bei Fragen, Anregungen oder wenn du einfach mit uns in Kontakt treten möchtest, antorte auf ein beliebiges Mail von hyve.me, verwende den Feedback-Link am Ende einer Seite oder schreibe ein Posting.
 
 -Hyve

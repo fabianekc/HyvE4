@@ -1,2 +1,14 @@
-Welcome!
+Hi <%= @user.name %>,
+
+Great that you registered for Hyve.me. Get started with creating a project and check out other projects and their metrics.
+
+Here is a quick summary of your registration:
+- Your Name: <%= @user.name %>
+- Email: <%= @user.email %>
+- Password: we don't store your password!
+  (request to reset your password with this link: www.hyve.me/en/password_resets/new )
+- Profile page: http://hyve.me/en/users/<%= @user.id %>
+
+Please don't hesitate to contact us with any questions: You can reply to any mail from hyve.me, use the feedback link on the bottom of every page, or write a posting.
+
 -Hyve
