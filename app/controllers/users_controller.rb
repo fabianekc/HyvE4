@@ -29,7 +29,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:user][:invitecode].eql? ENV['INVITE_CODE'] 
+    if ENV['INVITE_CODE'].split(",").include?(params[:user][:invitecode])
       @user = User.new(params[:user])
       if @user.save
         sign_in @user
