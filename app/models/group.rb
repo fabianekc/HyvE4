@@ -13,7 +13,7 @@
 class Group < ActiveRecord::Base
   attr_accessible :name, :comment
   belongs_to :project
-  has_many   :structures
+  has_many   :structures, dependent: :destroy
   validates :project_id, presence: true
   validates :name,       presence: true, length: { maximum: 100 }
 end
