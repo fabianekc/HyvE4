@@ -58,7 +58,6 @@ Hyve4::Application.configure do
     :domain => ENV['MAILER_DOMAIN'],
     :user_name => ENV['MAILER_USER'],
     :password => ENV['MAILER_PASSWORD'],
-    :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => "www.hyve.me" }
 

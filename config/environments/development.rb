@@ -24,7 +24,7 @@ Hyve4::Application.configure do
     :password => ENV['MAILER_PASSWORD'],
     :enable_starttls_auto => true
   }
-  config.action_mailer.default_url_options = { :host => "hyve.me:4000" }
+  config.action_mailer.default_url_options = { :host => "www.hyve.me" }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
