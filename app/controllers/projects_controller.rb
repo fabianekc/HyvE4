@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
     @categories = Pjattrib.all(:conditions => "project_id=" + params[:id] + " and attrtype>0 and attrtype<8", :order => "attrtype ASC")
     @groups = Group.all(:conditions => "project_id=" + params[:id], :order => "created_at ASC")
     if flash[:info].nil?
-      if Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count == 0 && current_project_user?(@project)
+      if Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count == 0 && current_project_user?(@project) 
         flash[:info] = t('project.datastructHint')
       end
     end
