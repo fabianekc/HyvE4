@@ -107,6 +107,7 @@ de:
     planssub: "Was darf ich hoffen?"
     created: "Projekt angelegt"
     createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
+    datastructHint: "Das Projekt hat noch keine Datenstruktur definiert - gehe zur Registerkarte 'Datenerfassung' und erstelle Attribute! (<u><a href='/de/tracking'>Beispiele</a></u>)"
     simprojectheader: "Ähnliche Projekte"
     newheader: "Projekt anlegen"
     edittitle: "Projekt ändern"
