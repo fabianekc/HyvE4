@@ -5,7 +5,7 @@ $stdout.sync = true
 
 use Rack::ReverseProxy do
   reverse_proxy(/^\/blog(\/.*)$/, 'http://still-taiga-5256.herokuapp.com$1', opts = {:preserve_host => true})
-  reverse_proxy(/^\/bitstarter(\/.*)$/, 'http://cryptic-earth-6515.herokuapp.com$1', opts = {:preserve_host => true})
+  reverse_proxy(/^\/bitstarter(\/.*)$/, 'http://fabianekc-bitstarter-mooc.herokuapp.com$1', opts = {:preserve_host => true})
 end
 
 run Hyve4::Application
