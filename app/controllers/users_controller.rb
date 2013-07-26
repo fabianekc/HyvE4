@@ -33,7 +33,6 @@ class UsersController < ApplicationController
       @user = User.new(params[:user])
       if @user.save
         sign_in @user
-        @user.send_welcome
         flash[:success] = t('welcome.welcomeflash')
         flash[:info] = t('welcome.welcomehint')
         redirect_to root_path
