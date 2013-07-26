@@ -8,7 +8,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 gem 'jquery-rails', '2.0.2'
 gem 'bootstrap-datetimepicker-rails'
 gem "bootstrap-switch-rails"
-gem 'lazy_high_charts'
+gem 'lazy_high_charts', '1.4.1'
 gem 'rack-reverse-proxy', :require => "rack/reverse_proxy"
 gem 'pg'
 gem 'faker', '1.0.1'

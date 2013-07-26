@@ -14,7 +14,12 @@ class ApplicationController < ActionController::Base
   def extract_locale_from_accept_language_header
     hal = request.env['HTTP_ACCEPT_LANGUAGE']
     if hal
-      hal.scan(/^[a-z]{2}/).first
+      retval = hal.scan(/^[a-z]{2}/).first
+      if "-en-de-".split(retval).count == 2
+        retval
+      else
+        I18n.default_locale
+      end
     else
       I18n.default_locale
     end
