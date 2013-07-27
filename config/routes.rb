@@ -47,4 +47,5 @@ scope "(:locale)", :locale => /en|de/ do
   match '/changelog', to: 'static_pages#changelog'
 
 end
+match ':not_found' => redirect('/'), :constraints => { :not_found => /.*/ }
 end
