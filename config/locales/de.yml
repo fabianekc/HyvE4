@@ -47,7 +47,7 @@ de:
     statistictext: "Bei Hyve.me geht es um Zahlen: Derzeit sind %{usercount} Benutzer registriert die an %{projectcount} Projekten arbeiten. Das ist in %{postingcount} Postings und %{datacount} Datensätzen dokumentiert."
     statisticbtn: "Mehr"
     welcomeflash: "Willkomen im Hyve!"
-    welcomehint: "Und letzt leg los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Erstellen'."
+    welcomehint: "Und letzt lege los und erstelle dein erstes Projekt: Gib den Projektnamen im Eingabefeld auf der linken Seite ein und klicke auf 'Erstellen'."
 
   signin:
     title: "Einloggen"
@@ -107,7 +107,7 @@ de:
     planssub: "Was darf ich hoffen?"
     created: "Projekt angelegt"
     createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
-    datastructHint: "Das Projekt hat noch keine Datenstruktur definiert - gehe zur Registerkarte 'Datenerfassung' und erstelle Attribute! (<u><a href='/de/tracking'>Beispiele</a></u>)<br>Klicke 'Gruppe hinzufügen' und innerhalb einer Gruppe dann auf 'Element hinzufügen'."
+    datastructHint: "Das Projekt hat noch keine Datenstruktur definiert - gehe zur Registerkarte 'Datenerfassung' und erstelle Attribute! (<u><a href='/de/tracking'>Beispiele</a></u>)<br>Klicke 'Neue Gruppe hinzufügen' und innerhalb einer Gruppe dann auf 'Neues Element hinzufügen'."
     simprojectheader: "Ähnliche Projekte"
     newheader: "Projekt anlegen"
     edittitle: "Projekt ändern"
@@ -206,8 +206,8 @@ de:
     adddatatip: "Datensatz hinzufügen"
     editdatatip: "Datensatz bearbeiten"
     showstattip: "Statistik anzeigen"
-    additemlink: "Element hinzufügen"
-    addgrouplink: "Gruppe hinzufügen"
+    additemlink: "Neues Element hinzufügen"
+    addgrouplink: "Neue Gruppe hinzufügen"
     adddatalink: "Datensatz hinzufügen"
     backtoprojectlink: "zurück zum Projekt "
     privacySettings: "Wer sieht diese Daten?"
