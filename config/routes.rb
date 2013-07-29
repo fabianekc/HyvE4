@@ -32,7 +32,7 @@ scope "(:locale)", :locale => /en|de/ do
 
   root to: 'users#new'
   match "/blog" => redirect("/blog/")
-  match "/bitstarter" => redirect("/bitstarter/")
+  match "/crowdfunder" => redirect("/crowdfunder/")
   match '/imprint',   to: 'static_pages#imprint'
   match '/about',     to: 'static_pages#about'
   match '/plans',     to: 'static_pages#plans'
