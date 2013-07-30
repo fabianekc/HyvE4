@@ -49,7 +49,6 @@ Hyve4::Application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
@@ -58,6 +57,8 @@ Hyve4::Application.configure do
     :domain => ENV['MAILER_DOMAIN'],
     :user_name => ENV['MAILER_USER'],
     :password => ENV['MAILER_PASSWORD'],
+    :authentication => ENV['MAILER_AUTHENTICATION'],
+    :enable_starttls_auto => true
   }
   config.action_mailer.default_url_options = { :host => "www.hyve.me" }
 

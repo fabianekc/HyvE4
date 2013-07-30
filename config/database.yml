@@ -18,6 +18,12 @@ test:
   database: hyve4test
   username: postgres
 
+staging:
+  adapter: postgresql
+  encoding: utf8
+  database: hyve4
+  username: postgres
+
 production:
   adapter: postgresql
   encoding: utf8
