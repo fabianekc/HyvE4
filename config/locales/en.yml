@@ -107,7 +107,7 @@ en:
     planssub: "What may I hope?"
     created: "Project created"
     createdHint: "Open the 'Category' panel on the left side and click 'set Categories'. Then similar projects will be listed and you can see what others are tracking."
-    datastructHint: "Your project does not have a data structure for any tracking items - open the 'Tracking' tab and create some! <u><a href='/en/tracking'>Read here</a></u> about some examples or a <u><a href='/blog/?p=38'>blog post</a></u> about building a data structure.<br>Click 'Create New Group' and within a group click 'Create New Item'."
+    datastructHint: "Your project does not have a data structure for any tracking items - open the 'Tracking' tab and create some!<br><u><a href='/en/tracking'>Read here</a></u> about some examples or a <u><a href='/blog/?p=38'>blog post</a></u> about building a data structure.<br>Click 'Create New Group' and within a group click 'Create New Item'."
     simprojectheader: "Similar Projects"
     newheader: "New Project"
     edittitle: "Edit Project"
