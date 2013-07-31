@@ -13,6 +13,7 @@ en:
     closebtn: "Close"
     deletetxt: "delete"
     Confirmmsg: "You sure?"
+    invalidURL: "The following URL does not exist: "
     bylbl: "by"
 
   welcome:

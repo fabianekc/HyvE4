@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
+  def missing
+      flash[:warning] = t('general.invalidURL') + request.original_url
+      redirect_to root_path
+  end
+
   # Force signout to prevent CSRF attacks
   def handle_unverified_request
     sign_out

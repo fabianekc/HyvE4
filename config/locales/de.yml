@@ -13,6 +13,7 @@ de:
     closebtn: "Schließen"
     deletetxt: "löschen"
     Confirmmsg: "Bist du sicher?"
+    invalidURL: "Die angegeben URL existiert nicht: "
     bylbl: "von"
 
   welcome:
