@@ -50,7 +50,7 @@ en:
     statisticbtn: "Read more"
     welcomeflash: "Welcome to the Hyve!"
     welcomehint: "Now go ahead and create your first project: Enter the project name in the input field on the left and click 'Create'."
-    invitationFlash: "Inviation request sent"
+    invitationFlash: "Inviation request sent and you will hear from us soon."
     publicBetaFlash: "We'll let you know when Hyve.me is going into public beta."
 
   signin:
