@@ -13,6 +13,7 @@ en:
     closebtn: "Close"
     deletetxt: "delete"
     Confirmmsg: "You sure?"
+    inputerror: "There was an error with your input: "
     invalidURL: "The following URL does not exist: "
     bylbl: "by"
 
@@ -49,6 +50,8 @@ en:
     statisticbtn: "Read more"
     welcomeflash: "Welcome to the Hyve!"
     welcomehint: "Now go ahead and create your first project: Enter the project name in the input field on the left and click 'Create'."
+    invitationFlash: "Inviation request sent"
+    publicBetaFlash: "We'll let you know when Hyve.me is going into public beta."
 
   signin:
     title: "Sign in"

@@ -66,10 +66,10 @@ class UsersController < ApplicationController
   end
 
   def create_invite
-    if params[:commit] == "Submit"
-      flash[:success] = "Inviation request sent"
+    if params[:commit] == t('welcome.submitbtn')
+      flash[:success] = t('welcome.invitationFlash')
     else
-      flash[:success] = "We'll let you know when Hyve.me is going into public beta."
+      flash[:success] = t('welcome.publicBetaFlash')
     end
     redirect_to root_path
   end
