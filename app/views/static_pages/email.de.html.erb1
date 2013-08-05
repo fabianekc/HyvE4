@@ -18,7 +18,7 @@
 
 <h3>Emails zum Sammeln von Daten</h3>
 <p class="myfloat">Für jedes Projekt kann die Datensammlung via Email aktiviert werden:</p>
-<img src="/images/datacollectpage.png" alt="Toggle Email Data Collection" width="500">
+<img src="/images/emailsetting.png" alt="Toggle Email Data Collection" width="500">
 <p>&nbsp;</p>
 
 <p class="myfloat">Ist diese Funktion aktiviert erhältst du jeden Tag ein Email mit der Frage zur Beantwortung eine Projektgruple. Um zu verhindern, dass sich Benutzer durch diese Emails belästigt fühlen, wird nur 1 Email pro Tag verschickt nd das auch nur, wenn das Letzte Mail beantwortet wurde , d.h. wenn ein Hyve-mail für 5 Tage nicht beantortet wird, wird auch 5 Tage lang keine weitere Frage ausgeschickt.</p>
