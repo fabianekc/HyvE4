@@ -18,7 +18,7 @@ module SessionsHelper
   end
 
   def current_user
-    @current_user ||= User.find_by_remember_token(cookies[:remember_token]) if cookies[:remember_token]
+    @current_user ||= my_remember_token if cookies[:remember_token]
   end
 
   def current_user?(user)
@@ -61,5 +61,18 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.url
   end
+
+  private
+
+    def my_remember_token
+      user = User.find_by_remember_token(cookies[:remember_token])
+      if user
+        user.lastlogin = Time.now
+        user.logincnt += 1
+        user.no_remember_token = true
+        user.save!(:validate => false)
+      end
+      user
+    end
 
 end
