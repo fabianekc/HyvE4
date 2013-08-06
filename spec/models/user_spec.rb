@@ -36,6 +36,8 @@ describe User do
   it { should respond_to(:bio) }
   it { should respond_to(:remember_token) }
   it { should respond_to(:admin) }
+  it { should respond_to(:lastlogin) }
+  it { should respond_to(:logincnt) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:postings) }
   it { should respond_to(:feed) }
