@@ -234,8 +234,11 @@ en:
     itemEditMsg: "Item updated"
     itemEditErrorMsg: "Item not updated because "
     itemDeleteMsg: "Item deleted"
-    dataCreatedMsg: "Data created"
-    dataCreationErrorMsg: "Data not created because "
+    dataCreatedMsg: "Data added"
+    dataCreationErrorMsg: "Data not added because "
+    dataEditMsg: "Data updated"
+    dataEditErrorMsg: "Data not updated because "
+    dataDeleteMsg: "Data deleted"
 
     structGraphHeading: "Graph"
     structDataHeading: "Data"

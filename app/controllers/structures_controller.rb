@@ -1,3 +1,5 @@
+include ActionView::Helpers::TextHelper
+
 class StructuresController < ApplicationController
   before_filter :signed_in_user
   before_filter :correct_structure_user
@@ -31,9 +33,9 @@ class StructuresController < ApplicationController
     @structure = Structure.find(params['dataval']['structure_id'])
     @newdataval=@structure.datavals.build(valdatime: params['dataval']['valdatime'], value: params['dataval']['value'], comment: params['dataval']['comment'])
     if @newdataval.save
-      flash[:success] = "Data added"
+      flash[:success] = t('project.dataCreatedMsg')
     else
-      flash[:error] = "No data added because " + @newdataval.errors.full_messages.join
+      flash[:error] = t('project.dataCreationErrorMsg') + @newdataval.errors.full_messages.join
     end
     redirect_to structure_path(params[:id])
   end
@@ -41,15 +43,15 @@ class StructuresController < ApplicationController
   def update_dataval
     @dataval = Dataval.find(params['dataval']['id'])
     sid = @dataval.structure_id
-    if params[:commit] == "Update"
+    if params[:commit] == t('general.updatebtn')
       if @dataval.update_attributes(params[:dataval])
-        flash[:success] = "Data item updated"
+        flash[:success] = t('project.dataEditMsg')
       else
-        flash[:error] = "Date item not updated because " + @dataval.errors.full_messages.join
+        flash[:error] = t('project.dataEditErrorMsg') + @dataval.errors.full_messages.join
       end
     else
       @dataval.destroy
-      flash[:success] = "Data item deleted"
+      flash[:success] = t('project.dataDeleteMsg')
     end
     redirect_to structure_path(sid)
   end

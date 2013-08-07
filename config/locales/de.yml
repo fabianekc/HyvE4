@@ -236,6 +236,9 @@ de:
     itemDeleteMsg: "Element gelöscht"
     dataCreatedMsg: "Datensatz angelegt"
     dataCreationErrorMsg: "Der Datensatz wurde aufgrund des folgenden Fehlers nicht erstellt: "
+    dataEditMsg: "Datensatz aktualisiert"
+    dataEditErrorMsg: "Der Datensatz wurde aufgrund des folgenden Fehlers nicht aktualisiert: "
+    dataDeleteMsg: "Datensatz gelöscht"
 
     structGraphHeading: "Diagramm"
     structDataHeading: "Daten"
