@@ -45,6 +45,9 @@ scope "(:locale)", :locale => /en|de/ do
   match '/tracking',  to: 'static_pages#tracking'
   match '/privacy',   to: 'static_pages#privacy'
   match '/changelog', to: 'static_pages#changelog'
+  match '/usecases',  to: 'static_pages#usecases'
+  match '/developers', to: 'static_pages#developers'
+  match '/investors', to: 'static_pages#investors'
 
 end
 match ':not_found' => 'application#missing', :constraints => { :not_found => /.*/ }
