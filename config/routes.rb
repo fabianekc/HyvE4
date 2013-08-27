@@ -50,8 +50,6 @@ scope "(:locale)", :locale => /en|de/ do
   match '/investors', to: 'static_pages#investors'
 
   match '/usercount', to: 'users#count'
-  match '/usercount1', to: 'users#count1'
-  match '/usercount2', to: 'users#count2'
 
 end
 

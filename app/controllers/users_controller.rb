@@ -82,14 +82,6 @@ class UsersController < ApplicationController
     render json: User.all.count
   end
 
-  def count1
-    render json: '{"count": "5"}'
-  end
-
-  def count2
-    render json: User.first
-  end
-
   def edit
   end
 
