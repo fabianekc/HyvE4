@@ -78,6 +78,18 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], :order => 'LOWER(name) ASC')
   end
 
+  def count
+    render json: User.all.count
+  end
+
+  def count1
+    render json: '{"count": "5"}'
+  end
+
+  def count2
+    render json: User.first
+  end
+
   def edit
   end
 
