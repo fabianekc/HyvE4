@@ -10,19 +10,19 @@
 
 <h4>Workflow</h4>
 <ul>
-  <li><strong>1) User submits query</strong><br>When a user wants to compare data from different Hyve users a query is submitted to the Mediation Service</li>
-  <li><strong>A) Mediation Services processes query</strong><br>Validation checks, billing, and participant selection are performed by the mediation service before step 2) and 3) are exectued.</li>
-  <li><strong>2) Mediation Service forwards job</strong><br></li>
-  <li><strong>B) Process Service excepts incoming data</strong><br></li>
-  <li><strong>3) Mediation Service sends invitation</strong><br></li>
-  <li><strong>C) Every participating users decides about participation</strong><br></li>
-  <li><strong>4) User sends data</strong><br></li>
-  <li><strong>D) Process Service performs job</strong><br></li>
-  <li><strong>5) Process Service sends results</strong><br></li>
-  <li><strong>E) Result Service saves job results</strong><br></li>
-  <li><strong>6) User request job results</strong><br></li>
-  <li><strong>F) Result Services processes job request</strong><br></li>
-  <li><strong>7) Result Service sends job result</strong><br></li>
+  <li><strong>1) User submits query</strong><br>When a user wants to compare data with others a query is submitted to the Mediation Service.<br><em>Example: User X wants to compare car insurance cost per month.</em><br><br></li>
+  <li><strong>A) Mediation Services processes query</strong><br>Mediation Service performs validation checks, handles billing, and optionally proposes participants for the query.<br><br></li>
+  <li><strong>2) Mediation Service forwards job</strong><br>Processing Service gets information about what data to expect and how to process it.<br><em>Example: Data - 3 users will send data; Instructions - compute average of received values.</em><br><br></li>
+  <li><strong>B) Process Service excepts incoming data</strong><br>Process Service waits to receive data.<br><br></li>
+  <li><strong>3) Mediation Service sends invitation</strong><br>Potential participants are informed about the query and what data to send if they join.<br><em>Example: User X, Y, and Z get infomation about the car insurance query and instructions to send monthly spendings to the selected Processing Service.</em><br><br></li>
+  <li><strong>C) Users decides about participation</strong><br>Every user can now decide if he/she wants to participate in the specified query and if data should be submitted.<br><br></li>
+  <li><strong>4) User sends data</strong><br>Every user sends anonymously the requested data to the Processing Service.<br><em>Example: User X sends "4", User Y sends "3", and User Z sends "8".</em><br><br></li>
+  <li><strong>D) Process Service performs job</strong><br>After all data is received (or specified waiting time is elapsed) the calculation instructions are executed.<br><em>Example: (4+3+8)/3=5</em><br><br></li>
+  <li><strong>5) Process Service sends results</strong><br>After the algorithm is executed on the availabe data, the result is forwarded to the Result service specified by each participating user.<br><em>Example: Send "5" to Result Service.</em><br><br></li>
+  <li><strong>E) Result Service saves job results</strong><br>Result Service stores data for a defined period of time to be requested by users.<br><br></li>
+  <li><strong>6) User request job results</strong><br>User can request to receive result.<br><em>Example: User X and Z send request for results of car insurance spendings.</em><br><br></li>
+  <li><strong>F) Result Services processes job request</strong><br>The result is sent to users on receiving the request.<br><br></li>
+  <li><strong>7) Result Service sends job result</strong><br>Users receive result and create visualization.<br><em>Example: User X is informed about paying (4) below average (5) for car insurance, and User Z pays (8) above average (5).<br><br></li>
 </ul>
 <p>&nbsp;</p>
 
