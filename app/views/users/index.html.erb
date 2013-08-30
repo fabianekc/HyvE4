@@ -1,5 +1,5 @@
 <% provide(:title, t('user.allUsersTitle')) %>
-<h1><%= t('user.allUsersTitle') %></h1>
+<h1><%= t('user.allUsersTitle') %> (<%= User.all.count %>)</h1>
 
 <%= will_paginate %>
 

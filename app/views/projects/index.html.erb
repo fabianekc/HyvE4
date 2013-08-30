@@ -1,5 +1,5 @@
 <% provide(:title, t('project.allProjectsTitle')) %>
-<h1><%= t('project.allProjectsTitle') %></h1>
+<h1><%= t('project.allProjectsTitle') %> (<%= Project.all.count %>)</h1>
 <a href="#projectNew" style="margin-top: -50px;" role="button" data-toggle="modal" class="btn btn-large btn-primary pull-right"><%= t('project.allProjectsCreateNewProjectBtn') %></a>
 
 <%= will_paginate %>
