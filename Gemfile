@@ -13,6 +13,7 @@ gem 'rack-reverse-proxy', :require => "rack/reverse_proxy"
 gem 'pg'
 gem 'faker', '1.0.1'
 gem 'thin'
+gem 'font-awesome-rails'
 
 group :assets do
   gem 'jquery-ui-rails'

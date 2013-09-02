@@ -12,4 +12,5 @@
  *= require_tree .
  *= require jquery.ui.slider
  *= require bootstrap-switch
+ *= require font-awesome
  */

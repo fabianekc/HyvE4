@@ -1,4 +1,5 @@
 <ul class="groups unstyled">
+<!--  <li><a href="#templateWizard" role="button" data-toggle="modal"><strong><i class="icon-magic"></i> Data Structure Wizard</strong></a></li> -->
 <% @groups.each do |group| %>
   <li><strong><%= group.name %></strong>
     <% if current_project_user?(@project) %>
