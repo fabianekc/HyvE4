@@ -1,34 +1,54 @@
-<% provide(:title, 'Use Cases') %>
-<h1>Use Cases</h1>
-<p class="myfloat">This page describes use cases for Hyve.me from a users perspective. The examples demonstrate how to leverage your data without compromising anonymity.</p>
-<p class="myfloat"><em>If you are reading this page and want to know more please use the <a href="http://hyve.uservoice.com/">Feedback link</a> in the footer! Because of time constraints we just collected some key words of the basic idea and will continue later to create a nice marketing text...</em></p>
+<% provide(:title, 'Examples') %>
+<h1>Examples</h1>
+<p class="myfloat">This page describes sample scenarios for Hyve.me from a users perspective. Read about leveraging your data without compromising anonymity:
+<ul>
+  <li><a href="#facebook">Survey in Facebook</a></li>
+  <li><a href="#google">Fight Google-Dullness</a></li>
+  <li><a href="#d3">Data Driven Project Management</a></li>
+</ul></p>
 <p>&nbsp;</p>
 
-<h3>Evaluate the Energy Consumption of your Building</h3>
+<h3><a name="facebook"></a>Survey in Facebook</h3>
+<p class="myfloat"><em><strong>Problem:</strong></em> You want to compare/match data with your friends or people you know but don't want to disclose individual data.</p>
+<p class="myfloat"><em><strong>Examples:</strong></em></p>
 <ul>
-  <li>What are the relevant factors for evaluating energy consumption?</li>
-  <li>Where to get this data?</li>
-  <li>How to import it to Hyve.me?</li>
-  <li>Visualize results</li>
-  <li>Ask similar households to compare results</li>
+  <li>How much is the average cost of car insurance every month within selected participants of the survey?</li>
+  <li>Perform an anonymous vote on a certain topic, e.g., where to go for dinner?</li>
+  <li>Match undisclosed offers and bids within a group, e.g., you want to sell an item but don't disclose the price; all participants can make offers; you will only see offers equal or higher than your price.</li>
 </ul>
+<p class="myfloat"><em><strong>Solution:</strong></em></p>
+<ol>
+  <li>Start a new survey on Facebook and choose the survey type:
+    <ul>
+      <li><em>Mean:</em> calculate the average of all submitted values</li>
+      <li><em>Vote:</em> report the option that was selected most often</li>
+      <li><em>Match:</em> list all participants matching or exceeding your offer</li>
+    </ul>
+  </li>
+  <li>Select participants that might be interested to join the survey</li>
+  <li>You and other participating users submit their input via a web form<br>
+    (actually, you don't need to be on Facebook; it is also possible to run such surveys using email)</li>
+  <li>After all participants submitted their data (or a pre-configured time elapsed) results are sent out:
+    <ul>
+      <li><em>Mean:</em> average of submitted values to all participating users</li>
+      <li><em>Vote:</em> option with the most votes to all participating users</li>
+      <li><em>Match:</em> list of all users with matching or exceeding bid is sent to survey creator only</li>
+    </ul>
+  </li>
+</ol>
+<p class="myfloat"><em><strong>Anonymity:</strong></em> Due to the <a href="/developer">architecture of Hyve.me</a> none of the data individually submitted is either accessible by Facebook or any of the participants. Only the result is distributed to the participants. Hyve.me provides a secured server that performs the aggregation of data. Alternatively, there is also a step-by-step instruction provided to setup and configure your own server for aggregating the results.</p>
 <p>&nbsp;</p>
 
-<h3>Compare Your Insurance Spendings</h3>
-<ul>
-  <li>List types of insurances you have</li>
-  <li>Overall spending per year in each category</li>
-  <li>Invite friends and aquaintances to compare spendings anonymously</li>
-</ul>
+<h3><a name="google"></a>Fight Google-Dullness</h3>
+<p class="myfloat"><em><strong>Problem:</strong></em> The report &quot;The Shallows: What the Internet is doing to our Brains&quot; from 2010 by Nicholas Carr describes that the more we use Google the less we can remember! (see also the <a href="http://www.theatlantic.com/magazine/archive/2008/07/is-google-making-us-stupid/306868/">original blog post</a> from 2008)</p>
+<p class="myfloat"><em><strong>Solution:</strong></em> Install a browser plugin to monitor your full history of visited sites. Based on the content and time you spent on a website a weekly multiple choice quiz is generated. Now you can test how much you remembered from the information you consumed in the past week.</p>
+<p class="myfloat"><em><strong>Anonymity:</strong></em> You might be reluctant to install a browser plugin monitoring your web surfing behavior. Keep in mind that the <a href="/developer">architecture of Hyve.me</a> allows you to install the necessary services locally and therefore no information is shared via Hyve.me!</p>
 <p>&nbsp;</p>
 
-<h3>Execute Data-driven Project Management</h3>
-<ul>
-  <li>Use Data-Driven-Development template to describe relevant metrics in your project</li>
-  <li>Collect data for those metrics using <a href="http://www.hyve.me/en/email">email data collection</a> feature</li>
-  <li>Visualize project progress</li>
-  <li>Identify similar projects and ask for review from other project managers</li>
-</ul>
+<h3><a name="d3"></a>Data Driven Project Management</h3>
+<p class="myfloat"><em><strong>Problem:</strong></em> Today, projects generate an enormous amount of data. The question is how to use this data in an effective way to make better decisions?</p>
+<p class="myfloat"><em><strong>Solution:</strong></em> Hyve.me provides a number of tools to collect the available data and offers algorithms and visualization methods to identify trends and gain insight. Optionally, you can share those results and discuss with project managers from similar projects.</p>
+<p class="myfloat"><em><strong>Anonymity:</strong></em> You have complete control what data is accessed and where it is stored. Hyve.me acts in this scenario as a platform to provide information and hosts an online market for algorithms and visualization methods.</p>
 <p>&nbsp;</p>
 
 <p><a href="http://hyve.me/crowdfunder">back to Hyve.me Crowdfunder</a></p>
