@@ -14,7 +14,7 @@
         </tr></thead>
         <% @datavals.each do |d| %>
           <tr>
-            <td class="tdedit"><span class="subedit"><a href="#dataEdit" onclick="document.update_data.elements['dataval[id]'].value='<%= d.id %>'; document.update_data.elements['dataval[valdatime]'].value='<%= d.valdatime %>'; document.update_data.elements['dataval[comment]'].value='<%= d.comment %>'; document.update_data.elements['dataval[value]'].value='<%= d.value %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editdatatip') %>" class="mylink"><i class="icon-pencil"></i></a></span></td>
+            <td class="tdedit"><span class="subedit"><a href="#dataEdit" onclick="document.update_data.elements['dataval[id]'].value='<%= d.id %>'; document.update_data.elements['dataval[valdatime]'].value='<%= d.valdatime %>'; document.update_data.elements['dataval[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(d.comment.to_s)) %>'; document.update_data.elements['dataval[value]'].value='<%= escape_javascript(CGI.unescapeHTML(d.value.to_s)) %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editdatatip') %>" class="mylink"><i class="icon-pencil"></i></a></span></td>
             <td><%= d.valdatime %></td>
             <td><%= d.value %></td>
             <td><%= d.comment %></td>

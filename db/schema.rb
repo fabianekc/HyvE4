@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806095845) do
+ActiveRecord::Schema.define(:version => 20130903095457) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(:version => 20130806095845) do
   end
 
   add_index "datavals", ["structure_id", "created_at"], :name => "index_datavals_on_structure_id_and_created_at"
+
+  create_table "group_items", :force => true do |t|
+    t.string   "groupid"
+    t.string   "groupname"
+    t.string   "itemname"
+    t.integer  "itemtype"
+    t.string   "lang"
+    t.text     "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "groups", :force => true do |t|
     t.string   "name"
@@ -98,6 +109,16 @@ ActiveRecord::Schema.define(:version => 20130806095845) do
   end
 
   add_index "structures", ["group_id"], :name => "index_structures_on_group_id"
+
+  create_table "template_groups", :force => true do |t|
+    t.string   "templateid"
+    t.string   "templatename"
+    t.string   "groupname"
+    t.string   "lang"
+    t.text     "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "name"

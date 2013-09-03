@@ -1,9 +1,9 @@
 <ul class="groups unstyled">
-<!--  <li><a href="#templateWizard" role="button" data-toggle="modal"><strong><i class="icon-magic"></i> Data Structure Wizard</strong></a></li> -->
+<!--  <li><strong><%= link_to(('<i class="icon-magic"></i> ' + 'Data Structure Wizard').html_safe, {:action =>:template}, :id => "structure_wizard") %></strong></a></li> -->
 <% @groups.each do |group| %>
   <li><strong><%= group.name %></strong>
     <% if current_project_user?(@project) %>
-      <span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= group.name %>'; document.update_group.elements['group[comment]'].value='<%= group.comment %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editgrouptip') %>" class="mylink"><i class="icon-pencil"></i></a></span>
+      <span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= escape_javascript(CGI.unescapeHTML(group.name.to_s)) %>'; document.update_group.elements['group[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(group.comment.to_s)) %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editgrouptip') %>" class="mylink"><i class="icon-pencil"></i></a></span>
     <% end %>
   </li>
     <ul>
@@ -12,7 +12,7 @@
          <li><%= structure.name %>
          <% if current_project_user?(@project) %>
            <span class="subedit">
-           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= structure.name %>'; document.update_structure.elements['mystructure[comment]'].value='<%= structure.comment %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_structure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
            <a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.adddatatip') %>" class="mylink"><i class="icon-plus"></i></a>&nbsp;
            <%= link_to('<i class="icon-signal"></i>'.html_safe,structure, rel: "tooltip", title: t('project.showstattip'), class: "mylink") %>
            </span>

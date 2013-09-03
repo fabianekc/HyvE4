@@ -1,4 +1,6 @@
 include ActionView::Helpers::TextHelper
+include ActionView::Helpers::JavaScriptHelper
+require("cgi")
 
 class ProjectsController < ApplicationController
   before_filter :signed_in_user
@@ -64,6 +66,52 @@ class ProjectsController < ApplicationController
     else
       redirect_to :action => 'category'
     end
+  end
+
+  def template
+    @project = Project.find(params[:id])
+    flash[:info] = nil
+  end
+
+  def choose_template
+    if params[:commit] == t('project.categoryNext')
+      redirect_to :action => 'groups', :template => params[:template].first[0]
+    else
+      @project = Project.find(params[:id])
+      redirect_to project_path(@project)
+    end
+  end
+
+  def groups
+    @project = Project.find(params[:id])
+    @tg = TemplateGroup.where('templateid = ? AND lang = ?', params[:template], locale.to_s)
+
+  end
+
+  def select_groups
+    @project = Project.find(params[:id])
+    if params[:commit] == t('project.categoryFinish')
+      @tg = TemplateGroup.where('templateid = ? AND lang = ?', params[:template], locale.to_s)
+      @tg.each do |group|
+        if !params[group.groupname.to_s].nil?
+          @newgroup=@project.groups.build(name: group.groupname.to_s, comment: "from template '" + group.templatename + "'")
+          if @newgroup.save
+            @gi = GroupItem.where('groupname = ? AND lang = ?', group.groupname, locale.to_s)
+            @gi.each do |item|
+              @newitem=@newgroup.structures.build(name: item.itemname.to_s, comment: item.description.to_s)
+              @newitem.save
+            end
+          end
+        end
+      end
+      flash[:success] = "Groups for template '" + params[:template] + "' created."
+      redirect_to project_path(@project)
+    elsif params[:commit] == t('project.categoryPrev')
+      redirect_to :action => 'template'
+    else
+      redirect_to project_path(@project)
+    end
+
   end
 
   def create_group

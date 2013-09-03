@@ -1,6 +1,6 @@
   <section>
     <%= form_for(@project, :url => { :action => 'update_email' }, :html => { :id => 'email_switch' }, remote: true ) do |f| %>
-      <label><%= t('project.settingemail') %><sup><%= link_to "?", email_path %></sup>: <div class="switch switch-small" data-on="primary" data-off="default" style="margin-bottom:-10px;" style="border: 0;"><%= f.check_box :emaildata %></div></label>
+      <label><%= t('project.settingemail') %><sup><%= link_to "?", email_path %></sup>: <div class="make-switch switch-small" data-on="primary" data-off="default"><%= f.check_box :emaildata %></div></label>
     <% end %>
   </section>
 <script>

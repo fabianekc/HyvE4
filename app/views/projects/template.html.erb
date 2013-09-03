@@ -1,0 +1,45 @@
+<% provide(:title, "Choose Template | Structure Wizard | " + @project.name) %>
+<h1 align = "center"><%= @project.name + ": Choose Template" %></h1>
+<div class="row">
+ <%= form_tag({:action => 'choose_template'}, {:method => 'put', :name => 'choose_template', :class => "form-horizontal" } ) do %>
+  <div class="row">
+   <div class="span9 offset2">
+    <p class="myfloat" align="justify">Choose one of the available templates below to create an initial data structure for your project. You can adapt groups and items later on.</p>
+   </div>
+   <div class="span7 offset3">
+      <label class="radio">
+        <%= radio_button :template, :SWOT, "SWOT" %><strong>SWOT Analysis</strong>
+        <p class="myfloat">A structured planning method to evaluate the Strenghts, Weaknesses, Opportunities, and Threats of your project - <a href="http://en.wikipedia.org/wiki/SWOT_analysis">read more</a>.<br>
+        This option is a good start for everybody using Hyve.me for the first time.</p>
+      </label>
+      <label class="radio">
+        <%= radio_button :template, :Honeycomb, "Honeycomb" %><strong>Honeycomb Template</strong>
+        <p class="myfloat">An advancement of the project management triangle in regard to validated learning - <a href="http://www.hyve.me/blog/?p=57">read more</a>.<br>
+        This is also a general purpose template for any kind of project.</p>
+      </label>
+      <label class="radio">
+        <%= radio_button :template, :Porter, "Porter" %><strong>Porter's 5 Forces</strong>
+        <p class="myfloat">A framework for industry analysis to evaluate the competitive intensity and attractiveness for a given market - <a href="http://en.wikipedia.org/wiki/Porter%27s_five_forces">read more</a>.<br>
+        Use this option for business related projects.</p>
+      </label>
+      <label class="radio">
+        <%= radio_button :template, :Lean, "Lean" %><strong>Lean Canvas</strong>
+        <p class="myfloat">A strategic management template to document activities and potential trade-offs - <a href="http://practicetrumpstheory.com/2012/02/why-lean-canvas/">read more</a>.<br>
+        Use this option when you are evaluating new business models, e.g., a start-up.</p>
+      </label>
+      <label class="radio">
+        <%= radio_button :template, :D3, "D3" %><strong>Data Driven Development</strong>
+        <p class="myfloat">A framework for software development with focus on validated learning, i.e., new features are prioritized based on validity of hypothesises - <a href="http://www.hyve.me/blog">read more</a>.<br>
+        Use this option for software development projects.</p>
+      </label>
+    <p>&nbsp;</p>
+   </div>
+   <div class="span9 offset2">
+     <%= submit_tag("Cancel", :class => "btn btn-info btn-large pull-left", :id => "Cancel") %>
+     <%= submit_tag(t('project.categoryNext'), :class => "btn btn-info btn-large pull-right", :id => "Next") %>
+   </div>
+  </div>
+ <% end %>
+ <p>&nbsp;</p>
+</div>
+
