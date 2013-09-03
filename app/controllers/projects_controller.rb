@@ -75,7 +75,7 @@ class ProjectsController < ApplicationController
 
   def choose_template
     if params[:commit] == t('project.categoryNext')
-      redirect_to :action => 'groups', :template => params[:template].first[0]
+      redirect_to :action => 'groups', :template => params[:template][:selection]
     else
       @project = Project.find(params[:id])
       redirect_to project_path(@project)
