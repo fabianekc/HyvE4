@@ -29,7 +29,7 @@ class ProjectsController < ApplicationController
     @groups = Group.all(:conditions => "project_id=" + params[:id], :order => "created_at ASC")
     if flash[:info].nil?
       if Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count == 0 && current_project_user?(@project) 
-        flash[:info] = t('project.datastructHint')
+        flash.now[:info] = t('project.datastructHint')
       end
     end
   end

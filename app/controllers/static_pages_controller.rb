@@ -1,8 +1,4 @@
 class StaticPagesController < ApplicationController
-  def tracking
-    flash.now[:info]="discard"
-  end
-
   def statistic
     @datavals = Dataval.group("DATE_TRUNC('week', valdatime)").count.sort
     a=[]
@@ -20,4 +16,5 @@ class StaticPagesController < ApplicationController
     end
     @datavals = b.zip(a)
   end
+
 end

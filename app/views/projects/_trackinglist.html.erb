@@ -1,5 +1,5 @@
 <ul class="groups unstyled">
-<!--  <li><strong><%= link_to(('<i class="icon-magic"></i> ' + 'Data Structure Wizard').html_safe, {:action =>:template}, :id => "structure_wizard") %></strong></a></li> -->
+  <li><strong><%= link_to(('<i class="icon-magic"></i> ' + t('project.structwiz')).html_safe, {:action =>:template}, :id => "structure_wizard") %></strong></a></li>
 <% @groups.each do |group| %>
   <li><strong><%= group.name %></strong>
     <% if current_project_user?(@project) %>
