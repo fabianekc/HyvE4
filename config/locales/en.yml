@@ -113,6 +113,8 @@ en:
     createdHint: "Open the 'Category' panel on the left side and click 'set Categories'. Then similar projects will be listed and you can see what others are tracking."
     datastructHint: "Your project does not have any tracking items - open the 'Tracking' tab and create some!<br>Click on the <strong><i class='icon-magic'></i> Data Structure Wizard</strong> to start with an existing template.<br>(To manually add tracking items use 'Create New Group' and 'Create New Item' - read more <u><a href='/en/tracking'>here</a></u> and <u><a href='/blog/?p=38'>here</a></u>.)"
     structwiz: "Data Structure Wizard"
+    enableemail: "Great - your project has now attributes for data tracking! To start collecting data, open the 'Settings' panel on the left side and enable <strong>Data collection via email</strong>."
+    mailsent: "We just sent you an email for data collection."
     simprojectheader: "Similar Projects"
     newheader: "New Project"
     edittitle: "Edit Project"

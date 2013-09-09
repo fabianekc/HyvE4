@@ -30,6 +30,10 @@ class ProjectsController < ApplicationController
     if flash[:info].nil?
       if Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count == 0 && current_project_user?(@project) 
         flash.now[:info] = t('project.datastructHint')
+      else
+        if Dataval.where(:structure_id => Structure.select("id").where(:group_id => Group.select("id").where(project_id: @project.id))).count == 0 && !@project.emaildata && current_project_user?(@project)
+          flash.now[:info] = t('project.enableemail')
+        end
       end
     end
   end
@@ -37,6 +41,14 @@ class ProjectsController < ApplicationController
   def update_email
     @project = Project.find(params[:id])
     @project.update_attributes(params[:project])
+    if @project.emaildata && Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count > 0
+      @item = Structure.where(:fieldtype => 3, :group_id => Group.select("id").where(project_id: 113)).order("lastmailsent IS NULL", "lastmailsent ASC").order("id ASC").first
+      @item.mail_datacollect
+      @item.update_attributes(:lastmailsent => DateTime.current)
+      flash[:success] = t('project.mailsent')
+    else
+      flash[:success] = ""
+    end
   end
 
   def category
@@ -98,7 +110,7 @@ class ProjectsController < ApplicationController
           if @newgroup.save
             @gi = GroupItem.where('groupname = ? AND lang = ?', group.groupname, locale.to_s)
             @gi.each do |item|
-              @newitem=@newgroup.structures.build(name: item.itemname.to_s, comment: item.description.to_s)
+              @newitem=@newgroup.structures.build(name: item.itemname.to_s, comment: item.description.to_s, fieldtype: item.itemtype.to_i)
               @newitem.save
             end
           end

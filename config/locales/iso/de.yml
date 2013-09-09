@@ -113,6 +113,8 @@ de:
     createdHint: "Öffne das Panel 'Kategorie' und klicke auf 'Kategorien setzen'. Dann werden ähnliche Projekte aufgelisted und du kannst sehen, welche Daten andere sammeln."
     datastructHint: "Das Projekt hat noch keine Datenerfassung definiert - gehe zur Registerkarte 'Datenerfassung' und erstelle Attribute!<br>Klicke auf <strong><i class='icon-magic'></i> Vorlagen-Assistent</strong> und wähle eine Mustervorlage.<br>(Um selbst Attribute zu erstellen verwende 'Neue Gruppe/Element hinzufügen' - mehr dazu <u><a href='/de/tracking'>hier</a></u> und <u><a href='/blog/?p=38'>im englischsprachigen Blog</a></u>.)"
     structwiz: "Vorlagen-Assistent"
+    enableemail: "Das Projekt hat jetzt Attribute zur Datenerfassung definiert. Aktiviere als nächstes die <strong>Datenerfassung mit Email</strong> im Panel 'Einstellungen' auf der linken Seite."
+    mailsent: "Soeben wurde ein Email zur Abfrage der Projektattribute versendet."
     simprojectheader: "Ähnliche Projekte"
     newheader: "Projekt anlegen"
     edittitle: "Projekt ändern"

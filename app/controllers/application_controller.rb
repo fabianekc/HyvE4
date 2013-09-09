@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   before_filter :set_locale
+  after_filter  :discard_flash_if_xhr
 
   def missing
       flash[:warning] = t('general.invalidURL') + request.original_url
@@ -34,4 +35,10 @@ class ApplicationController < ActionController::Base
     I18n.locale = params[:locale] || extract_locale_from_accept_language_header
     Rails.application.routes.default_url_options[:locale]= I18n.locale 
   end
+
+  protected
+  def discard_flash_if_xhr
+    flash.discard if request.xhr?
+  end
+
 end
