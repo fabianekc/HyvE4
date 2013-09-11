@@ -31,7 +31,8 @@ scope "(:locale)", :locale => /en|de/ do
   resources :password_resets, only: [:new, :create, :edit, :update]
 
   root to: 'users#new'
-  match "/blog" => redirect("/blog/")
+  match "/blog"        => redirect("/blog/")
+  match "/wp-admin"    => redirect("/wp-admin/")
   match "/crowdfunder" => redirect("/crowdfunder/")
   match '/imprint',   to: 'static_pages#imprint'
   match '/about',     to: 'static_pages#about'
