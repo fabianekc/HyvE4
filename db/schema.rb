@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130912104227) do
+ActiveRecord::Schema.define(:version => 20130912162114) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(:version => 20130912104227) do
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.text     "comment"
+    t.datetime "lastmailsent"
   end
 
   add_index "groups", ["project_id"], :name => "index_groups_on_project_id"
