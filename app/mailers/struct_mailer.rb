@@ -1,6 +1,6 @@
 class StructMailer < ActionMailer::Base
   default from: ENV['MAILER_DATA_FROM']
-  default reply_to: ENV['MAILER_REPLY_TO']
+  default reply_to: ENV['MAILER_DATA_REPLY_TO']
 
   def request_first_list(struct)
     @struct=struct
