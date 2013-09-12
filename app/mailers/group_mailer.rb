@@ -4,7 +4,7 @@ class GroupMailer < ActionMailer::Base
 
   def request_first_list(group)
     @group   = group
-    @structs = Structure.find_by_group_id(@group.id)
+    @structs = Structure.where(group_id: @group.id)
     @project = Project.find_by_id(@group.project_id)
     @user    = User.find_by_id(@project.user_id)
     mail(:to => @user.email, :subject => "[" + @project.name + "] " + @group.name)
