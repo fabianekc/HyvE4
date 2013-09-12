@@ -1,4 +1,5 @@
-<% if @categories.count == 0 %>
+<% if !@categories.nil?
+    if @categories.count == 0 %>
   <% if current_project_user?(@project) %>
     <%= link_to t('project.setCategorybtn'), {:action => :category, :page => 1}, {:class => "btn btn-large btn-primary pull-right", :id => "set_categories"} %><br>&nbsp;
   <% else %>
@@ -19,4 +20,5 @@
       </dd>
     <% end %>
   </dl>
-<% end %>
+<% end
+end %>

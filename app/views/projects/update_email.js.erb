@@ -1,0 +1,7 @@
+<% if !flash[:success].blank? %>
+  $('#myflash').html('<div class="alert alert-success"><button type="button" class="close" data-dismiss="alert">&times;</button><%= flash[:success] %></div>');
+  var element = document.getElementById("flash_messages");
+  element.parentNode.removeChild(element);
+<% else %>
+  $('#myflash').html('');
+<% end %>
