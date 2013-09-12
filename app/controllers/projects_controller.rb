@@ -44,11 +44,11 @@ class ProjectsController < ApplicationController
     if @project.emaildata && Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count > 0
       sql = "SELECT 1 as sgtype, id, lastmailsent, lastmailsent IS NULL as lms_is_null
              FROM structures
-             WHERE fieldtype = 3 AND group_id IN (SELECT id FROM groups WHERE project_id = " + @projet.id + ")
+             WHERE fieldtype = 3 AND group_id IN (SELECT id FROM groups WHERE project_id = " + @project.id + ")
              UNION
              SELECT 2 as sgtype, id, lastmailsent, lastmailsent IS NULL as lms_is_null
              FROM groups
-             WHERE project_id = " + @projet.id + "
+             WHERE project_id = " + @project.id + "
              ORDER BY lms_is_null DESC, lastmailsent ASC, sgtype ASC, id ASC
              LIMIT 1"
       nextrecord = ActiveRecord::Base.connection.exec_query(sql).rows[0];
