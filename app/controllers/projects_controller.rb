@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     @project.update_attributes(params[:project])
     if @project.emaildata && Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count > 0
-      @item = Structure.where(:fieldtype => 3, :group_id => Group.select("id").where(project_id: 113)).order("lastmailsent IS NULL", "lastmailsent ASC").order("id ASC").first
+      @item = Structure.where(:fieldtype => 3, :group_id => Group.select("id").where(project_id: @project.id)).order("lastmailsent IS NULL", "lastmailsent ASC").order("id ASC").first
       @item.mail_datacollect
       @item.update_attributes(:lastmailsent => DateTime.current)
       flash[:success] = t('project.mailsent')
