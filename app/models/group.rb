@@ -16,4 +16,9 @@ class Group < ActiveRecord::Base
   has_many   :structures, dependent: :destroy
   validates :project_id, presence: true
   validates :name,       presence: true, length: { maximum: 100 }
+
+  def mail_datacollect
+    GroupMailer.request_first_list(self).deliver
+  end
+
 end

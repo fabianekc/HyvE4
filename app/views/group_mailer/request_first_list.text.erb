@@ -1,0 +1,16 @@
+Hi <%= @user.name %>,
+
+Please answer this email with current values for the attributes in group '<%= @group.name %>' for project '<%= @project.name %>':
+<% @structs.each do |s| 
+     if s.fieldtype != 3 && s.fieldtype != 7 %>
+- <%= s.name %>
+<%   end
+   end %>
+(Note: Use the same order and one line per item.)
+
+Links you might find useful:
+- About this email: http://hyve.me/en/email
+- Your account on Hyve.me: http://hyve.me/en/users/<%= @user.id %>
+- Don't send further emails: mailto:info@hyve.me?subject=Unsubscribe
+
+-Hyve
