@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
 
   # Returns the full title on a per-page basis.
@@ -13,5 +14,4 @@ module ApplicationHelper
   def reload_flash
     page.replace_html "flash_messages", :partial => 'layouts/flash'
   end
-
 end

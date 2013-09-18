@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130912162114) do
+ActiveRecord::Schema.define(:version => 20130918094409) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -122,6 +122,15 @@ ActiveRecord::Schema.define(:version => 20130912162114) do
     t.text     "description"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "templates", :force => true do |t|
+    t.string   "templateid"
+    t.string   "name"
+    t.text     "description"
+    t.string   "lang"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

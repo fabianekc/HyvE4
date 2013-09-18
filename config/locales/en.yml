@@ -11,6 +11,7 @@ en:
     createbtn: "Create"
     updatebtn: "Update"
     closebtn: "Close"
+    cancelbtn: "Cancel"
     deletetxt: "delete"
     Confirmmsg: "You sure?"
     inputerror: "There was an error with your input: "
@@ -245,6 +246,13 @@ en:
 
     structGraphHeading: "Graph"
     structDataHeading: "Data"
+
+    templateWizardTitleP1: "Choose Template | Structure Wizard | "
+    chooseTemplate: "Choose Template"
+    templateWizardDescriptionP1: "Choose one of the available templates below to create an initial data structure for your project. You can adapt groups and items later on."
+    templateWizardTitleP2: "Select Groups | Structure Wizard | "
+    chooseGroup: "Select Groups"
+    templateWizardDescriptionP2: "Select those groups below that are relevant for your project. You can change those groups later on."
 
   layout:
     about: "About"

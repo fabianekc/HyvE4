@@ -96,12 +96,13 @@ class ProjectsController < ApplicationController
 
   def template
     @project = Project.find(params[:id])
+    @template = Template.all
     flash[:info] = nil
   end
 
   def choose_template
     if params[:commit] == t('project.categoryNext')
-      redirect_to :action => 'groups', :template => params[:template][:selection]
+      redirect_to :action => 'groups', :template => params[:template]
     else
       @project = Project.find(params[:id])
       redirect_to project_path(@project)
@@ -130,7 +131,9 @@ class ProjectsController < ApplicationController
           end
         end
       end
-      flash[:success] = "Groups for template '" + params[:template] + "' created."
+      if !params[:template].nil?
+        flash[:success] = "Groups for template '" + params[:template] + "' created."
+      end
       redirect_to project_path(@project)
     elsif params[:commit] == t('project.categoryPrev')
       redirect_to :action => 'template'
