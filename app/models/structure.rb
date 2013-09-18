@@ -11,7 +11,7 @@
 #
 
 class Structure < ActiveRecord::Base
-  attr_accessible :name, :comment, :fieldtype, :lastmailsent
+  attr_accessible :name, :comment, :fieldtype, :lastmailsent, :url, :fielddef
   belongs_to :group
   has_many   :datavals, dependent: :destroy
   validates :group_id, presence: true

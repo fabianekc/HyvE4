@@ -189,6 +189,20 @@ class ProjectsController < ApplicationController
     redirect_to project_path(params[:id])
   end
 
+  def create_jsonstructure
+    @group = Group.find(params['myform']['group_id'])
+    @project = Project.find(@group.project_id)
+    if current_project_user?(@project)
+      @newstructure = @group.structures.build(name: params['myform']['name'], url: params['myform']['url'], fielddef: params['myform']['fielddef'], comment: params['myform']['comment'], fieldtype: 8)
+      if @newstructure.save
+        flash[:success] = t('project.itemCreatedMsg')
+      else
+        flash[:error] = t('project.itemCreationErrorMsg') + @newstructure.errors.full_messages.join
+      end
+    end
+    redirect_to project_path(params[:id])
+  end
+
   def update_structure
     @structure = Structure.find(params['mystructure']['id'])
     @group = Group.find(@structure.group_id)

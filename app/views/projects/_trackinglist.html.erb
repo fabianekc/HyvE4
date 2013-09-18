@@ -3,7 +3,11 @@
 <% @groups.each do |group| %>
   <li><strong><%= group.name %></strong>
     <% if current_project_user?(@project) %>
-      <span class="subedit"><a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= escape_javascript(CGI.unescapeHTML(group.name.to_s)) %>'; document.update_group.elements['group[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(group.comment.to_s)) %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editgrouptip') %>" class="mylink"><i class="icon-pencil"></i></a></span>
+      <span class="subedit">
+        <a href="#groupEdit" onclick="document.update_group.elements['group[name]'].value='<%= escape_javascript(CGI.unescapeHTML(group.name.to_s)) %>'; document.update_group.elements['group[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(group.comment.to_s)) %>'; document.update_group.elements['group[id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.editgrouptip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+        <a href="#itemNew" onclick="document.create_structure.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.additemlink') %>" class="mylink"><i class="icon-plus"></i></a>&nbsp;
+        <a href="#jsonNew" onclick="document.create_jsonstructure.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.addjsonlink') %>" class="mylink"><i class="icon-cloud-download"></i></a>
+      </span>
     <% end %>
   </li>
     <ul>
@@ -12,16 +16,17 @@
          <li><%= structure.name %>
          <% if current_project_user?(@project) %>
            <span class="subedit">
-           <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_structure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+           <% if structure.fieldtype == 8 %>
+             <a href="#jsonEdit" onclick="document.update_jsonstructure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_jsonstructure.elements['mystructure[url]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.url.to_s)) %>'; document.update_jsonstructure.elements['mystructure[fielddef]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.fielddef.to_s)) %>'; document.update_jsonstructure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_jsonstructure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+           <% else %>
+             <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_structure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+           <% end %>
            <a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.adddatatip') %>" class="mylink"><i class="icon-plus"></i></a>&nbsp;
            <%= link_to('<i class="icon-signal"></i>'.html_safe,structure, rel: "tooltip", title: t('project.showstattip'), class: "mylink") %>
            </span>
          <% end %>
          </li>
     <% end unless @structure.nil? %>
-    <% if current_project_user?(@project) %>
-      <li><a href="#itemNew" onclick="document.create_item.elements['myform[group_id]'].value='<%= group.id %>';" role="button" data-toggle="modal"><%= t('project.additemlink') %></a></li>
-    <% end %>
     </ul>
 <% end unless @groups.nil? %>
   <% if current_project_user?(@project) %>
@@ -92,7 +97,7 @@ $('.mylink').tooltip({ selector: "a" });
 <% end %>
 
 <!-- New Item -->
-<%= form_tag( { :action => 'create_structure' }, { :method => 'put', :name => 'create_item', :class => "form-horizontal" } ) do %>
+<%= form_tag( { :action => 'create_structure' }, { :method => 'put', :name => 'create_structure', :class => "form-horizontal" } ) do %>
   <div id="itemNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="itemNewLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -128,6 +133,77 @@ $('.mylink').tooltip({ selector: "a" });
       <div class="control-group">
         <%= label :mystructure, :name, t('general.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :mystructure, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :mystructure, :comment, t('general.comment'), :class => "control-label" %>
+        <div class="controls"><%= text_area :mystructure, :comment, :rows => "2" %></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <%= submit_tag(t('project.deleteItemBtn'), data: { confirm: t('general.Confirmmsg') }, :class => "btn btn-danger pull-left") %>
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.updatebtn'), class: "btn btn-primary") %>
+    </div>
+  </div>
+<% end %>
+
+<!-- New JSON -->
+<%= form_tag( { :action => 'create_jsonstructure' }, { :method => 'put', :name => 'create_jsonstructure', :class => "form-horizontal" } ) do %>
+  <div id="jsonNew" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="jsonNewLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 id="jsonNewLabel"><%= t('project.newJsonHeader') %></h3>
+    </div>
+    <div class="modal-body">
+      <%= hidden_field :myform, :group_id %>
+      <div class="control-group">
+        <%= label :myform, :name, t('general.name'), :class => "control-label" %>
+        <div class="controls"><%= text_field :myform, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :myform, :url, t('general.url'), :class => "control-label" %>
+        <div class="controls"><%= text_field :myform, :url %><br>
+          <small><%= t('general.example') %>: <a href="https://graph.facebook.com/?ids=microsoft" target="_blank">https://graph.facebook.com/?ids=microsoft</a></small></div>
+      </div>
+      <div class="control-group">
+        <%= label :myform, :fielddef, t('general.fielddef'), :class => "control-label" %>
+        <div class="controls"><%= text_field :myform, :fielddef %><br>
+          <small><%= t('general.example') %>: "microsoft", "likes"</small></div>
+      </div>
+      <div class="control-group">
+        <%= label :myform, :comment, t('general.comment'), :class => "control-label" %>
+        <div class="controls"><%= text_area :myform, :comment, :rows => "2" %></div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true"><%= t('general.closebtn') %></button>
+      <%= submit_tag(t('general.createbtn'), class: "btn btn-primary") %>
+    </div>
+  </div>
+<% end %>
+
+<!-- Edit JSON -->
+<%= form_tag( { :action => 'update_structure' }, { :method => 'put', :name => 'update_jsonstructure', :class => "form-horizontal" } ) do %>
+  <div id="jsonEdit" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="jsonEditLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3 id="jsonEditLabel"><%= t('project.editJsonHeader') %></h3>
+    </div>
+    <div class="modal-body">
+      <%= hidden_field :mystructure, :id %>
+      <div class="control-group">
+        <%= label :mystructure, :name, t('general.name'), :class => "control-label" %>
+        <div class="controls"><%= text_field :mystructure, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :mystructure, :url, t('general.url'), :class => "control-label" %>
+        <div class="controls"><%= text_field :mystructure, :url %><br>
+          <small><%= t('general.example') %>: https://graph.facebook.com/?ids=microsoft</small></div>
+      </div>
+      <div class="control-group">
+        <%= label :mystructure, :fielddef, t('general.fielddef'), :class => "control-label" %>
+        <div class="controls"><%= text_field :mystructure, :fielddef %><br>
+          <small><%= t('general.example') %>: "microsoft", "likes"</small></div>
       </div>
       <div class="control-group">
         <%= label :mystructure, :comment, t('general.comment'), :class => "control-label" %>

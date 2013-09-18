@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918094409) do
+ActiveRecord::Schema.define(:version => 20130918170435) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -110,6 +110,8 @@ ActiveRecord::Schema.define(:version => 20130918094409) do
     t.text     "comment"
     t.integer  "fieldtype"
     t.datetime "lastmailsent"
+    t.string   "url"
+    t.string   "fielddef"
   end
 
   add_index "structures", ["group_id"], :name => "index_structures_on_group_id"
