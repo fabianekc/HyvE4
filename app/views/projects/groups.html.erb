@@ -1,22 +1,24 @@
-<% provide(:title, "Select Groups | Structure Wizard | " + @project.name) %>
-<h1 align = "center"><%= @project.name + ": Select Groups" %></h1>
+<% provide(:title, t('project.templateWizardTitleP2') + @project.name) %>
+<h1 align = "center"><%= @project.name + ": " + t('project.chooseGroup') %></h1>
 <div class="row">
  <%= form_tag({:action => 'select_groups', :template => params[:template]}, {:method => 'put', :name => 'select_groups', :class => "form-horizontal" } ) do %>
   <div class="row">
    <div class="span9 offset2">
-    <p class="myfloat" align="justify">Select those groups below that are relevant for your project. You can change those groups later on.</p>
+    <p class="myfloat" align="justify"><%= t('project.templateWizardDescriptionP2') %></p>
    </div>
    <div class="span7 offset3">
-    <% @tg.each do |group| %>
-      <label class="checkbox">
-        <%= check_box_tag group.groupname, "", :checked => '' %>
-        <strong><%= group.groupname %></strong>
-      </label>
-    <% end %>
+    <% @tg.each do |group|
+         if group.lang.downcase == I18n.locale.to_s.downcase %>
+           <label class="checkbox">
+             <%= check_box_tag group.groupname, "", :checked => '' %>
+             &nbsp;<strong><%= group.groupname %></strong>
+           </label>
+    <%   end
+       end %>
     <p>&nbsp;</p>
    </div>
    <div class="span9 offset2">
-     <%= submit_tag("Cancel", :class => "btn btn-info btn-large pull-left", :id => "Cancel") %>
+     <%= submit_tag(t('general.cancelbtn'), :class => "btn btn-info btn-large pull-left", :id => "Cancel") %>
      <%= submit_tag(t('project.categoryFinish'), :class => "btn btn-primary btn-large pull-right", :id => "Next", :style => "margin-left:20px;") %>
      <%= submit_tag(t('project.categoryPrev'), :class => "btn btn-info btn-large pull-right", :id => "Previous") %>
    </div>

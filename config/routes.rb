@@ -13,7 +13,7 @@ scope "(:locale)", :locale => /en|de/ do
   resources :projects do
     member do
       get :category, :template, :groups
-      put :update_category, :create_group, :update_group, :create_structure, :update_structure, :create_data, :update_email, :choose_template, :select_groups
+      put :update_category, :create_group, :update_group, :create_structure, :update_structure, :create_data, :update_email, :choose_template, :select_groups, :create_jsonstructure
     end
   end
 

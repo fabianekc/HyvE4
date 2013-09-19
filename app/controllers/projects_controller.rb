@@ -29,7 +29,11 @@ class ProjectsController < ApplicationController
     @groups = Group.all(:conditions => "project_id=" + params[:id], :order => "created_at ASC")
     if flash[:info].nil?
       if Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count == 0 && current_project_user?(@project) 
-        flash[:info] = t('project.datastructHint')
+        flash.now[:info] = t('project.datastructHint')
+      else
+        if Dataval.where(:structure_id => Structure.select("id").where(:group_id => Group.select("id").where(project_id: @project.id))).count == 0 && !@project.emaildata && current_project_user?(@project)
+          flash.now[:info] = t('project.enableemail')
+        end
       end
     end
   end
@@ -37,6 +41,12 @@ class ProjectsController < ApplicationController
   def update_email
     @project = Project.find(params[:id])
     @project.update_attributes(params[:project])
+    @project.update_attributes(:nextmail => DateTime.current)
+    if @project.emaildata 
+      flash[:success] = t('project.mailsent')
+    else
+      flash[:success] = ""
+    end
   end
 
   def category
@@ -70,12 +80,13 @@ class ProjectsController < ApplicationController
 
   def template
     @project = Project.find(params[:id])
+    @template = Template.all
     flash[:info] = nil
   end
 
   def choose_template
     if params[:commit] == t('project.categoryNext')
-      redirect_to :action => 'groups', :template => params[:template][:selection]
+      redirect_to :action => 'groups', :template => params[:template]
     else
       @project = Project.find(params[:id])
       redirect_to project_path(@project)
@@ -98,13 +109,15 @@ class ProjectsController < ApplicationController
           if @newgroup.save
             @gi = GroupItem.where('groupname = ? AND lang = ?', group.groupname, locale.to_s)
             @gi.each do |item|
-              @newitem=@newgroup.structures.build(name: item.itemname.to_s, comment: item.description.to_s)
+              @newitem=@newgroup.structures.build(name: item.itemname.to_s, comment: item.description.to_s, fieldtype: item.itemtype.to_i)
               @newitem.save
             end
           end
         end
       end
-      flash[:success] = "Groups for template '" + params[:template] + "' created."
+      if !params[:template].nil?
+        flash[:success] = "Groups for template '" + params[:template] + "' created."
+      end
       redirect_to project_path(@project)
     elsif params[:commit] == t('project.categoryPrev')
       redirect_to :action => 'template'
@@ -151,6 +164,20 @@ class ProjectsController < ApplicationController
     @project = Project.find(@group.project_id)
     if current_project_user?(@project)
       @newstructure = @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment'])
+      if @newstructure.save
+        flash[:success] = t('project.itemCreatedMsg')
+      else
+        flash[:error] = t('project.itemCreationErrorMsg') + @newstructure.errors.full_messages.join
+      end
+    end
+    redirect_to project_path(params[:id])
+  end
+
+  def create_jsonstructure
+    @group = Group.find(params['myform']['group_id'])
+    @project = Project.find(@group.project_id)
+    if current_project_user?(@project)
+      @newstructure = @group.structures.build(name: params['myform']['name'], url: params['myform']['url'], fielddef: params['myform']['fielddef'], comment: params['myform']['comment'], fieldtype: 8)
       if @newstructure.save
         flash[:success] = t('project.itemCreatedMsg')
       else

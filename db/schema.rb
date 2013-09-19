@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130903095457) do
+ActiveRecord::Schema.define(:version => 20130918170435) do
 
   create_table "datavals", :force => true do |t|
     t.string   "value"
@@ -38,9 +38,10 @@ ActiveRecord::Schema.define(:version => 20130903095457) do
   create_table "groups", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.text     "comment"
+    t.datetime "lastmailsent"
   end
 
   add_index "groups", ["project_id"], :name => "index_groups_on_project_id"
@@ -85,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20130903095457) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.boolean  "emaildata"
+    t.datetime "nextmail"
   end
 
   add_index "projects", ["user_id"], :name => "index_projects_on_user_id"
@@ -103,9 +105,13 @@ ActiveRecord::Schema.define(:version => 20130903095457) do
   create_table "structures", :force => true do |t|
     t.string   "name"
     t.integer  "group_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.text     "comment"
+    t.integer  "fieldtype"
+    t.datetime "lastmailsent"
+    t.string   "url"
+    t.string   "fielddef"
   end
 
   add_index "structures", ["group_id"], :name => "index_structures_on_group_id"
@@ -118,6 +124,15 @@ ActiveRecord::Schema.define(:version => 20130903095457) do
     t.text     "description"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "templates", :force => true do |t|
+    t.string   "templateid"
+    t.string   "name"
+    t.text     "description"
+    t.string   "lang"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "users", :force => true do |t|

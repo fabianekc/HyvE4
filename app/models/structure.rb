@@ -11,9 +11,14 @@
 #
 
 class Structure < ActiveRecord::Base
-  attr_accessible :name, :comment
+  attr_accessible :name, :comment, :fieldtype, :lastmailsent, :url, :fielddef
   belongs_to :group
   has_many   :datavals, dependent: :destroy
   validates :group_id, presence: true
   validates :name,     presence: true, length: { maximum: 100 }
+
+  def mail_datacollect
+    StructMailer.request_first_list(self).deliver
+  end
+
 end

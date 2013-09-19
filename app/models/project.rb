@@ -15,7 +15,7 @@
 #
 
 class Project < ActiveRecord::Base
-  attr_accessible :name, :description, :hoffen, :tun, :wissen, :emaildata
+  attr_accessible :name, :description, :hoffen, :tun, :wissen, :emaildata, :nextmail
 
   belongs_to :user
   has_many :pjattribs, dependent: :destroy
