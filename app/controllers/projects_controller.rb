@@ -41,24 +41,8 @@ class ProjectsController < ApplicationController
   def update_email
     @project = Project.find(params[:id])
     @project.update_attributes(params[:project])
-    if @project.emaildata && Structure.where(:group_id => Group.select("id").where(project_id: @project.id)).count > 0
-      sql = "SELECT 1 as sgtype, id, lastmailsent, lastmailsent IS NULL as lms_is_null
-             FROM structures
-             WHERE fieldtype = 3 AND group_id IN (SELECT id FROM groups WHERE project_id = " + @project.id.to_s + ")
-             UNION
-             SELECT 2 as sgtype, id, lastmailsent, lastmailsent IS NULL as lms_is_null
-             FROM groups
-             WHERE project_id = " + @project.id.to_s + "
-             ORDER BY lms_is_null DESC, lastmailsent ASC, sgtype ASC, id ASC
-             LIMIT 1"
-      nextrecord = ActiveRecord::Base.connection.exec_query(sql).rows[0];
-      if nextrecord[0] == "1"
-        @item = Structure.find_by_id(nextrecord[1])
-      elsif nextrecord[0] == "2"
-        @item = Group.find_by_id(nextrecord[1])
-      end
-      @item.mail_datacollect
-      @item.update_attributes(:lastmailsent => DateTime.current)
+    @project.update_attributes(:nextmail => DateTime.current)
+    if @project.emaildata 
       flash[:success] = t('project.mailsent')
     else
       flash[:success] = ""
