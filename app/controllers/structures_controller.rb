@@ -8,7 +8,7 @@ class StructuresController < ApplicationController
     @structure = Structure.find(params[:id])
     @group = Group.find(@structure.group_id)
     @project = Project.find(@group.project_id)
-    @datavals = Dataval.all(:conditions => ["structure_id = ?", params[:id]])
+    @datavals = Dataval.where(structure_id: params[:id]).order("valdatime ASC")
     a=[]
     b=[]
     Dataval.all(:conditions => ["structure_id = ?", @structure.id]).each do |r|
