@@ -19,7 +19,13 @@
            <% if structure.fieldtype == 8 %>
              <a href="#jsonEdit" onclick="document.update_jsonstructure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_jsonstructure.elements['mystructure[url]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.url.to_s)) %>'; document.update_jsonstructure.elements['mystructure[fielddef]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.fielddef.to_s)) %>'; document.update_jsonstructure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_jsonstructure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
            <% else %>
-             <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_structure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
+             <a href="#itemEdit" onclick="document.update_structure.elements['mystructure[name]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.name.to_s)) %>'; document.update_structure.elements['mystructure[comment]'].value='<%= escape_javascript(CGI.unescapeHTML(structure.comment.to_s)) %>'; document.update_structure.elements['mystructure[id]'].value='<%= structure.id %>'; document.update_structure.elements['mystructure[fieldtype]'].selectedIndex='<%= if structure.fieldtype.nil? 
+  0 
+elsif structure.fieldtype == 7 
+  2 
+else 
+  1 
+end %>';" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.edititemtip') %>" class="mylink"><i class="icon-pencil"></i></a>&nbsp;
            <% end %>
            <a href="#dataNew" onclick="document.create_data.elements['dataval[structure_id]'].value='<%= structure.id %>'; document.create_data.elements['dataval[valdatime]'].value=Date();" role="button" data-toggle="modal" rel="tooltip" title="<%= t('project.adddatatip') %>" class="mylink"><i class="icon-plus"></i></a>&nbsp;
            <%= link_to('<i class="icon-signal"></i>'.html_safe,structure, rel: "tooltip", title: t('project.showstattip'), class: "mylink") %>
@@ -110,6 +116,10 @@ $('.mylink').tooltip({ selector: "a" });
         <div class="controls"><%= text_field :myform, :name %></div>
       </div>
       <div class="control-group">
+        <%= label :myform, :fieldtype, t('general.fieldtype'), :class => "control-label" %>
+        <div class="controls"><%= select :myform, :fieldtype, ("<option value='-1'>" + t('general.omit') + "</option><option value='2'>" + t('general.query') + "</option><option value='7'>" + t('general.dailyquery') + "</option>").html_safe, {}, { :style => 'padding: 0px;' } %></div>
+      </div>
+      <div class="control-group">
         <%= label :myform, :comment, t('general.comment'), :class => "control-label" %>
         <div class="controls"><%= text_area :myform, :comment, :rows => "2" %></div>
       </div>
@@ -133,6 +143,10 @@ $('.mylink').tooltip({ selector: "a" });
       <div class="control-group">
         <%= label :mystructure, :name, t('general.name'), :class => "control-label" %>
         <div class="controls"><%= text_field :mystructure, :name %></div>
+      </div>
+      <div class="control-group">
+        <%= label :myform, :fieldtype, t('general.fieldtype'), :class => "control-label" %>
+        <div class="controls"><%= select :mystructure, :fieldtype, ("<option value='-1'>" + t('general.omit') + "</option><option value='2'>" + t('general.query') + "</option><option value='7'>" + t('general.dailyquery') + "</option>").html_safe, {}, { :style => 'padding: 0px;' } %></div>
       </div>
       <div class="control-group">
         <%= label :mystructure, :comment, t('general.comment'), :class => "control-label" %>

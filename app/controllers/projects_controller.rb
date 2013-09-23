@@ -163,7 +163,11 @@ class ProjectsController < ApplicationController
     @group = Group.find(params['myform']['group_id'])
     @project = Project.find(@group.project_id)
     if current_project_user?(@project)
-      @newstructure = @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment'])
+      if params['myform']['fieldtype'] == -1
+        @newstructure = @group.structures.build(name: params['myform']['name'], comment: params['myform']['comment'])
+      else
+        @newstructure = @group.structures.build(name: params['myform']['name'], fieldtype: params['myform']['fieldtype'], comment: params['myform']['comment'])
+      end
       if @newstructure.save
         flash[:success] = t('project.itemCreatedMsg')
       else
@@ -194,10 +198,18 @@ class ProjectsController < ApplicationController
     if current_project_user?(@project)
       pid = params[:id]
       if params[:commit] == t('general.updatebtn')
-        if @structure.update_attributes(params[:mystructure])
-          flash[:success] = t('project.itemEditMsg')
+        if params[:mystructure][:fieldtype] == "-1" 
+          if @structure.update_attributes(name: params['mystructure']['name'], fieldtype: nil, comment: params['mystructure']['comment'])
+            flash[:success] = t('project.itemEditMsg')
+          else
+            flash[:error] = t('project.itemEditErrorMsg') + @structure.errors.full_messages.join
+          end
         else
-          flash[:error] = t('project.itemEditErrorMsg') + @structure.errors.full_messages.join
+          if @structure.update_attributes(params[:mystructure])
+            flash[:success] = t('project.itemEditMsg')
+          else
+            flash[:error] = t('project.itemEditErrorMsg') + @structure.errors.full_messages.join
+          end
         end
       else
         @structure.destroy
