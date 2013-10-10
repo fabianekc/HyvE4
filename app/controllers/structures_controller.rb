@@ -12,7 +12,7 @@ class StructuresController < ApplicationController
     a=[]
     b=[]
     Dataval.all(:conditions => ["structure_id = ?", @structure.id]).each do |r|
-      a.push(r.value.to_i)
+      a.push(r.value.to_f)
       b.push(r.valdatime)
     end
 
